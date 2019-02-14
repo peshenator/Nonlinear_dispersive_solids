@@ -26,6 +26,7 @@ oneside, % One page layout (no page indentation)
 %twoside, % Two page layout (page indentation for binding and different headers)
 headinclude,footinclude, % Extra spacing for the header and footer
 BCOR5mm, % Binding correction
+table,
 ]{scrartcl}
 
 \input{structure.tex} % Include the structure.tex file which specified the document structure and 
@@ -37,26 +38,10 @@ BCOR5mm, % Binding correction
 \usepackage{bm}
 
 
-\newcommand{\xx}{\mathbf{x}}
-\newcommand{\XX}{\mathbf{X}}
-\newcommand{\XXX}{\mathbb{X}}
-\newcommand{\diff}{\mathrm{d}}
-\newcommand{\Id}{\mathbf{I}}
-\newcommand{\Tr}{\mathrm{Tr}}
-\newcommand{\CC}{\mathbf{C}}
-\newcommand{\dX}{\mathrm{d}\XX}
-\newcommand{\dx}{\mathrm{d}\xx}
-\newcommand{\mm}{\mathbf{m}}
-\newcommand{\vv}{\mathbf{v}}
-\newcommand{\MM}{\mathbf{M}}
-\newcommand{\OBig}{\mathcal{O}}
-\newcommand{\eps}{\varepsilon}
-\newcommand{\FF}{\mathbf{F}}
-\renewcommand{\AA}{\mathbf{A}}
-\newcommand{\BB}{\mathbf{B}}
-\newcommand{\qq}{\mathbf{q}}
-\newcommand{\QQ}{\mathbf{Q}}
-\newcommand{\LL}{\mathbf{L}}
+\newcommand{\Id}{\bm{I}}
+\newcommand{\vv}{\bm{v}}
+\newcommand{\QQ}{\bm{Q}}
+\renewcommand{\SS}{\bm{S}}
 \newcommand{\Lie}{\mathfrak{L}}
 \newcommand{\calE}{\mathcal{E}}						%
 
@@ -77,6 +62,17 @@ BCOR5mm, % Binding correction
 \newcommand{\A}[2]{A^{\mathsmaller#1}_{\ #2}}
 
 \newcommand{\dist}[2]{ A_{{#1}{#2}} }	% Distortion field A
+\newcommand{\distsmall}[2]{ a_{{#1}{#2}} }	% Small distortion field A 
+\newcommand{\Dist}{ \bm{A} }	% Distortion field A in matrix notations
+\newcommand{\Burg}{ \bm{B} }	% Burgers tensor = curl(A)
+\newcommand{\Durg}{ \bm{D} }	% Complimentary to the Burgers
+\newcommand{\Distsmall}{ \bm{a} }	% Small distortion field A in matrix notations
+\newcommand{\Plastsmall}{ \bm{p} }	% Small distortion field A in matrix notations
+\newcommand{\Defgrad}{ \bm{F} }
+\newcommand{\iDist}{ \bm{E} }
+\newcommand{\symA}{\text{sym}(\bm{a})}
+\newcommand{\skewA}{\text{skew}(\bm{a})}
+\newcommand{\symP}{\text{sym}(\bm{p})}
 \newcommand{\burg}[1]{ B_{#1} }	% Burgers
 \newcommand{\itetr}[2]{e^{\phantom{#2}#1}_{#2}}
 \newcommand{\tetr}[2]{a^{#1}_{\phantom{#1}#2}}
@@ -103,6 +99,8 @@ BCOR5mm, % Binding correction
 \newcommand{\LagBE}{\mathfrak{L}}% Lagrangian which depends on the B and E fields
 \newcommand{\veps}{\varepsilon}
 \newcommand{\EM}[2]{\Sigma^{#1}_{\phantom{#1}#2}}
+\newcommand{\transpose}{{\mathrm {\mathsmaller T}}}
+\newcommand{\tr}{\text{tr}}
 
 \newcommand{\tegr}{TEGR}
 \newcommand{\HT}[1]{\accentset{\star}{T}^{#1}}
@@ -120,7 +118,7 @@ BCOR5mm, % Binding correction
 
 %\subtitle{Subtitle} % Uncomment to display a subtitle
 
-\author{\normalsize\textsc{Ilya Peshkov}$^1$,\ 
+\author{\normalsize\textsc{Ilya Peshkov}$^{*,1}$,\ 
 \normalsize\textsc{Evgeniy Romenski}$^{2,3}$,\ 
 \normalsize\textsc{Nicolas Favrie}$^{4}$\  \& \ 
 \normalsize\textsc{Bruno Lombdard}$^{5}$
@@ -225,27 +223,187 @@ to describe the phononic band gap.
 
 Briefly discuss the model in the context of Riemann-Cartan geometry.
 
+the following energy conservation law can be obtained
+\begin{equation}\label{energy.law}
+\frac{\pd \calE}{\pd t} + \frac{\pd }{\pd x_k} \left( v_k \calE + v_i T_{ki} + \veps_{ijk}
+\calE_{D_{ai}}\calE_{B_{aj}}\right) = 0,
+\end{equation}
+where $ T_{ki} = P \delta_{ki} + \dist{a}{i} \calE_{\dist{a}{k}} - B_{ai} \calE_{B_{ak}} - D_{ai}
+\calE_{D_{ak}}  $ is the total stress tensor, and the last term in the energy flux, $ \veps_{ijk} 
+\calE_{D_{ai}}\calE_{B_{aj}} $, is the contribution due 
+to torsion.
+
 
 
 \section{Governing PDEs in the case of acoustic waves}
 
-$ \bm{A} = \mathbb{I} + \bm{\veps} $, 
+For the plane-wave analysis it is sufficient to consider the nonlinear model~\eqref{PDE} in the 
+small deformation limit, i.e. we assume that the distortion field can be decomposed as $ \Dist = 
+\bm{I} + \Distsmall $, with $ \bm{I} $ being the identity matrix and $ \Distsmall $ being the 
+non-symmetric small strain tensor $ \Distsmall \neq \Distsmall^\transpose $. Furthermore, we 
+decompose small strain tensor $ \Distsmall $ onto symmetric and anti-symmetric parts
+\begin{equation}
+	\Distsmall = \symA + \skewA, \qquad 
+	\symA = \frac{1}{2}(\Distsmall + \Distsmall^\transpose), \qquad
+	\skewA = \frac{1}{2} (\Distsmall - \Distsmall^\transpose).
+\end{equation}
+We will also need the deviator (trace-less part) $ \symA' $ of $ \symA $ which is defined as
+\begin{equation}
+\symA' = \symA - \frac{1}{3}\tr(\symA)\bm{I}
+\end{equation}
+
+Also, let the inverse deformation gradient of the bulk material is decomposed as $ \Defgrad^{-1} = 
+\Id + \bm{\phi}$. We then introduce the difference of the small strain tensors, of the bulk 
+material and 
+of the microstructure,  $ \Plastsmall = \bm{\phi} - \Distsmall $.
+
+The total energy density is defined as
+\begin{align}
+\calE(\Distsmall,\Durg,\Burg,\Plastsmall,\vv) = &\frac{\lambda_e}{2}(\tr(\Distsmall))^2 + \mu_e 
+||\symA'||^2 + 
+\mu_c 
+||\skewA||^2 + \nonumber\\
+&\frac{1}{2}\left (\frac{1}{\epsilon} ||\Durg||^2+ \frac{1}{\nu}||\Burg||^2\right) + 
+\nonumber\\
+&\frac{\lambda_m}{2}(\tr(\Plastsmall))^2 + \mu_m 
+||\symP'||^2 + \frac{1}{2}\rho ||\vv||^2
+\end{align}
 
 \begin{subequations}\label{PDE.lin}
     \begin{align}
-        &\frac{\pd \rho}{\pd t} + \rho_0\frac{\pd v_k}{\pd x_k} = 0,\label{PDE.lin.rho}\\[1mm]
-        %
         &\frac{\pd v_i}{\pd t} - \rho_0^{-1}\frac{ \pd \Sigma_{ik}}{\pd x_k}   = 
         0,\label{PDE.lin.M}\\[2mm]
         %
-        &\frac{\pd \dist{i}{k}}{\pd t} + \frac{\pd v_i}{\pd x_k} =         
-        -\frac{1}{\alpha}\calE_{D_{ak}},\label{PDE.lin.A}\\[2mm]
-        &\frac{\pd D_{ai}}{\pd t} - \veps_{i k j} \frac{\pd \calE_{B_{a j}}} {\pd x_k} 
-        =
-        \frac{1}{\alpha}\calE_{\dist{a}{i}},\label{PDE.lin.D}\\[2mm]
+        &\frac{\pd \distsmall{i}{k}}{\pd t} + \frac{\pd v_i}{\pd x_k} =         
+        -\frac{1}{\alpha}\calE_{D_{ik}},\label{PDE.lin.A}\\[2mm]
+        &\frac{\pd D_{li}}{\pd t} - \veps_{i k j} \frac{\pd \calE_{B_{l j}}} {\pd x_k} 
+        = \frac{1}{\alpha}\calE_{\distsmall{l}{i}} + 
+        \frac{1}{\beta}\calE_{p_{l i}},\label{PDE.lin.D}\\[2mm]
         %
-        &\frac{\pd \burg{ai}}{\pd t} +  \veps_{ikj} \frac{\pd\calE_{D_{aj}}}{\pd x_k}  = 
-        0,\label{PDE.lin.B}
+        &\frac{\pd \burg{l i}}{\pd t} +  \veps_{ikj} \frac{\pd\calE_{D_{l j}}}{\pd x_k}  = 
+        0,\label{PDE.lin.B}\\[2mm]
+        &\frac{\pd p_{ik}}{\pd t} = -\frac{1}{\beta}\calE_{D_{ik}},\label{PDE.lin.p}
     \end{align}
 \end{subequations}
+where the stress tensor is given by
+\begin{equation}
+\bm{\Sigma} = -\lambda_e\tr(\Distsmall) - 2 \mu_e \symA' - \mu_c \skewA.
+\end{equation}
+
+\section{Dispersion relation, plane-wave analysis}
+
+In one spatial dimension, system \eqref{PDE.lin} can be written in matrix form 
+\begin{equation}
+\frac{\pd \QQ}{\pd t} + \mathbb{M} \frac{\pd\QQ}{\pd x} = \SS(\QQ),
+\end{equation}
+where $ \QQ = (\Distsmall,\Durg,\Burg,\Plastsmall,\vv)$
+Its dispersion relation is given by
+\begin{equation}
+\det(\mathbb{I} - z \mathbb{M}+\frac{i}{\omega}\mathbb{N}) = 0,
+\end{equation}
+where $ z = k/\omega $, $ k $ is the wave number, $ \omega $ is the angular frequency,  $ i $ is 
+the imaginary unit, $ \mathbb{N} = \pd\SS/\pd\QQ$ is the Jacobian of the source terms taken at the 
+equilibrium state $ \QQ_0 $ (all state variables vanish), and $ 
+\mathbb{I} $ is the identity matrix of the same size as $ \mathbb{M} $ and $ \mathbb{N} $.
+
+The eigenvalues of $ \mathbb{M} $ are all real and their non-zero absolute values are
+\begin{equation}
+c_l = \sqrt{\frac{\lambda_e + \frac{4}{3}\mu_e}{\rho}}, \qquad 
+%
+c_s = \sqrt{\frac{\mu_e + \frac{1}{2}\mu_c}{\rho}}, \qquad 
+%
+c_t = \frac{1}{\sqrt{\epsilon\nu}}
+\end{equation}
+\IP{Characteristic speeds agree with Madeo et al \cite{Madeo2015a} up to some constants.}
+
+The eigenvalues of $ \mathbb{N} $ are all complex with zero real part. We denote the absolute 
+values of their imaginary 
+parts as
+\begin{equation}
+\omega_l = \frac{\sqrt{3\epsilon(\beta^2 \lambda_e + \alpha^2 
+\lambda_m)}}{\alpha\beta\epsilon},\quad
+%
+\omega_s = \frac{\sqrt{\epsilon (2 \alpha^2 \mu_e + \beta^2 \mu_c)}}{\alpha \beta \epsilon},\quad
+%
+\omega_m = \frac{\sqrt{2\epsilon (\beta^2 \mu_e + \alpha^2 \mu_m)}}{\alpha \beta \epsilon}
+\end{equation}
+\IP{In \cite{Madeo2015a}, they have 5 frequencies, while we have only 3. This should be 
+clarified...}
+
+
+\section{Numerical results}
+
+
+We introduce a characteristic length scale $ \ell $ and associate the relaxation parameter $ \alpha 
+$ to inverse $ \ell^{-1} = \alpha $.
+
+The dispersion relation has six roots $ k_i(\omega) $, $ i=1,2,\ldots,6 $.
+\IP{They have analytical expression but lengthy. I will try to simplify them....}
+
+\IP{It is also not clear to me yet but blue curves on the second and third plots of 
+Fig.\,\ref{fig.band_gap} correspond to roots $ k_3(\omega) $ and $ k_5(\omega) $ Perhaps due to 
+some complex numbers..... to be clarified}
+
+Curves on Fig.\,\ref{fig.band_gap} are qualitatively very similar to those from Fig.\,2 in 
+\cite{Madeo2015a}.
+
+Also, if $ \mu_c = 0 $, then there is no complete band gap, see Fig.\,\ref{fig.no_band_gap}.
+
+
+\begin{table}[]
+	\begin{tabular}{lll}
+		Parameters\hspace{1cm} & Value\hspace{2cm} & Unit \\ \hline
+\rowcolor[HTML]{ECF4FF} 
+		$ \rho $ & 2000 & kg/m$ ^3 $ \\
+\rowcolor[HTML]{CBCEFB} 
+		$ \ell  $ & $ 3\cdot10^{-3} $ & m \\
+\rowcolor[HTML]{ECF4FF} 
+		$ \alpha  $ & $ =\ell^{-1} $ & m$ ^{-1} $ \\
+\rowcolor[HTML]{CBCEFB} 
+		$ \beta $ & $ =\alpha $ & m$ ^{-1} $	\\
+\rowcolor[HTML]{ECF4FF} 
+		$ \mu_e $ & $ 200 $ & MPa	\\
+\rowcolor[HTML]{CBCEFB} 
+		$ \lambda_e $ & $ =3 \mu_e $ & MPa	\\
+\rowcolor[HTML]{ECF4FF} 
+		$ \mu_c $ & $ =2.2 \mu_e $ & MPa	\\
+\rowcolor[HTML]{CBCEFB} 
+		$ \mu_m $ & $ -0.5\mu_e $ & MPa	\\
+\rowcolor[HTML]{ECF4FF} 
+		$ \lambda_m $ & $ =\mu_m $ & MPa	\\
+\rowcolor[HTML]{CBCEFB} 
+		$ c_t $		& 1	& $ 10^{3} $m/s		\\
+\rowcolor[HTML]{ECF4FF} 
+		$ \alpha_c $ 	& $ 1.8\cdot10^{-3} $	&	MPa$ \cdot $m$ ^2 $	\\
+\rowcolor[HTML]{CBCEFB} 
+		$ \nu $	& $ =(\alpha_c \ell^2)^{-1} $	& kg$ ^{-1} $m$ ^{-3} $ s$ ^2 $\\
+\rowcolor[HTML]{ECF4FF} 
+		$ \epsilon $	& $ =(\nu c_t)^{-1} $	&	kg$ \cdot $ m \\ \hline
+	\end{tabular}
+	\caption{Values of the parameters used in the numerical simulation.}
+	\label{tab.parameters}
+\end{table}
+
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[draft=false,width=1.25\textwidth]{band_gap_table1}
+	\end{center}
+	\vspace{-4mm}
+	\caption{Complete band gap (gray rectangles) for $ \mu_c >0 $.}
+	\label{fig.band_gap}
+\end{figure}
+
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[draft=false,width=1.25\textwidth]{no_band_gap_table1}
+	\end{center}
+	\vspace{-4mm}
+	\caption{No band gap for $ \mu_c = 0$.}
+	\label{fig.no_band_gap}
+\end{figure}
+
+\printbibliography
+
 \end{document}
