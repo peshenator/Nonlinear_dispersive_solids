@@ -32,7 +32,7 @@ table,
 \input{structure.tex} % Include the structure.tex file which specified the document structure and 
 %layout
 
-\usepackage[hmarginratio=1:1,top=25mm,left=40mm,columnsep=25pt]{geometry}
+\usepackage[hmarginratio=1:1,top=25mm,left=20mm,columnsep=25pt]{geometry}
 \usepackage{hyperref}
 \usepackage{relsize} % e.g. used for \mathsmaller
 \usepackage{bm}
@@ -46,6 +46,9 @@ table,
 \newcommand{\calE}{\mathcal{E}}						%
 
 \newcommand{\IP}[1]{{\color{Red}IP:\ \ #1}}
+\newcommand{\ER}[1]{{\color{Green}ER:\ \ #1}}
+\newcommand{\BL}[1]{{\color{Cerulean}BL:\ \ #1}}
+\newcommand{\NF}[1]{{\color{Plum}NF:\ \ #1}}
 
 
 \newcommand{\sA}{\mathsmaller A}
@@ -67,12 +70,12 @@ table,
 \newcommand{\Burg}{ \bm{B} }	% Burgers tensor = curl(A)
 \newcommand{\Durg}{ \bm{D} }	% Complimentary to the Burgers
 \newcommand{\Distsmall}{ \bm{a} }	% Small distortion field A in matrix notations
-\newcommand{\Plastsmall}{ \bm{p} }	% Small distortion field A in matrix notations
+\newcommand{\Plastsmall}{ \bm{\pi} }	% Small distortion field A in matrix notations
 \newcommand{\Defgrad}{ \bm{F} }
 \newcommand{\iDist}{ \bm{E} }
 \newcommand{\symA}{\text{sym}(\bm{a})}
 \newcommand{\skewA}{\text{skew}(\bm{a})}
-\newcommand{\symP}{\text{sym}(\bm{p})}
+\newcommand{\symP}{\text{sym}(\bm{\Plastsmall})}
 \newcommand{\burg}[1]{ B_{#1} }	% Burgers
 \newcommand{\itetr}[2]{e^{\phantom{#2}#1}_{#2}}
 \newcommand{\tetr}[2]{a^{#1}_{\phantom{#1}#2}}
@@ -257,6 +260,8 @@ Also, let the inverse deformation gradient of the bulk material is decomposed as
 material and 
 of the microstructure,  $ \Plastsmall = \bm{\phi} - \Distsmall $.
 
+\IP{The tensor $ \Plastsmall $ can be viewed as $ \bm{P}^{-1} $ in the papers by Madeo, Neff et al.}
+
 The total energy density is defined as
 \begin{align}
 \calE(\Distsmall,\Durg,\Burg,\Plastsmall,\vv) = &\frac{\lambda_e}{2}(\tr(\Distsmall))^2 + \mu_e 
@@ -341,7 +346,8 @@ The dispersion relation has six roots $ k_i(\omega) $, $ i=1,2,\ldots,6 $.
 \IP{They have analytical expression but lengthy. I will try to simplify them....}
 
 \IP{It is also not clear to me yet but blue curves on the second and third plots of 
-Fig.\,\ref{fig.band_gap} correspond to roots $ k_3(\omega) $ and $ k_5(\omega) $ Perhaps due to 
+Fig.\,\ref{fig.band_gap} correspond to only one root $ k_i(\omega) $. Namely, to $ k_3(\omega) $ on 
+the second plot and to $ k_5(\omega) $ on the last plot. Perhaps this is due to 
 some complex numbers..... to be clarified}
 
 Curves on Fig.\,\ref{fig.band_gap} are qualitatively very similar to those from Fig.\,2 in 
@@ -349,9 +355,10 @@ Curves on Fig.\,\ref{fig.band_gap} are qualitatively very similar to those from 
 
 Also, if $ \mu_c = 0 $, then there is no complete band gap, see Fig.\,\ref{fig.no_band_gap}.
 
-
 \begin{table}[]
+\begin{center}
 	\begin{tabular}{lll}
+\hline
 		Parameters\hspace{1cm} & Value\hspace{2cm} & Unit \\ \hline
 \rowcolor[HTML]{ECF4FF} 
 		$ \rho $ & 2000 & kg/m$ ^3 $ \\
@@ -382,22 +389,58 @@ Also, if $ \mu_c = 0 $, then there is no complete band gap, see Fig.\,\ref{fig.n
 	\end{tabular}
 	\caption{Values of the parameters used in the numerical simulation.}
 	\label{tab.parameters}
+\end{center}
 \end{table}
 
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[draft=false,width=1.25\textwidth]{band_gap_table1}
+		\includegraphics[draft=false,width=1\textwidth]{band_gap_table1}
 	\end{center}
 	\vspace{-4mm}
 	\caption{Complete band gap (gray rectangles) for $ \mu_c >0 $.}
 	\label{fig.band_gap}
 \end{figure}
 
+\begin{figure}
+	\begin{center}
+		\includegraphics[draft=false,width=1\textwidth]{Phase_Vel_Full_model}
+	\end{center}
+	\vspace{-4mm}
+	\caption{Complete band gap (gray rectangles) for $ \mu_c >0 $. Plots of phase velocities $ 
+	V_{\text{ph}} = 
+	\omega/k $}
+	\label{fig.band_gap.phase_vel}
+\end{figure}
+
+
+\IP{The plots of the phase velocities look weird. I always thought that a hyperbolic system should 
+have finite speeds for any frequencies like we have in the hyperbolic Navier-Stokes. BUT in 
+Fig.\,\ref{fig.band_gap.phase_vel}, near 
+the band gap, we have that $ V_{\text{ph}} \rightarrow \infty $. Is it nonphysical? Or maybe it is 
+due to some resonance??? Madeo et al do not plot phase velocities, at least I didn't see that.
+}
+
+\IP{However, the group velocities $ V_{\text{g}} =d\omega/d k$ are all finite, see 
+Fig.\,\ref{fig.band_gap.group_vel}.}
+
+
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[draft=false,width=1.25\textwidth]{no_band_gap_table1}
+		\includegraphics[draft=false,width=1\textwidth]{Group_Vel_Full_model}
+	\end{center}
+	\vspace{-4mm}
+	\caption{Complete band gap (gray rectangles) for $ \mu_c >0 $. Plots of group velocities $ 
+	V_{\text{g}} = d \omega/d k $. They are bounded by the velocity $ c_t = 1/\sqrt{\epsilon\nu} $ 
+	associated with the torsion.}
+	\label{fig.band_gap.group_vel}
+\end{figure}
+
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[draft=false,width=1\textwidth]{no_band_gap_table1}
 	\end{center}
 	\vspace{-4mm}
 	\caption{No band gap for $ \mu_c = 0$.}
