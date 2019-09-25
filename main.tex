@@ -25,107 +25,60 @@ a4paper, % Paper type, use 'letterpaper' for US Letter paper
 oneside, % One page layout (no page indentation)
 %twoside, % Two page layout (page indentation for binding and different headers)
 headinclude,footinclude, % Extra spacing for the header and footer
-BCOR5mm, % Binding correction
-table,
+%BCOR5mm, % Binding correction
+table
 ]{scrartcl}
 
 \input{structure.tex} % Include the structure.tex file which specified the document structure and 
 %layout
 
-\usepackage[hmarginratio=1:1,top=25mm,left=20mm,columnsep=25pt]{geometry}
-\usepackage{hyperref}
-\usepackage{relsize} % e.g. used for \mathsmaller
-\usepackage{bm}
-
-
-\newcommand{\Id}{\bm{I}}
-\newcommand{\vv}{\bm{v}}
-\newcommand{\QQ}{\bm{Q}}
-\renewcommand{\SS}{\bm{S}}
-\newcommand{\Lie}{\mathfrak{L}}
-\newcommand{\calE}{\mathcal{E}}						%
-
-\newcommand{\IP}[1]{{\color{Red}IP:\ \ #1}}
-\newcommand{\ER}[1]{{\color{Green}ER:\ \ #1}}
-\newcommand{\BL}[1]{{\color{Cerulean}BL:\ \ #1}}
-\newcommand{\NF}[1]{{\color{Plum}NF:\ \ #1}}
-
-
-\newcommand{\sA}{\mathsmaller A}
-\newcommand{\sB}{\mathsmaller B}
-\newcommand{\sC}{\mathsmaller C}
-\newcommand{\sD}{\mathsmaller D}
-\newcommand{\sM}{\mathsmaller M}
-\newcommand{\sN}{\mathsmaller N}
-\newcommand{\sL}{\mathsmaller L}
-
-\newcommand{\pd}{\partial}
-\newcommand{\F}[2]{F^{\ #1}_{\mathsmaller#2}}
-\newcommand{\hatF}[2]{\hat{F}^{\ #1}_{\mathsmaller#2}}
-\newcommand{\A}[2]{A^{\mathsmaller#1}_{\ #2}}
-
-\newcommand{\dist}[2]{ A_{{#1}{#2}} }	% Distortion field A
-\newcommand{\distsmall}[2]{ a_{{#1}{#2}} }	% Small distortion field A 
-\newcommand{\Dist}{ \bm{A} }	% Distortion field A in matrix notations
-\newcommand{\Burg}{ \bm{B} }	% Burgers tensor = curl(A)
-\newcommand{\Durg}{ \bm{D} }	% Complimentary to the Burgers
-\newcommand{\Distsmall}{ \bm{a} }	% Small distortion field A in matrix notations
-\newcommand{\Plastsmall}{ \bm{\pi} }	% Small distortion field A in matrix notations
-\newcommand{\Defgrad}{ \bm{F} }
-\newcommand{\iDist}{ \bm{E} }
-\newcommand{\symA}{\text{sym}(\bm{a})}
-\newcommand{\skewA}{\text{skew}(\bm{a})}
-\newcommand{\symP}{\text{sym}(\bm{\Plastsmall})}
-\newcommand{\burg}[1]{ B_{#1} }	% Burgers
-\newcommand{\itetr}[2]{e^{\phantom{#2}#1}_{#2}}
-\newcommand{\tetr}[2]{a^{#1}_{\phantom{#1}#2}}
-\newcommand{\rtetr}[2]{a^{#1}_{(\text{r}) #2}}
-\newcommand{\spin}[2]{\omega^{#1}_{\phantom{#1}#2}}
-\newcommand{\Lor}[2]{\Lambda^{#1'}_{\phantom{#1}#2}}
-\newcommand{\iLor}[2]{\Lambda^{\phantom{#2}#1}_{#2'}}
-\newcommand{\D}[1]{\mathcal{D}_{#1}} % Fock-Ivanencko cov derivative
-\newcommand{\Tors}[2]{T^{#1}_{\phantom{a}#2}}
-\newcommand{\Supp}[2]{S_{#1}^{\phantom{a}#2}}	%supepotential
-\newcommand{\Torsl}[1]{T_{#1}}
-\newcommand{\ET}[2]{E^{#1}_{\phantom{#1}#2}}	%Torsion decomposition, analog of Electric field
-\newcommand{\eT}[2]{D_{#1}^{\phantom{#1}#2}}	%Torsion decomposition, analog of Electric field
-\newcommand{\BT}[2]{B^{#1#2}}	%Torsion decomposition, analog of Magnetic field
-\newcommand{\hT}[2]{H^{#1#2}}	%Torsion decomposition, analog of Magnetic field
-\newcommand{\W}[2]{\mathcal{W}^{#1}_{\phantom{#1}#2}}
-\newcommand{\w}[2]{W^{#1}_{\phantom{#1}#2}}
-\newcommand{\FI}{Fock-Ivanenko}
-\newcommand{\We}{Weitzenb\"ock}
-\newcommand{\Lag}{\mathcal{L}}	% Lagrangian which depends on ordinary derivatives
-\newcommand{\Lagcov}{\pounds}% Lagrangian which depends on gauge covariant derivatives
-\newcommand{\Laghodge}{L}% Lagrangian which depends on the Hodge dual of the torsion
-\newcommand{\Lagtors}{\mathbb{L}}% Lagrangian which depends on torsion
-\newcommand{\LagBE}{\mathfrak{L}}% Lagrangian which depends on the B and E fields
-\newcommand{\veps}{\varepsilon}
-\newcommand{\EM}[2]{\Sigma^{#1}_{\phantom{#1}#2}}
-\newcommand{\transpose}{{\mathrm {\mathsmaller T}}}
-\newcommand{\tr}{\text{tr}}
-
-\newcommand{\tegr}{TEGR}
-\newcommand{\HT}[1]{\accentset{\star}{T}^{#1}}
-
-\hyphenation{Fortran hy-phen-ation} % Specify custom hyphenation points in words with dashes where 
-%you would like hyphenation to occur, or alternatively, don't put any dashes in a word to stop 
-%hyphenation altogether
+\PassOptionsToPackage{hyperfootnotes=true}{hyperref}
+%[
+%%draft, % Uncomment to remove all links (useful for printing in black and 
+%%%white)
+%colorlinks=true, 
+%breaklinks=true, 
+%bookmarks=true,
+%bookmarksnumbered,
+%urlcolor=webbrown, 
+%linkcolor=RoyalBlue, 
+%citecolor=webgreen, % Link colors
+%pdftitle={}, % PDF title
+%pdfauthor={\textcopyright}, % PDF Author
+%pdfsubject={}, % PDF Subject
+%pdfkeywords={}, % PDF Keywords
+%pdfcreator={pdfLaTeX}, % PDF Creator
+%pdfproducer={LaTeX with hyperref and ClassicThesis}, % PDF producer
+%hyperfootnotes=true
+%]
 
 %----------------------------------------------------------------------------------------
 %	TITLE AND AUTHOR(S)
 %----------------------------------------------------------------------------------------
 
-\title{\large\normalfont\spacedallcaps{Modeling phononic band gap in dispersive solids in the framework of Riemann-Cartan geometry}} % The article 
+\title{\large\normalfont\spacedallcaps{Modeling phononic band gap in the 
+Riemann-Cartan geometry framework}} % The article 
 %title
 
 %\subtitle{Subtitle} % Uncomment to display a subtitle
 
-\author{\normalsize\textsc{Ilya Peshkov}$^{*,1}$,\ 
-\normalsize\textsc{Evgeniy Romenski}$^{2,3}$,\ 
-\normalsize\textsc{Nicolas Favrie}$^{4}$\  \& \ 
-\normalsize\textsc{Bruno Lombdard}$^{5}$
-} % The article author(s) - author afiliations 
+\author{
+%	author1:
+\normalsize\textsc{Ilya Peshkov}\thanks{Paul Sabatier 
+University, IMT, Toulouse, France},\ \ 
+%	author2:
+\normalsize\textsc{Lo\"ic Le Marrec}\thanks{Université de 
+	Rennes I, IRMAR, Rennes, France},\ \ 
+%	author3:
+\normalsize\textsc{Van Hoi Nguyen(?)}\samethanks[2],\ \
+%	author4:
+\normalsize\textsc{Evgeniy Romenski(?)}\thanks{Sobolev 
+	Institute of Mathematics, Novosibirsk, Russia}$\ \, ^, $\thanks{Novosibirsk 
+	State University, Novosibirsk, Russia}
+%\ldots 
+}
+\thanksmarkseries{arabic}
+% The article author(s) - author afiliations 
 %need to be 
 %specified in the 
 %AUTHOR AFFILIATIONS block
@@ -171,19 +124,29 @@ table,
 
 \section*{Abstract} % This section will not appear in the table of contents due to the star 
 % (\section*)
-We discuss a model for modeling of nonlinear waves in dispersive solids. In this paper however we 
-study the model in the linear regime only. In particular, it is demonstrated that the model is able 
-to describe the phononic band gap. 
+Modeling of acoustic waves in dispersive solids is discussed in the context of 
+the Riemann-Cartan geometry. We propose a continuum model which is formulated 
+in terms of the main objects of the Riemann-Cartan geometry such as the 
+non-holonomic triad (distortion field) and torsion field. It is 
+demonstrated that the model is able to describe the phononic band gap in 
+dispersive solids. 
 
 %----------------------------------------------------------------------------------------
 %	AUTHOR AFFILIATIONS
 %----------------------------------------------------------------------------------------
-\let\thefootnote\relax\footnotetext{* \textit{peshenator@gmail.com}}
-\let\thefootnote\relax\footnotetext{\textsuperscript{1} \textit{Institut de mathématiques de Toulouse, Toulouse, France}}
-\let\thefootnote\relax\footnotetext{\textsuperscript{2} \textit{Sobolev Institute of Mathematics, Novosibirsk, Russia}}
-\let\thefootnote\relax\footnotetext{\textsuperscript{3} \textit{Novosibirsk State University, Novosibirsk, Russia}}
-\let\thefootnote\relax\footnotetext{\textsuperscript{4} \textit{Aix-Marseille Université, IUSTI,  Marseille, France}}
-\let\thefootnote\relax\footnotetext{\textsuperscript{4} \textit{CNRS, LMA, Marseille, France}}
+%\let\thefootnote\relax\footnotetext{* \textit{peshenator@gmail.com}}
+%\let\thefootnote\relax\footnotetext{\textsuperscript{1} \textit{Paul Sabatier 
+%University, IMT, Toulouse, France}}
+%\let\thefootnote\relax\footnotetext{\textsuperscript{2} \textit{Université de 
+%Rennes I, IRMAR, Rennes, France}}
+%\let\thefootnote\relax\footnotetext{\textsuperscript{3} \textit{Sobolev 
+%Institute of Mathematics, Novosibirsk, Russia}}
+%\let\thefootnote\relax\footnotetext{\textsuperscript{4} \textit{Novosibirsk 
+%State University, Novosibirsk, Russia}}
+%\let\thefootnote\relax\footnotetext{\textsuperscript{4} \textit{Aix-Marseille 
+%Université, IUSTI,  Marseille, France}}
+%\let\thefootnote\relax\footnotetext{\textsuperscript{4} \textit{CNRS, LMA, 
+%Marseille, France}}
 %----------------------------------------------------------------------------------------
 
 %\newpage % Start the article content on the second page, remove this if you have a longer abstract 
@@ -201,252 +164,198 @@ to describe the phononic band gap.
 \section{Introduction}
 
 \section{Governing Equations}
+
+In the absence of irreversible effects due to plasticity or viscosity, the 
+governing equations derived in \cite{PRD-Torsion2019} read 
 \begin{subequations}\label{PDE}
-    \begin{align}
-        &\frac{\pd \rho}{\pd t} + \frac{\pd(\rho v_k)}{\pd x_k} = 0,\label{PDE.rho}\\[1mm]
-        %
-        &\frac{\pd M_i}{\pd t} + \frac{ \pd }{\pd x_k}  \left( M_i v_k + P \delta_{ki} + \dist{a}{i}
-        \calE_{\dist{a}{k}} - B_{ai} \calE_{B_{ak}} - D_{ai} \calE_{D_{ak}}
-        \right ) = 0,\label{PDE.M}\\[2mm]
-        %
-        &\frac{\pd \dist{a}{k}}{\pd t} +\frac{\pd (  {\dist{a}{i} v_i}  )}{\pd x_k} + 
-        v_j \left(\frac{\pd \dist{a}{k}}{\pd x_j} - \frac{\pd\dist{a}{j}}{\pd x_k}\right) =         
-        -\frac{1}{\alpha}\calE_{D_{ak}},\label{PDE.A}\\[2mm]
-        &\frac{\pd D_{ai}}{\pd t} + \frac{\pd} {\pd x_k} \left( D_{ai} v_k  -  v_i D_{a k} - \veps_{i k
-        j}  \calE_{B_{a j}} \right) + v_i \frac{\pd D_{a k}}{\pd x_k}  =
-        \frac{1}{\alpha}\calE_{\dist{a}{i}},\label{PDE.D}\\[2mm]
-        %
-        &\frac{\pd \burg{ai}}{\pd t} + \frac{\pd}{\pd x_k} \left(
-        \burg{ai} v_k - v_i \burg{ak} + \varepsilon _{ikj} \calE_{D_{aj}}
-        \right) + v_i \frac{\pd \burg{ak}}{\pd x_k} = 0,\label{PDE.B}\\[2mm]
-        %
-        &\frac{\pd s}{\pd t} + \frac{\pd (s v_k)}{\pd x_k} = 0.\label{PDE.s}
-    \end{align}
+	\begin{align}
+	&\frac{\pd \rho}{\pd t} + \frac{\pd(\rho \vel{k})}{\pd x^k} = 
+	0, \label{PDE.extend.rho}
+	\\[2mm]
+%
+	&\frac{\pd M_i}{\pd t} + \frac{ \pd }{\pd x^k}  \left( M_i \vel{k} + P 
+	\kronecker{k}{i} + 
+	\dist{a}{i}
+	\calE_{\dist{a}{k}} - \burg{a}{k} \calE_{\burg{a}{ i}} - \durg{a}{k} 
+	\calE_{\durg{a}{ i}}
+	\right ) = 0,\label{PDE.extend.M}
+	\\[2mm]
+%
+	&\frac{\pd \dist{a}{k}}{\pd t} +\frac{\pd (  {\dist{a}{i} \vel{i}}  )}{\pd 
+	x^k} + 
+	\vel{j} \left(\frac{\pd \dist{a}{k}}{\pd x^j} - \frac{\pd\dist{a}{j}}{\pd 
+	x^k}\right) = 
+	-\frac{1}{\alpha} \calE_{\durg{a}{k}},\label{PDE.extend.A}
+	\\[2mm]
+%	
+	&\frac{\pd \burg{a}{i}}{\pd t} + \frac{\pd}{\pd x^k} \left(
+	\burg{a}{i} \vel{k} - \vel{i} \burg{a}{k} + \LeviCivitaUp{ikj} 
+	\calE_{\durg{a}{j}}
+	\right) + \vel{i} \frac{\pd \burg{a}{k}}{\pd x^k} = 0,\label{PDE.extend.B}
+	\\[2mm]
+%	
+	&\frac{\pd \durg{a}{i}}{\pd t} + \frac{\pd} {\pd x^k} \left( \durg{a}{i} 
+	\vel{k}  -  \vel{i} 
+	\durg{a}{k} - \LeviCivitaUp{i k j}  \calE_{\burg{a}{j}} \right) + \vel{i} 
+	\frac{\pd 
+		\durg{a}{k}}{\pd x^k}  = \frac{1}{\alpha}\calE_{\dist{a}{i}}, 
+		\label{PDE.extend.D}
+	\\[2mm]
+%	
+	&\frac{\pd s}{\pd t} + \frac{\pd (s \vel{k})}{\pd x^k} = 0. 
+	\label{PDE.extend.s}
+	\end{align}
 \end{subequations}
 
-Briefly discuss the model in the context of Riemann-Cartan geometry.
-
-the following energy conservation law can be obtained
+The following energy conservation law can be obtained as the consequence of the 
+PDEs \eqref{PDE}
 \begin{equation}\label{energy.law}
-\frac{\pd \calE}{\pd t} + \frac{\pd }{\pd x_k} \left( v_k \calE + v_i T_{ki} + \veps_{ijk}
-\calE_{D_{ai}}\calE_{B_{aj}}\right) = 0,
+\frac{\pd \calE}{\pd t} + \frac{\pd }{\pd x_k} \left( \vel{k} \calE + \vel{i} 
+\Stress{k}{i} + \LeviCivitaUp{ijk} 
+\calE_{\durg{a}{i}}\calE_{\burg{a}{j}}\right) = 0,
 \end{equation}
-where $ T_{ki} = P \delta_{ki} + \dist{a}{i} \calE_{\dist{a}{k}} - B_{ai} \calE_{B_{ak}} - D_{ai}
-\calE_{D_{ak}}  $ is the total stress tensor, and the last term in the energy flux, $ \veps_{ijk} 
-\calE_{D_{ai}}\calE_{B_{aj}} $, is the contribution due 
+where $ \dist{a}{k} $ is 
+the field of bases triads, non-holonomic in general, (also called the 
+distortion field in 
+\cite{PRD-Torsion2019,DPRZ2016}). The fields $ \burg{a}{i} $ and $ \durg{a}{i} 
+$ can be viewed as two parts of the four-torsion $ \Tors{a}{\mu\nu} 
+= \pd_\mu \dist{a}{\nu} - \pd_\nu \dist{a}{\mu} $, $ \mu,\nu=0,1,2,3 $, see 
+details in 
+\cite{PRD-Torsion2019}, so that $ \burg{a}{i} = \alpha
+\LeviCivitaUp{ijk}\pd_j\dist{a}{k}$ contains only spatial derivatives of $ 
+\dist{a}{k} $ with $ \alpha \sim L^{-1}$ being the scaling constant and $ L $ 
+is a length unit, while $ \durg{a}{i} $ contains both time and space 
+derivatives\footnote{Its 
+explicit 
+expression in terms of $ 
+\pd_t 
+\dist{a}{k} $ and $ \pd_i \dist{a}{k} $ is rather impossible because it 
+involves Legendre 
+transformations which are non-linear.}. The physical role of $ \burg{a}{i} $ is 
+to represent the small scale structural incompatibility in the distortion 
+field, while $ \durg{a}{i} $ represents the micro inertial effect of the 
+microstructure.
+
+Also, $ \rho $ is the mass density which is constrained by $ \rho = \rho_0 
+\det(\dist{a}{k}) $ with $ \rho_0 $ being the reference mas density, $ \vel{i} 
+$ is the velocity 
+of the medium, $ 
+M_i $ is the total momentum 
+of the medium which includes not only the 
+matter momentum but also it includes a contribution due to 
+torsion. Its specification depends on the energy potential $ \calE $ and is
+constraint by the relation $ \calE_{M_i} = \vel{i} $. Also, 
+\begin{equation}\label{stress}
+\Stress{k}{i} := -
+P \kronecker{k}{i} - \dist{a}{i} \calE_{\dist{a}{k}} + 
+\burg{a}{k} 
+\calE_{\burg{a}{i}} + \durg{a}{k}\calE_{\durg{a}{i}}  
+\end{equation}is the total stress 
+tensor, $ P := \rho \calE_\rho + s\calE_s + M_i \calE_{M_i} + 
+\burg{a}{i}\calE_{\burg{a}{i}} + 
+\durg{a}{i}
+\calE_{\durg{a}{i}} - \calE $ is the thermodynamic pressure, and the last term 
+in the energy flux, $ \LeviCivitaUp{ijk} 
+\calE_{\durg{a}{i}}\calE_{\burg{a}{j}} $, is the contribution due 
 to torsion.
 
+Because equation \eqref{PDE.extend.M} represents the conservation law for the 
+total (matter + torsion) momentum, in order to satisfy the conservation law 
+of the angular momentum, the total momentum flux $ M_i \vel{k} - \Stress{k}{i} 
+$ has to be symmetric, see details in \cite{PRD-Torsion2019}. This, however, 
+cannot be guarantied for arbitrary energy potential $ \calE $ and imposes 
+certain constraints on the choice of $ \calE $. Thus, an example for $ \calE $ 
+which provides the symmetric momentum flux was proposed in 
+\cite{PRD-Torsion2019}
+\begin{subequations}\label{EOS}
+\begin{equation}
+\calE = \rho \veps(\rho,s) + \rho \frac{\csh^2}{4} ||\GG'||^2 + 
+\frac{1}{2\rho} \MM^2 +
+\calE^t(\MM,\Burg,\Durg)
+\end{equation}
+where $ \bm{G} =\AA^\transpose\AA$, and $ \bm{G}' = \bm{G} -
+\frac{\text{tr}(\bm{G})}{3}\bm{I} $ is the deviatoric part of $ \GG $, while
+\begin{equation}\label{energy.torsion}
+%{\red \frac12 \rho\, c_t^2 ||\skewA||^2} + 
+\calE^t  = \frac{1}{2}\left (\frac1\epsilon \, 
+||\Durg||^2 
++ 
+\frac1\mu \, ||\Burg||^2\right ) 
+%
+-\frac{1}{\rho}\sum_{a=1}^{3}\left|
+\begin{array}{ccc}
+M_1 & \durg{a}{1} & \burg{a}{1} \\
+M_2 & \durg{a}{2} & \burg{a}{2} \\
+M_3 & \durg{a}{3} & \burg{a}{3}
+\end{array}
+\right|
+%
+- \csp\sum_{a=1}^{3}\left|
+\begin{array}{ccc}
+\dist{a}{1} & \durg{a}{2} & \burg{a}{1} \\
+\dist{a}{2} & \durg{a}{2} & \burg{a}{2} \\
+\dist{a}{3} & \durg{a}{3} & \burg{a}{3}
+\end{array}
+\right|
+\end{equation}
+\end{subequations}
+Here, 
+$ \epsilon $ and $ \mu $ are torsion related transport parameters 
+which together scale as the inverse velocity square, $ (\epsilon\mu)^{-1}\sim 
+v^2 $ so that we introduce the velocity
+\begin{equation}\label{light.speed}
+\cinf = \frac{1}{\sqrt{\epsilon\mu}}.
+\end{equation}
+As we shall see later, $ \cinf $ is the maximum velocity at which mechanical 
+perturbations can propagate in the medium.
+
+The parameter $ \csp $ has the dimension of velocity and characterizes 
+the propagation of rotational degrees of freedom. Also, $ \csh $ is the sound 
+speed of propagation of tangential perturbations. Both $ \csp $ and $ \csh $ 
+are constant in this paper. Finally, there is a bulk 
+sound speed $ c_0 $ associated with the hydrodynamic part of the equation of 
+state, that is $ \varepsilon(\rho,s) $, and so that the longitudinal sound 
+speed $ c_\text{l} $ is expressed conventionally as
+\begin{equation}\label{long.sound}
+c_\text{l}^2 = c_0^2 + \frac43 \csh^2. 
+\end{equation}
+Therefore, we distinguish the following  characteristic velocities
+\begin{equation}\label{key}
+c_0, \qquad \csh, \qquad c_\text{l} = \sqrt{c_0^2 + \frac43 \csh^2}, 
+\qquad \csp, \qquad \cinf = \frac{1}{\sqrt{\epsilon\mu}}.
+\end{equation}
+
+Note that the equation of state \eqref{EOS} gives the following expression for 
+the total momentum 
+\begin{equation}\label{momentum.total}
+\MM =\rho \vv + \Durg_a\times\Burg^a.
+\end{equation}
 
 
-\section{Governing PDEs in the case of acoustic waves}
+\section{Nondimensionalization}
+\textcolor{blue}{Hyp: 
+\begin{itemize}
+\item One dimensional along $x\equiv x^{1}$ 
+\item $s\equiv 0$
+\end{itemize}}
+
+Let group the unknowns in a single vector $q(x,t)$
+\begin{equation}
+    q(x,t)=\left(\rho,\right)
+\end{equation}
+\section{Small amplitude waves}
 
 For the plane-wave analysis it is sufficient to consider the nonlinear model~\eqref{PDE} in the 
 small deformation limit, i.e. we assume that the distortion field can be decomposed as $ \Dist = 
 \bm{I} + \Distsmall $, with $ \bm{I} $ being the identity matrix and $ \Distsmall $ being the 
-non-symmetric small strain tensor $ \Distsmall \neq \Distsmall^\transpose $. Furthermore, we 
-decompose small strain tensor $ \Distsmall $ onto symmetric and anti-symmetric parts
-\begin{equation}
-	\Distsmall = \symA + \skewA, \qquad 
-	\symA = \frac{1}{2}(\Distsmall + \Distsmall^\transpose), \qquad
-	\skewA = \frac{1}{2} (\Distsmall - \Distsmall^\transpose).
-\end{equation}
-We will also need the deviator (trace-less part) $ \symA' $ of $ \symA $ which is defined as
-\begin{equation}
-\symA' = \symA - \frac{1}{3}\tr(\symA)\bm{I}
-\end{equation}
-
-Also, let the inverse deformation gradient of the bulk material is decomposed as $ \Defgrad^{-1} = 
-\Id + \bm{\phi}$. We then introduce the difference of the small strain tensors, of the bulk 
-material and 
-of the microstructure,  $ \Plastsmall = \bm{\phi} - \Distsmall $.
-
-\IP{The tensor $ \Plastsmall $ can be viewed as $ \bm{P}^{-1} $ in the papers by Madeo, Neff et al.}
-
-The total energy density is defined as
-\begin{align}
-\calE(\Distsmall,\Durg,\Burg,\Plastsmall,\vv) = &\frac{\lambda_e}{2}(\tr(\Distsmall))^2 + \mu_e 
-||\symA'||^2 + 
-\mu_c 
-||\skewA||^2 + \nonumber\\
-&\frac{1}{2}\left (\frac{1}{\epsilon} ||\Durg||^2+ \frac{1}{\nu}||\Burg||^2\right) + 
-\nonumber\\
-&\frac{\lambda_m}{2}(\tr(\Plastsmall))^2 + \mu_m 
-||\symP'||^2 + \frac{1}{2}\rho ||\vv||^2
-\end{align}
-
-\begin{subequations}\label{PDE.lin}
-    \begin{align}
-        &\frac{\pd v_i}{\pd t} - \rho_0^{-1}\frac{ \pd \Sigma_{ik}}{\pd x_k}   = 
-        0,\label{PDE.lin.M}\\[2mm]
-        %
-        &\frac{\pd \distsmall{i}{k}}{\pd t} + \frac{\pd v_i}{\pd x_k} =         
-        -\frac{1}{\alpha}\calE_{D_{ik}},\label{PDE.lin.A}\\[2mm]
-        &\frac{\pd D_{li}}{\pd t} - \veps_{i k j} \frac{\pd \calE_{B_{l j}}} {\pd x_k} 
-        = \frac{1}{\alpha}\calE_{\distsmall{l}{i}} + 
-        \frac{1}{\beta}\calE_{p_{l i}},\label{PDE.lin.D}\\[2mm]
-        %
-        &\frac{\pd \burg{l i}}{\pd t} +  \veps_{ikj} \frac{\pd\calE_{D_{l j}}}{\pd x_k}  = 
-        0,\label{PDE.lin.B}\\[2mm]
-        &\frac{\pd p_{ik}}{\pd t} = -\frac{1}{\beta}\calE_{D_{ik}},\label{PDE.lin.p}
-    \end{align}
-\end{subequations}
-where the stress tensor is given by
-\begin{equation}
-\bm{\Sigma} = -\lambda_e\tr(\Distsmall) - 2 \mu_e \symA' - \mu_c \skewA.
-\end{equation}
-
-\section{Dispersion relation, plane-wave analysis}
-
-In one spatial dimension, system \eqref{PDE.lin} can be written in matrix form 
-\begin{equation}
-\frac{\pd \QQ}{\pd t} + \mathbb{M} \frac{\pd\QQ}{\pd x} = \SS(\QQ),
-\end{equation}
-where $ \QQ = (\Distsmall,\Durg,\Burg,\Plastsmall,\vv)$
-Its dispersion relation is given by
-\begin{equation}
-\det(\mathbb{I} - z \mathbb{M}+\frac{i}{\omega}\mathbb{N}) = 0,
-\end{equation}
-where $ z = k/\omega $, $ k $ is the wave number, $ \omega $ is the angular frequency,  $ i $ is 
-the imaginary unit, $ \mathbb{N} = \pd\SS/\pd\QQ$ is the Jacobian of the source terms taken at the 
-equilibrium state $ \QQ_0 $ (all state variables vanish), and $ 
-\mathbb{I} $ is the identity matrix of the same size as $ \mathbb{M} $ and $ \mathbb{N} $.
-
-The eigenvalues of $ \mathbb{M} $ are all real and their non-zero absolute values are
-\begin{equation}
-c_l = \sqrt{\frac{\lambda_e + \frac{4}{3}\mu_e}{\rho}}, \qquad 
-%
-c_s = \sqrt{\frac{\mu_e + \frac{1}{2}\mu_c}{\rho}}, \qquad 
-%
-c_t = \frac{1}{\sqrt{\epsilon\nu}}
-\end{equation}
-\IP{Characteristic speeds agree with Madeo et al \cite{Madeo2015a} up to some constants.}
-
-The eigenvalues of $ \mathbb{N} $ are all complex with zero real part. We denote the absolute 
-values of their imaginary 
-parts as
-\begin{equation}
-\omega_l = \frac{\sqrt{3\epsilon(\beta^2 \lambda_e + \alpha^2 
-\lambda_m)}}{\alpha\beta\epsilon},\quad
-%
-\omega_s = \frac{\sqrt{\epsilon (2 \alpha^2 \mu_e + \beta^2 \mu_c)}}{\alpha \beta \epsilon},\quad
-%
-\omega_m = \frac{\sqrt{2\epsilon (\beta^2 \mu_e + \alpha^2 \mu_m)}}{\alpha \beta \epsilon}
-\end{equation}
-\IP{In \cite{Madeo2015a}, they have 5 frequencies, while we have only 3. This should be 
-clarified...}
+non-symmetric small strain tensor $ \Distsmall \neq \Distsmall^\transpose $.
 
 
-\section{Numerical results}
-
-
-We introduce a characteristic length scale $ \ell $ and associate the relaxation parameter $ \alpha 
-$ to inverse $ \ell^{-1} = \alpha $.
-
-The dispersion relation has six roots $ k_i(\omega) $, $ i=1,2,\ldots,6 $.
-\IP{They have analytical expression but lengthy. I will try to simplify them....}
-
-\IP{It is also not clear to me yet but blue curves on the second and third plots of 
-Fig.\,\ref{fig.band_gap} correspond to only one root $ k_i(\omega) $. Namely, to $ k_3(\omega) $ on 
-the second plot and to $ k_5(\omega) $ on the last plot. Perhaps this is due to 
-some complex numbers..... to be clarified}
-
-Curves on Fig.\,\ref{fig.band_gap} are qualitatively very similar to those from Fig.\,2 in 
-\cite{Madeo2015a}.
-
-Also, if $ \mu_c = 0 $, then there is no complete band gap, see Fig.\,\ref{fig.no_band_gap}.
-
-\begin{table}[]
-\begin{center}
-	\begin{tabular}{lll}
-\hline
-		Parameters\hspace{1cm} & Value\hspace{2cm} & Unit \\ \hline
-\rowcolor[HTML]{ECF4FF} 
-		$ \rho $ & 2000 & kg/m$ ^3 $ \\
-\rowcolor[HTML]{CBCEFB} 
-		$ \ell  $ & $ 3\cdot10^{-3} $ & m \\
-\rowcolor[HTML]{ECF4FF} 
-		$ \alpha  $ & $ =\ell^{-1} $ & m$ ^{-1} $ \\
-\rowcolor[HTML]{CBCEFB} 
-		$ \beta $ & $ =\alpha $ & m$ ^{-1} $	\\
-\rowcolor[HTML]{ECF4FF} 
-		$ \mu_e $ & $ 200 $ & MPa	\\
-\rowcolor[HTML]{CBCEFB} 
-		$ \lambda_e $ & $ =3 \mu_e $ & MPa	\\
-\rowcolor[HTML]{ECF4FF} 
-		$ \mu_c $ & $ =2.2 \mu_e $ & MPa	\\
-\rowcolor[HTML]{CBCEFB} 
-		$ \mu_m $ & $ -0.5\mu_e $ & MPa	\\
-\rowcolor[HTML]{ECF4FF} 
-		$ \lambda_m $ & $ =\mu_m $ & MPa	\\
-\rowcolor[HTML]{CBCEFB} 
-		$ c_t $		& 1	& $ 10^{3} $m/s		\\
-\rowcolor[HTML]{ECF4FF} 
-		$ \alpha_c $ 	& $ 1.8\cdot10^{-3} $	&	MPa$ \cdot $m$ ^2 $	\\
-\rowcolor[HTML]{CBCEFB} 
-		$ \nu $	& $ =(\alpha_c \ell^2)^{-1} $	& kg$ ^{-1} $m$ ^{-3} $ s$ ^2 $\\
-\rowcolor[HTML]{ECF4FF} 
-		$ \epsilon $	& $ =(\nu c_t)^{-1} $	&	kg$ \cdot $ m \\ \hline
-	\end{tabular}
-	\caption{Values of the parameters used in the numerical simulation.}
-	\label{tab.parameters}
-\end{center}
-\end{table}
-
-
-\begin{figure}
-	\begin{center}
-		\includegraphics[draft=false,width=1\textwidth]{band_gap_table1}
-	\end{center}
-	\vspace{-4mm}
-	\caption{Complete band gap (gray rectangles) for $ \mu_c >0 $.}
-	\label{fig.band_gap}
-\end{figure}
-
-\begin{figure}
-	\begin{center}
-		\includegraphics[draft=false,width=1\textwidth]{Phase_Vel_Full_model}
-	\end{center}
-	\vspace{-4mm}
-	\caption{Complete band gap (gray rectangles) for $ \mu_c >0 $. Plots of phase velocities $ 
-	V_{\text{ph}} = 
-	\omega/k $}
-	\label{fig.band_gap.phase_vel}
-\end{figure}
-
-
-\IP{The plots of the phase velocities look weird. I always thought that a hyperbolic system should 
-have finite speeds for any frequencies like we have in the hyperbolic Navier-Stokes. BUT in 
-Fig.\,\ref{fig.band_gap.phase_vel}, near 
-the band gap, we have that $ V_{\text{ph}} \rightarrow \infty $. Is it nonphysical? Or maybe it is 
-due to some resonance??? Madeo et al do not plot phase velocities, at least I didn't see that.
-}
-
-\IP{However, the group velocities $ V_{\text{g}} =d\omega/d k$ are all finite, see 
-Fig.\,\ref{fig.band_gap.group_vel}.}
-
-
-
-\begin{figure}
-	\begin{center}
-		\includegraphics[draft=false,width=1\textwidth]{Group_Vel_Full_model}
-	\end{center}
-	\vspace{-4mm}
-	\caption{Complete band gap (gray rectangles) for $ \mu_c >0 $. Plots of group velocities $ 
-	V_{\text{g}} = d \omega/d k $. They are bounded by the velocity $ c_t = 1/\sqrt{\epsilon\nu} $ 
-	associated with the torsion.}
-	\label{fig.band_gap.group_vel}
-\end{figure}
-
-
-\begin{figure}
-	\begin{center}
-		\includegraphics[draft=false,width=1\textwidth]{no_band_gap_table1}
-	\end{center}
-	\vspace{-4mm}
-	\caption{No band gap for $ \mu_c = 0$.}
-	\label{fig.no_band_gap}
-\end{figure}
 
 \printbibliography
 
 \end{document}
+% Acta Mechanica
+% Archive of Applied Mechanics
+% Mathematics and Mechanics of Solids
+% CMAT

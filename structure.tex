@@ -25,7 +25,12 @@ eulermath,% Use the Euler font for mathematics
 pdfspacing, % Makes use of pdftex’ letter spacing capabilities via the microtype package
 dottedtoc % Dotted lines leading to the page numbers in the table of contents
 ]{classicthesis} % The layout is based on the Classic Thesis style
-\usepackage{hyperref}
+
+
+
+\usepackage[hmarginratio=1:1,top=25mm,left=20mm,columnsep=25pt]{geometry}
+\usepackage{relsize} % e.g. used for \mathsmaller
+\usepackage{bm}
 
 \usepackage{arsclassica} % Modifies the Classic Thesis package
 
@@ -48,9 +53,105 @@ dottedtoc % Dotted lines leading to the page numbers in the table of contents
 
 \usepackage{accents}
 
+\usepackage[bottom]{footmisc}
+
+\usepackage{titling} % it needs to define \thanksmarkseries
+
+%----------------------------------------------------------------------------------------
+% NEW COMMANDS
+%----------------------------------------------------------------------------------------
+\renewcommand{\AA}{\bm{A}}
+\newcommand{\GG}{\bm{G}}
+\newcommand{\MM}{\bm{M}}
+\newcommand{\Id}{\bm{I}}
+\newcommand{\vv}{\bm{v}}
+\newcommand{\QQ}{\bm{Q}}
+\renewcommand{\SS}{\bm{S}}
+\newcommand{\Lie}{\mathfrak{L}}
+\newcommand{\calE}{\mathcal{E}}						%
+
+\newcommand{\IP}[1]{{\color{Red}IP:\ \ #1}}
+\newcommand{\ER}[1]{{\color{Green}ER:\ \ #1}}
+\newcommand{\BL}[1]{{\color{Cerulean}BL:\ \ #1}}
+\newcommand{\NF}[1]{{\color{Plum}NF:\ \ #1}}
 
 
+\newcommand{\sA}{\mathsmaller A}
+\newcommand{\sB}{\mathsmaller B}
+\newcommand{\sC}{\mathsmaller C}
+\newcommand{\sD}{\mathsmaller D}
+\newcommand{\sM}{\mathsmaller M}
+\newcommand{\sN}{\mathsmaller N}
+\newcommand{\sL}{\mathsmaller L}
+\newcommand{\kronecker}[2]{\delta^{#1}_{\phantom{#1}#2}}
+\newcommand{\durg}[2]{ D_{#1}^{\phantom{#1}#2} }	% Eulerian components of 
+%the D field
+\newcommand{\LeviCivitaUp}[1]{\varepsilon^{#1}}
 
+\newcommand{\pd}{\partial}
+\newcommand{\F}[2]{F^{\ #1}_{\mathsmaller#2}}
+\newcommand{\hatF}[2]{\hat{F}^{\ #1}_{\mathsmaller#2}}
+\newcommand{\A}[2]{A^{\mathsmaller#1}_{\ #2}}
+
+\newcommand{\dist}[2]{ A^{#1}_{\phantom{#1}#2} }	% Component of the 
+\newcommand{\Stress}[2]{ \Sigma^{#1}_{\phantom{#1}#2} }	% Total stress tensor
+%distortion field A
+\newcommand{\distsmall}[2]{ a_{{#1}{#2}} }	% Small distortion field A 
+\newcommand{\Dist}{ \bm{A} }	% Distortion field A in matrix notations
+\newcommand{\Burg}{ \bm{B} }	% Burgers tensor = curl(A)
+\newcommand{\Durg}{ \bm{D} }	% Complimentary to the Burgers
+\newcommand{\Distsmall}{ \bm{a} }	% Small distortion field A in matrix 
+%notations
+\newcommand{\Plastsmall}{ \bm{\pi} }	% Small distortion field A in matrix 
+%notations
+\newcommand{\Defgrad}{ \bm{F} }
+\newcommand{\iDist}{ \bm{E} }
+\newcommand{\symA}{\text{sym}(\bm{a})}
+\newcommand{\skewA}{\text{skew}(\bm{a})}
+\newcommand{\symP}{\text{sym}(\bm{\Plastsmall})}
+\newcommand{\burg}[2]{ B^{{#1}{#2}} }	% Eulerian components of the B field
+\newcommand{\itetr}[2]{e^{\phantom{#2}#1}_{#2}}
+\newcommand{\tetr}[2]{a^{#1}_{\phantom{#1}#2}}
+\newcommand{\rtetr}[2]{a^{#1}_{(\text{r}) #2}}
+\newcommand{\spin}[2]{\omega^{#1}_{\phantom{#1}#2}}
+\newcommand{\Lor}[2]{\Lambda^{#1'}_{\phantom{#1}#2}}
+\newcommand{\iLor}[2]{\Lambda^{\phantom{#2}#1}_{#2'}}
+\newcommand{\vel}[1]{v^{#1}}
+\newcommand{\D}[1]{\mathcal{D}_{#1}} % Fock-Ivanencko cov derivative
+\newcommand{\Tors}[2]{T^{#1}_{\phantom{a}#2}}
+\newcommand{\Supp}[2]{S_{#1}^{\phantom{a}#2}}	%supepotential
+\newcommand{\Torsl}[1]{T_{#1}}
+\newcommand{\ET}[2]{E^{#1}_{\phantom{#1}#2}}	%Torsion decomposition, analog 
+%of Electric field
+\newcommand{\eT}[2]{D_{#1}^{\phantom{#1}#2}}	%Torsion decomposition, analog 
+%of Electric field
+\newcommand{\BT}[2]{B^{#1#2}}	%Torsion decomposition, analog of Magnetic field
+\newcommand{\hT}[2]{H^{#1#2}}	%Torsion decomposition, analog of Magnetic field
+\newcommand{\W}[2]{\mathcal{W}^{#1}_{\phantom{#1}#2}}
+\newcommand{\w}[2]{W^{#1}_{\phantom{#1}#2}}
+\newcommand{\FI}{Fock-Ivanenko}
+\newcommand{\We}{Weitzenb\"ock}
+\newcommand{\Lag}{\mathcal{L}}	% Lagrangian which depends on ordinary 
+%derivatives
+\newcommand{\Lagcov}{\pounds}% Lagrangian which depends on gauge covariant 
+%derivatives
+\newcommand{\Laghodge}{L}% Lagrangian which depends on the Hodge dual of the 
+%torsion
+\newcommand{\Lagtors}{\mathbb{L}}% Lagrangian which depends on torsion
+\newcommand{\LagBE}{\mathfrak{L}}% Lagrangian which depends on the B and E 
+%fields
+\newcommand{\veps}{\varepsilon}
+\newcommand{\EM}[2]{\Sigma^{#1}_{\phantom{#1}#2}}
+\newcommand{\transpose}{{\mathrm {\mathsmaller T}}}
+\newcommand{\tr}{\text{tr}}
+
+\newcommand{\tegr}{TEGR}
+\newcommand{\HT}[1]{\accentset{\star}{T}^{#1}}
+
+\newcommand{\csh}{c_\text{sh}}	% 	shear sound speed
+\newcommand{\csp}{c_\text{sp}}	% 	a sound speed related to the spin
+\newcommand{\cinf}{c_\infty}	% 	a sound speed related to 
+%1/\sqrt{\mu\eps}
 %----------------------------------------------------------------------------------------
 %	THEOREM STYLES
 %---------------------------------------------------------------------------------------
@@ -67,17 +168,7 @@ dottedtoc % Dotted lines leading to the page numbers in the table of contents
 %	HYPERLINKS
 %---------------------------------------------------------------------------------------
 
-\hypersetup{
-%draft, % Uncomment to remove all links (useful for printing in black and white)
-colorlinks=true, breaklinks=true, bookmarks=true,bookmarksnumbered,
-urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=webgreen, % Link colors
-pdftitle={}, % PDF title
-pdfauthor={\textcopyright}, % PDF Author
-pdfsubject={}, % PDF Subject
-pdfkeywords={}, % PDF Keywords
-pdfcreator={pdfLaTeX}, % PDF Creator
-pdfproducer={LaTeX with hyperref and ClassicThesis} % PDF producer
-}
+
 
 
 %----------------------------------------------------------------------------------------
@@ -128,3 +219,7 @@ backref,backrefstyle=none,maxbibnames=99]{biblatex}
      \dp\mytempbox\mytemplen
      \colorbox{cream}{\hspace{1em}\usebox{\mytempbox}\hspace{1em}}}
  \makeatother
+
+% ------------------------------------------------------------------------------
+\newcommand*\samethanks[1][\value{footnote}]{\footnotemark[#1]}
+
