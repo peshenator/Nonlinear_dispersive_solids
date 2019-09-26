@@ -338,11 +338,162 @@ the total momentum
 \item One dimensional along $x\equiv x^{1}$ 
 \item $s\equiv 0$
 \end{itemize}}
-
-Let group the unknowns in a single vector $q(x,t)$
+Let group the unknowns degree of freedom in a single vector $q(x,t)$
 \begin{equation}
-    q(x,t)=\left(\rho,\right)
+\begin{array}{rcl}    
+q(x,t)&=&\Big(\rho,v_{1},v_{2},v_{3}, \\
+&&	\quad\quad	a_{11}, a_{21}, a_{31},
+ 	a_{12}, a_{22}, a_{32},
+	 a_{13}, a_{23}, a_{33},\\
+&& 	\quad\quad\quad 	b_{11}, b_{21}, b_{31},
+	b_{12}, b_{22}, b_{32},
+ 	b_{13}, b_{23}, b_{33},\\
+&&  	\quad\quad\quad\quad d_{11}, d_{21}, d_{31},
+ 		d_{12}, d_{22}, d_{32},
+ 		d_{13}, d_{23}, d_{33}\Big)^T
+\end{array}
 \end{equation}
+where $(x,t)$ dependence have been omitted. The linear system may be written as 
+\begin{equation}\label{LinSyt}
+\partial_{t}q+\mathbb{A}\partial_{x}q-\mathbb{B}q=0
+\end{equation}
+where $\mathbb{A}$ and $\mathbb{B}$ are $31\times 31$ constant matrice depending on $\rho_{0},c_{0},c_{sh},c_{sp},\mu,\varepsilon,\alpha$.\\
+Through this formulation, components of $q$, $\mathbb{A}$ and $\mathbb{B}$ do not have the same dimension, and clear analysis can't be provided efficiently. The large number of independent parameters is an other obstacle. In order to overcomes this obstacle a  non-dimensional analysis is proposed.\\
+Let first introduce the diagonal matrice:
+\begin{equation}
+\mathbb{O}=\text{diag}\Big(\rho_{0}\quad,
+	\underbrace{c_{0}}_\text{$3$ times },
+	\underbrace{1}_\text{ $9$ times}, \quad
+	\underbrace{c_{\infty}\sqrt{\mu\rho_{0}}}_{\text{$9$ times}}\quad ,\quad
+	\underbrace{c_{0}\sqrt{\varepsilon\rho_{0}}}_{\text{$9$ times}} \Big)
+\end{equation}
+where the underbrace specifies the number of duplication of each terms. As 
+\begin{equation}
+\left[\rho\right]=\left[\rho_{0}\right]=\frac{M}{L^3}, \quad
+\left[v_{i}\right]=\left[c_{0}\right]=\frac{L}{T}, \quad
+\left[a_{ij}\right]=1, \quad
+\left[b_{ij}\right]=\left[c_{\infty}\sqrt{\mu\rho_{0}}\right]=\frac{1}{L^2}, \quad
+\left[d_{ij}\right]=\left[c_{0}\sqrt{\varepsilon\rho_{0}} \right]=\frac{M}{T}
+\end{equation}
+we can define a non-dimensional vector of unknowns $\tilde{q}$ such that:
+\begin{equation}
+q=\mathbb{O}\tilde{q}
+\end{equation}
+Then, the linear system (\ref{LinSyt}) may be writen as 
+\begin{equation}
+\partial_{t}\tilde{q}+\mathbb{O}^{-1}\mathbb{A}\mathbb{O}\partial_{x}\tilde{q}-\mathbb{O}^{-1}\mathbb{B}\mathbb{O}\tilde{q}=0
+\end{equation}
+Here, all component of $\mathbb{O}^{-1}\mathbb{A}\mathbb{O}$ have the dimension of a celerity whereas all components of  $\mathbb{O}^{-1}\mathbb{A}\mathbb{O}$ have the dimension of $T^{-1}$. At this time $x$ and $t$ are still physical dimensions. In order to introduce a pure non dimensional analysis let define a characteristic length and time 
+\begin{equation}\label{CharacteristicSize}
+\ell=\alpha  \sqrt{\frac{\varepsilon}{\rho_{0}}}, \quad\quad \tau=\frac{\ell}{c_{0}}=\frac{\alpha}{c_{0}}  \sqrt{\frac{\varepsilon}{\rho_{0}}}
+\end{equation}
+in such a way that non-dimensional space and time are respectively:
+\begin{equation}\label{Rescaling}
+\tilde{x}=\frac{x}{\ell}, \quad\quad	\tilde{t}=\frac{t}{\tau}
+\end{equation}
+then $\partial_{x}=\frac{1}{\ell}\partial_{\tilde{x}}$ and $\partial_{t}=\frac{1}{\tau}\partial_{\tilde{t}}$. We obtain the following non-dimensional linear system 
+\begin{equation}
+\frac{1}{\tau}\partial_{\tilde{t}}\tilde{q}+\mathbb{O}^{-1}\mathbb{A}\mathbb{O}\frac{1}{\ell}\partial_{\tilde{x}}\tilde{q}-\mathbb{O}^{-1}\mathbb{B}\mathbb{O}\tilde{q}=0
+\end{equation}
+\begin{equation}
+\partial_{\tilde{t}}\tilde{q}+\frac{\tau}{\ell}\mathbb{O}^{-1}\mathbb{A}\mathbb{O}\partial_{\tilde{x}}\tilde{q}-\tau \mathbb{O}^{-1}\mathbb{B}\mathbb{O}\tilde{q}=0
+\end{equation}
+\begin{equation}
+\partial_{\tilde{t}}\tilde{q}+\frac{1}{c_{0}}\mathbb{O}^{-1}\mathbb{A}\mathbb{O}\partial_{\tilde{x}}\tilde{q}-\tau \mathbb{O}^{-1}\mathbb{B}\mathbb{O}\tilde{q}=0
+\end{equation}
+Introducing the matrices
+$$
+\tilde{\mathbb{A}} = \frac{1}{c_{0}}\mathbb{O}^{-1}\mathbb{A}\mathbb{O}
+\quad\quad\quad
+\tilde{\mathbb{B}} = \tau\mathbb{O}^{-1}\mathbb{B}\mathbb{O}
+$$
+we have the system of non-dimensional differential equations:
+\begin{equation}\label{SystDiffAdim}
+\boxed{\partial_{\tilde{t}}\tilde{q}+\tilde{\mathbb{A}}\partial_{\tilde{x}}\tilde{q}-\tilde{\mathbb{B}}\tilde{q}=0}
+\end{equation}
+The matrices $\tilde{\mathbb{A}}$ and $\tilde{\mathbb{B}}$ have no physical dimensions. However they depend on the physical parameters through a limited set of non dimensional parameters. More precisely, introducing
+\begin{equation}\label{CHIhpinf}
+\chi_{h}=\frac{c_{sh}}{c_{0}}, \quad\quad
+\chi_{p}=\frac{c_{sp}}{c_{0}}, \quad\quad
+\chi_{\infty}=\frac{c_{\infty}}{c_{0}}
+\end{equation}
+we have explicitely $\tilde{\mathbb{A}}:=\tilde{\mathbb{A}}(\chi_{h},\chi_{p},\chi_{\infty})$ and $\tilde{\mathbb{B}}:=\tilde{\mathbb{B}}(\chi_{h},\chi_{p})$. In other word, the non-dimensional differential system (\ref{SystDiffAdim}) is completely controlled only by three independent parameters listed in (\ref{CHIhpinf}). The influence of others parameters (typically $\alpha$) intervenes through space and/or time scaling factors according to (\ref{CharacteristicSize}) and (\ref{Rescaling}). \\
+Expanding this differential system we obtain:
+$$
+\begin{array}{rcl}
+\tilde{\rho}^{(0,1)}(x,t)+\tilde{v}_1{}^{(1,0)}(x,t)	&=&0,\\
+%
+\tilde{v}_1{}^{(0,1)}(x,t)+\frac{1}{3} \left(2 \left(2\tilde{a}_{1,1}{}^{(1,0)}(x,t)-\tilde{a}_{2,2}{}^{(1,0)}(x,t)-\tilde{a}_{3,3}{}^{(1,0)}(x,t)\right) \chi _h^2+3 \tilde{\rho}^{(1,0)}(x,t)\right)&=&0,\\
+%
+   \left(\tilde{a}_{1,2}{}^{(1,0)}(x,t)+\tilde{a}_{2,1}{}^{(1,0)}(x,t)\right) \chi_h^2+\tilde{v}_2{}^{(0,1)}(x,t)&=&0,\\
+%
+   \left(\tilde{a}_{1,3}{}^{(1,0)}(x,t)+\tilde{a}_{3,1}{}^{(1,0)}(x,t)\right) \chi_h^2+\tilde{v}_3{}^{(0,1)}(x,t)&=&0,\\
+%
+   \tilde{d}_{1,1}(x,t)+\tilde{a}_{1,1}{}^{(0,1)}(x,t)+\tilde{v}_1{}^{(1,0)}(x,t)&=&0,\\
+%
+   \chi _p \tilde{b}_{2,3}(x,t)+\tilde{d}_{2,1}(x,t)+\tilde{a}_{2,1}{}^{(0,1)}(x,t)+\tilde{v}_2{}^{(1,0)}(x,t)&=&0,\\
+%
+  -\chi _p \tilde{b}_{3,2}(x,t)+\tilde{d}_{3,1}(x,t)+\tilde{a}_{3,1}{}^{(0,1)}(x,t)+\tilde{v}_3{}^{(1,0)}(x,t)&=&0,\\
+%
+   -\chi _p \tilde{b}_{1,3}(x,t)+\tilde{d}_{1,2}(x,t)+\tilde{a}_{1,2}{}^{(0,1)}(x,t)&=&0,\\
+%
+   \tilde{d}_{2,2}(x,t)+\tilde{a}_{2,2}{}^{(0,1)}(x,t)&=&0,\\
+%
+   \chi _p \tilde{b}_{3,1}(x,t)+\tilde{d}_{3,2}(x,t)+\tilde{a}_{3,2}{}^{(0,1)}(x,t)&=&0,\\
+%
+   \chi _p \tilde{b}_{1,2}(x,t)+\tilde{d}_{1,3}(x,t)+\tilde{a}_{1,3}{}^{(0,1)}(x,t)&=&0,\\
+%
+   -\chi _p \tilde{b}_{2,1}(x,t)+\tilde{d}_{2,3}(x,t)+\tilde{a}_{2,3}{}^{(0,1)}(x,t)&=&0,\\
+%
+   \tilde{d}_{3,3}(x,t)+\tilde{a}_{3,3}{}^{(0,1)}(x,t)&=&0,\\
+%
+   \tilde{b}_{1,1}{}^{(0,1)}(x,t)&=&0,\\
+%
+   \tilde{b}_{2,1}{}^{(0,1)}(x,t)&=&0,\\
+%
+   \tilde{b}_{3,1}{}^{(0,1)}(x,t)&=&0,\\
+%   
+   \tilde{b}_{1,2}{}^{(0,1)}(x,t)-\chi _p \tilde{b}_{1,2}{}^{(1,0)}(x,t)-\tilde{d}_{1,3}{}^{(1,0)}(x,t)&=&0,\\
+%
+   \tilde{b}_{2,2}{}^{(0,1)}(x,t)+\chi _p \tilde{b}_{2,1}{}^{(1,0)}(x,t)-\tilde{d}_{2,3}{}^{(1,0)}(x,t)&=&0,\\
+%
+   \tilde{b}_{3,2}{}^{(0,1)}(x,t)-\tilde{d}_{3,3}{}^{(1,0)}(x,t)&=&0,\\
+%
+   \tilde{b}_{1,3}{}^{(0,1)}(x,t)-\chi _p \tilde{b}_{1,3}{}^{(1,0)}(x,t)+\tilde{d}_{1,2}{}^{(1,0)}(x,t)&=&0,\\
+%
+   \tilde{b}_{2,3}{}^{(0,1)}(x,t)+\tilde{d}_{2,2}{}^{(1,0)}(x,t)&=&0,\\
+%
+   \tilde{b}_{3,3}{}^{(0,1)}(x,t)+\chi _p \tilde{b}_{3,1}{}^{(1,0)}(x,t)+\tilde{d}_{3,2}{}^{(1,0)}(x,t)&=&0,\\
+%
+   \frac{1}{3} \left(2 \left(-2 \tilde{a}_{1,1}(x,t)+\tilde{a}_{2,2}(x,t)+\tilde{a}_{3,3}(x,t)\right) \chi_h^2+3 \tilde{d}_{1,1}{}^{(0,1)}(x,t)\right)&=&0,\\
+%
+   \tilde{d}_{2,1}{}^{(0,1)}(x,t)-\chi _h^2\left(\tilde{a}_{1,2}(x,t)+\tilde{a}_{2,1}(x,t)\right)&=&0,\\
+%
+      \tilde{d}_{3,1}{}^{(0,1)}(x,t)-\chi _h^2 \left(\tilde{a}_{1,3}(x,t)+\tilde{a}_{3,1}(x,t)\right)&=&0,\\
+%
+   -\left(\tilde{a}_{1,2}(x,t)+\tilde{a}_{2,1}(x,t)\right) \chi_h^2+\tilde{d}_{1,2}{}^{(0,1)}(x,t)+\chi _{\infty }^2\tilde{b}_{1,3}{}^{(1,0)}(x,t)-\chi_p\tilde{d}_{1,2}{}^{(1,0)}(x,t)&=&0,\\
+%
+   \frac{2}{3}\left(\tilde{a}_{1,1}(x,t)-2\tilde{a}_{2,2}(x,t)+\tilde{a}_{3,3}(x,t)\right) \chi_h^2+\tilde{d}_{2,2}{}^{(0,1)}(x,t)+\chi _{\infty }^2\tilde{b}_{2,3}{}^{(1,0)}(x,t)+\chi_p\tilde{d}_{2,1}{}^{(1,0)}(x,t)&=&0,\\
+%
+   -\left(\tilde{a}_{2,3}(x,t)+\tilde{a}_{3,2}(x,t)\right) \chi _h^2+\tilde{d}_{3,2}{}^{(0,1)}(x,t)+\chi_{\infty }^2\tilde{b}_{3,3}{}^{(1,0)}(x,t)&=&0,\\
+%
+   -\left(\tilde{a}_{1,3}(x,t)+\tilde{a}_{3,1}(x,t)\right) \chi _h^2+\tilde{d}_{1,3}{}^{(0,1)}(x,t)-\chi_{\infty }^2 \tilde{b}_{1,2}{}^{(1,0)}(x,t)-\chi _p\tilde{d}_{1,3}{}^{(1,0)}(x,t)&=&0,\\
+%
+   -\left(\tilde{a}_{2,3}(x,t)+\tilde{a}_{3,2}(x,t)\right) \chi _h^2+\tilde{d}_{2,3}{}^{(0,1)}(x,t)-\chi_{\infty }^2 \tilde{b}_{2,2}{}^{(1,0)}(x,t)&=&0,\\
+%
+   \frac{2}{3}\left(\tilde{a}_{1,1}(x,t)+\tilde{a}_{2,2}(x,t)-2\tilde{a}_{3,3}(x,t)\right) \chi_h^2+\tilde{d}_{3,3}{}^{(0,1)}(x,t)-\chi _{\infty }^2\tilde{b}_{3,2}{}^{(1,0)}(x,t)+\chi _p\tilde{d}_{3,1}{}^{(1,0)}(x,t)&=&0
+   \end{array}
+   $$
+%-------------------------------------
+\section{Dispersion relation}
+%-------------------------------------
+Let consider harmonic variations in time an space such that 
+$$
+\tilde{q}(x,t)=\tilde{Q}e^{ik\tilde{x}-\omega \tilde{t}}
+$$
+then $\partial_{\tilde{x}}\tilde{q}(x,t)=ik\tilde{q}(x,t)$ and $\partial_{\tilde{t}}\tilde{q}(x,t)=i\omega\tilde{q}(x,t)$
+\textcolor{red}{to be continued...}
+   
 \section{Small amplitude waves}
 
 For the plane-wave analysis it is sufficient to consider the nonlinear model~\eqref{PDE} in the 
