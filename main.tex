@@ -480,7 +480,7 @@ $$
 \mathcal{P}_{1}=\omega^2-\chi_{\infty}^2k^2, \quad\quad
 \mathcal{P}_{2}=\omega^2-2 \chi_{h}^2-\chi_{\infty}^2k^2
 $$
-and $\mathcal{P}_{3}$ is non 6 order order polynomial on terms of both $k$ and $\omega$, last $\mathcal{P}_{4}$  is 8 order order polynomial on terms of both $k$ and $\omega$. These two last polynomial are parametrized by $\chi_{h}$, $\chi_{h}$ and $\chi_{\infty}$. Their expressions are tricky and are not presented here. \\
+and $\mathcal{P}_{3}$ is non 6 order order polynomial in terms of both $k$ and $\omega$, last $\mathcal{P}_{4}$  is 8 order order polynomial in terms of both $k$ and10 in terms of $\omega$. These two last polynomial are parametrized by $\chi_{h}$, $\chi_{h}$ and $\chi_{\infty}$. Their expressions are tricky and are not presented here. \\
 \\
 The dispersion equation $\mathcal{D}(\omega,k)=0$ may be used in various way. For example we can fix a frequency $\omega$ and look for a wavenumber $k(\omega)$ for witch $\mathcal{D}(\omega,k)=0$ is satisfied. Reciprocally, we can fix $k$ and looks for $\omega(k)$ satisfying the dispersion equation. In the following we consider an arbitrary positive frequency and looks for some roots $k(\omega)\in \mathbb{C}$ of the dispersion equation.  The relation $k(\omega)$ is called in the following dispersion relation. At a given frequency a dispersion relation is associated to each eigenvector $Q$. The corresponding $Q$ is commonly called a mode. \\
 \paragraph{\textbf{Remark 1}} The rescaling $\tilde{x}=\frac{x}{\ell}$ and $\tilde{t}=\frac{t}{\tau}$ affect the eigenfrequencies and wavenumber. Let write $\underline{k}$ and $\underline{\omega}$ a physical wavenumber and eigenfrequency.  We have of course 
@@ -505,7 +505,7 @@ $$
  $$
 \underline{\omega}_{c}=\frac{c_{sh}}{\alpha} \sqrt{\frac{2\rho_{0}}{\varepsilon}}
  $$
- hence this cut-off frequency is independent on $c_{0}$ and is not defined $\alpha=0$ or $\alpha\to\infty$. 
+ hence this cut-off frequency is independent on $c_{0}$ and is not defined $\alpha=0$ or $\alpha\to\infty$. This cut-off frequency is observed for the modes associated to $\mathcal{D}_{2}$, $\mathcal{D}_{3}$ and $\mathcal{D}_{4}$.
  
  %-------------------------------------
 \subsection{Breathing mode}
@@ -513,13 +513,14 @@ $$
 A breathing mode is a space harmonic mode associated to a zero-frequency. Hence its wavenumber $k_{b}$ is solution of $\mathcal{D}(0,k_{b})=0$. 8 solutions may be obained, satisfying one of the following relations :
 $$
 \begin{array}{c}
-k^2_{b}=\frac{\chi_{p}^2}{\chi_{\infty}^2}-1:=k^2_{b2}, \quad\quad
-k^2_{b}=-2\frac{\chi_{h}^2}{\chi_{\infty}^2}:=k^2_{b1}, \\[8pt]
-k^2_{b}=\frac{1}{2}\left(k^2_{b1}+k^2_{b2}\pm \sqrt{(k^2_{b1}+k^2_{b2})^2+4k^2_{b1}}\right)
+k^2_{b}=-2\frac{\chi_{h}^2}{\chi_{\infty}^2}:=k^2_{b1}, \quad\quad
+k^2_{b}=\frac{\chi_{p}^2}{\chi_{\infty}^2}-1:=k^2_{b2}, \\[8pt]
+k^2_{b}=\frac{1}{2}\left(k^2_{b1}+k^2_{b2}\pm \sqrt{(k^2_{b1}+k^2_{b2})^2+4k^2_{b1}}\right):=k^2_{b3}
 \end{array}
 $$
 It is completely controled by the ratio $\frac{c_{sh}}{c_{\infty}}$ and $\frac{c_{p}}{c_{\infty}}$\\
 These wavenumbers are either real (space-oscillation) , purely imaginary (exponential decay/iincrease in space) or complex. In a infinite domain complex wavenumber have to be proscribed in order to avoid space explostion toward infinity. However such type of mode are physically admissible in bounded domain where they may be observed in boundary layers.  \\
+In terms of mode family, $k^2_{b1}$ is associated to $\mathcal{D}_{2}$, $k^2_{b2}$ is associated to $\mathcal{D}_{4}$, and $k^2_{b3}$ is associated to $\mathcal{D}_{3}$, \\
 As for cut-off frequency, this breathing wavenumber is physically justified only if $\alpha$ is non-null but finite. 
 
  %-------------------------------------
@@ -529,7 +530,11 @@ At a given frequency $\omega$, the group velocity of a specific mode is null if
 $$
 \frac{\partial \omega}{\partial k}=0
 $$
-where $k(\omega)$ is the dispersion relation of the corresponding mode. (Rudin, W. (2006). Real and complex analysis. Tata McGraw-hill education.)
+where $k(\omega)$ is the dispersion relation of the corresponding mode. (Rudin, W. (2006). Real and complex analysis. Tata McGraw-hill education.). In practice this phenomena occurs if the polynomial in $k$ associated to the dispersion relation, degenerates to a lower order. Hence if the monome associated to the higher power in $k$ is null. This occurs only for the dispersion relation $\mathcal{D}_{4}$ and for a specific frequency $\omega_{z}$ only: 
+$$
+\boxed{\omega_{z}=\pm\frac{2}{\sqrt{3}}\frac{\chi_{h}}{\sqrt {1+\frac{4}{3}\chi_{h}^2}}\quad =\pm\frac{2}{\sqrt{3}}\frac{c_{h}}{c_{l}}}
+$$
+
 %-------------------------------------
 \subsection{Elastic problem}
 %-------------------------------------
