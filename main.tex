@@ -472,15 +472,15 @@ $$
 $$
 In practice this eigenvalues are the roots of the characteristic polynomial $\mathcal{D}(\omega,k)=\textrm{det}(\omega\mathbb{I} -k\tilde{\mathbb{A}}+i\tilde{\mathbb{B}})$. This dispersion equation may be factorized as follow
 $$
-\mathcal{D}(\omega,k)=\mathcal{P}_{0}\mathcal{P}_{1}\mathcal{P}_{2}\mathcal{P}_{3}\mathcal{P}_{4}
+\mathcal{D}(\omega,k)=\mathcal{D}_{0}\mathcal{D}_{1}\mathcal{D}_{2}\mathcal{D}_{3}\mathcal{D}_{4}
 $$
 where 
 $$
-\mathcal{P}_{0}=\omega^{11}, \quad\quad
-\mathcal{P}_{1}=\omega^2-\chi_{\infty}^2k^2, \quad\quad
-\mathcal{P}_{2}=\omega^2-2 \chi_{h}^2-\chi_{\infty}^2k^2
+\mathcal{D}_{0}=\omega^{11}, \quad\quad
+\mathcal{D}_{1}=\omega^2-\chi_{\infty}^2k^2, \quad\quad
+\mathcal{D}_{2}=\omega^2-2 \chi_{h}^2-\chi_{\infty}^2k^2
 $$
-and $\mathcal{P}_{3}$ is non 6 order order polynomial in terms of both $k$ and $\omega$, last $\mathcal{P}_{4}$  is 8 order order polynomial in terms of both $k$ and10 in terms of $\omega$. These two last polynomial are parametrized by $\chi_{h}$, $\chi_{h}$ and $\chi_{\infty}$. Their expressions are tricky and are not presented here. \\
+and $\mathcal{D}_{3}$ is non 6 order order polynomial in terms of both $k$ and $\omega$, last $\mathcal{D}_{4}$  is 8 order order polynomial in terms of both $k$ and10 in terms of $\omega$. These two last polynomial are parametrized by $\chi_{h}$, $\chi_{h}$ and $\chi_{\infty}$. Their expressions are tricky and are not presented here. \\
 \\
 The dispersion equation $\mathcal{D}(\omega,k)=0$ may be used in various way. For example we can fix a frequency $\omega$ and look for a wavenumber $k(\omega)$ for witch $\mathcal{D}(\omega,k)=0$ is satisfied. Reciprocally, we can fix $k$ and looks for $\omega(k)$ satisfying the dispersion equation. In the following we consider an arbitrary positive frequency and looks for some roots $k(\omega)\in \mathbb{C}$ of the dispersion equation.  The relation $k(\omega)$ is called in the following dispersion relation. At a given frequency a dispersion relation is associated to each eigenvector $Q$. The corresponding $Q$ is commonly called a mode. \\
 \paragraph{\textbf{Remark 1}} The rescaling $\tilde{x}=\frac{x}{\ell}$ and $\tilde{t}=\frac{t}{\tau}$ affect the eigenfrequencies and wavenumber. Let write $\underline{k}$ and $\underline{\omega}$ a physical wavenumber and eigenfrequency.  We have of course 
@@ -488,7 +488,7 @@ $$
 \underline{k}=\frac{k}{\ell}, \quad\quad\quad
 \underline{\omega}=\frac{\omega}{\tau}
 $$
-\paragraph{\textbf{Remark 2}} According to the previous remark, if the eigenvector is associated to a zero of an homogenous polynomial in term of both $\omega$ and $k$, then  the rescaling do not affect the dispersion relation. At this stage only $\mathcal{P}_{0}$ and $\mathcal{P}_{1}$ have this property. 
+\paragraph{\textbf{Remark 2}} According to the previous remark, if the eigenvector is associated to a zero of an homogenous polynomial in term of both $\omega$ and $k$, then  the rescaling do not affect the dispersion relation. At this stage only $\mathcal{D}_{0}$ and $\mathcal{D}_{1}$ have this property. 
 
 %-------------------------------------
 \section{Critical values}
@@ -542,8 +542,8 @@ $$
 In the special situation where both $\chi_{p}$ and $\chi_{h}$ are zset to ero, we have
 $$
 \begin{array}{c}
-\mathcal{P}_{3}=\omega^2\, \left(\omega^2-2\chi_{h}^2\right)\, \left(\omega^2-\chi_{h}^2(2+k^2)\right), \\[6pt]
-\mathcal{P}_{2}=\omega^4 \, \left(\omega^2-\chi_{h}^2(2+k^2)\right) \, \left( 
+\mathcal{D}_{3}=\omega^2\, \left(\omega^2-2\chi_{h}^2\right)\, \left(\omega^2-\chi_{h}^2(2+k^2)\right), \\[6pt]
+\mathcal{D}_{2}=\omega^4 \, \left(\omega^2-\chi_{h}^2(2+k^2)\right) \, \left( 
  3 \omega^2(\omega^2 - k^2)+ \chi_{h}^2( k^2 (6 - 4 \omega^2)-6 \omega^2)  \right)
  \end{array}
 $$
