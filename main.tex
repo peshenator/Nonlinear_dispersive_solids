@@ -320,7 +320,7 @@ speed $ c_\text{l} $ is expressed conventionally as
 c_\text{l}^2 = c_0^2 + \frac43 \csh^2. 
 \end{equation}
 Therefore, we distinguish the following  characteristic velocities
-\begin{equation}\label{key}
+\begin{equation}\label{velocity.all}
 c_0, \qquad \csh, \qquad c_\text{l} = \sqrt{c_0^2 + \frac43 \csh^2}, 
 \qquad \csp, \qquad \cinf = \frac{1}{\sqrt{\epsilon\mu}}.
 \end{equation}
@@ -331,36 +331,69 @@ the total momentum
 \MM =\rho \vv + \Durg_a\times\Burg^a.
 \end{equation}
 
+In the rest of the paper, the tensorial character of the state variables $ \dist{a}{i} $, $ 
+\durg{a}{i} $, and $ \burg{a}{i} $ will be not important and hence, for simplicity, we shall not 
+distinguish between the Lagrangian indices $ a,b,c $ and Eulerian ones $ i,j,k $ but will use only 
+$ 
+i,j,k, \ldots $. Moreover, we shall write all indices down, e.g. 
+\begin{equation}\label{notations}
+\dist{a}{i} \to A_{ji}, \qquad \durg{a}{i} \to D_{ji}, \qquad \burg{a}{i} \to B_{ji}.
+\end{equation}
 
-\section{Nondimensionalization}
-\textcolor{blue}{Hyp: 
-\begin{itemize}
-\item One dimensional along $x\equiv x^{1}$ 
-\item $s\equiv 0$
-\end{itemize}}
 
-Let group the unknowns degree of freedom in a single vector $q(x,t)$
+
+\section{Small amplitude waves}
+
+In 
+the rest of the paper, we restrict our consideration to the one-dimensional case along the 
+coordinate $ x:=x_1 $. Moreover, because we are interested in modeling of propagation of small 
+amplitude waves, it is convenient to introduce the following state variables
+\begin{equation}\label{key}
+a_{ij} := \delta_{ij} - A_{ij}, \qquad d_{ij} := D_{ij}, \qquad b_{ij} := B_{ij},
+\end{equation}
+while the entropy $ s $ can be omitted from the consideration. 
+
+Let us group the unknowns degrees of freedom in a single vector $q(t,x)$
 \begin{equation}
 \begin{array}{rcl}    
-q(x,t)&=&\Big(\rho,v_{1},v_{2},v_{3}, \\
+q(t,x)&=&\Big(\rho,v_{1},v_{2},v_{3}, \\
 &&	\quad\quad	a_{11}, a_{21}, a_{31},
- 	a_{12}, a_{22}, a_{32},
-	 a_{13}, a_{23}, a_{33},\\
+a_{12}, a_{22}, a_{32},
+a_{13}, a_{23}, a_{33},\\
 && 	\quad\quad\quad 	b_{11}, b_{21}, b_{31},
-	b_{12}, b_{22}, b_{32},
- 	b_{13}, b_{23}, b_{33},\\
+b_{12}, b_{22}, b_{32},
+b_{13}, b_{23}, b_{33},\\
 &&  	\quad\quad\quad\quad d_{11}, d_{21}, d_{31},
- 		d_{12}, d_{22}, d_{32},
- 		d_{13}, d_{23}, d_{33}\Big)^T
+d_{12}, d_{22}, d_{32},
+d_{13}, d_{23}, d_{33}\Big)^T,
 \end{array}
 \end{equation}
-where $(x,t)$ dependence have been omitted. The linear system may be written as 
-\begin{equation}\label{LinSyt}
-\partial_{t}q+\mathbb{A}\partial_{x}q-\mathbb{B}q=0
+where $(t,x)$ dependence has been omitted. 
+
+By linearizing the non-linear system \eqref{PDE} near the equilibrium state
+\begin{equation}\label{equilibrium.state}
+\rho = \rho_0, \quad v_i = 0, \quad a_{ij} = \delta_{ij}, \quad d_{ij } = 0, \quad b_{ij} = 0,
 \end{equation}
-where $\mathbb{A}$ and $\mathbb{B}$ are $31\times 31$ constant matrice depending on $\rho_{0},c_{0},c_{sh},c_{sp},\mu,\varepsilon,\alpha$.\\
-Through this formulation, components of $q$, $\mathbb{A}$ and $\mathbb{B}$ do not have the same dimension, and clear analysis can't be provided efficiently. The large number of independent parameters is an other obstacle. In order to overcomes this obstacle a  non-dimensional analysis is proposed.\\
-Let first introduce the diagonal matrice:
+it can be written as a linear system
+\begin{equation}\label{LinSyst}
+\partial_{t}q+\mathbb{A}\partial_{x}q-\mathbb{B}q = 0
+\end{equation}
+where the matrices $\mathbb{A}$ and $\mathbb{B}$ are $31\times 31$ constant matrices which depend on
+$\rho_{0}$, $c_{0}$, $\csh$, $\csp$, $\mu$, $\epsilon$, and $\alpha$ and are given in Appendix\,??
+
+In this formulation, components of $q$ and entries of the matrices $\mathbb{A}$ and $\mathbb{B}$ 
+do not have the same 
+dimensions, and a clear analysis can be provided if one uses a fully dimensionless formulation, 
+which is proposed in the following section.
+
+
+\subsection{Nondimensionalization}
+
+In this section, we consider a non-dimensional version of linear system \eqref{LinSyst}, from 
+which, in particular, we shall see that there are only 3 non-dimensional governing parameters out 
+of 5 velocities 
+in \eqref{velocity.all}. 
+Let us first introduce the diagonal matrice:
 \begin{equation}
 \mathbb{O}=\text{diag}\Big(\rho_{0}\quad,
 	\underbrace{c_{0}}_\text{$3$ times },
@@ -368,58 +401,119 @@ Let first introduce the diagonal matrice:
 	\underbrace{c_{\infty}\sqrt{\mu\rho_{0}}}_{\text{$9$ times}}\quad ,\quad
 	\underbrace{c_{0}\sqrt{\varepsilon\rho_{0}}}_{\text{$9$ times}} \Big)
 \end{equation}
-where the underbrace specifies the number of duplication of each terms. As 
+where the underbrace specifies the number of duplication of each term. Because the physical 
+dimensions of the state variables are \cite{PRD-Torsion2019} ($ M $ is a unit of mass, $ L $ is 
+a unit of length, $ T $ is a unit of time)
 \begin{equation}
-\left[\rho\right]=\left[\rho_{0}\right]=\frac{M}{L^3}, \quad
-\left[v_{i}\right]=\left[c_{0}\right]=\frac{L}{T}, \quad
-\left[a_{ij}\right]=1, \quad
-\left[b_{ij}\right]=\left[c_{\infty}\sqrt{\mu\rho_{0}}\right]=\frac{1}{L^2}, \quad
-\left[d_{ij}\right]=\left[c_{0}\sqrt{\varepsilon\rho_{0}} \right]=\frac{M}{T}
+	\begin{array}{c}    
+		\left[\rho\right]=\left[\rho_{0}\right]=\dfrac{M}{L^3}, \quad
+		\left[v_{i}\right]=\left[c_{0}\right]=\dfrac{L}{T}, \quad
+		\left[a_{ij}\right]=1,\\[2mm]
+		\left[b_{ij}\right]=\left[c_{\infty}\sqrt{\mu\rho_{0}}\right]=\dfrac{1}{L^2}, \quad
+		\left[d_{ij}\right]=\left[c_{0}\sqrt{\varepsilon\rho_{0}} \right]=\dfrac{M}{T}
+	\end{array}
 \end{equation}
-we can define a non-dimensional vector of unknowns $\tilde{q}$ such that:
+we can define a non-dimensional vector of unknowns $\tilde{q}$ such that
 \begin{equation}
 q=\mathbb{O}\tilde{q}
 \end{equation}
-Then, the linear system (\ref{LinSyt}) may be writen as 
+More precisely,
+\begin{equation}\label{key}
+\rho=\rho_{0}\, \tilde{\rho}, \quad
+v_{i}=c_{0}\, \tilde{v}_{i}, \quad
+a_{ij}=\tilde{a}_{ij}, \quad
+b_{ij}=c_{\infty}\sqrt{\mu\rho_{0}}\, \tilde{b}_{ij}, \quad
+d_{ij}=c_{0}\sqrt{\varepsilon\rho_{0}}\, \tilde{d}_{ij}
+\end{equation}
+Then, linear system (\ref{LinSyst}) can be written as 
 \begin{equation}
 \partial_{t}\tilde{q}+\mathbb{O}^{-1}\mathbb{A}\mathbb{O}\partial_{x}\tilde{q}-\mathbb{O}^{-1}\mathbb{B}\mathbb{O}\tilde{q}=0
 \end{equation}
-Here, all component of $\mathbb{O}^{-1}\mathbb{A}\mathbb{O}$ have the dimension of a celerity whereas all components of  $\mathbb{O}^{-1}\mathbb{A}\mathbb{O}$ have the dimension of $T^{-1}$. At this time $x$ and $t$ are still physical dimensions. In order to introduce a pure non dimensional analysis let define a characteristic length and time 
+Here, all component of $\mathbb{O}^{-1}\mathbb{A}\mathbb{O}$ have the dimension of velocity whereas 
+all components of  $\mathbb{O}^{-1}\mathbb{A}\mathbb{O}$ have the dimension of $T^{-1}$ (inverse 
+time). At this moment, $t$ and $x$ are still dimensional. In order to introduce a pure non 
+dimensional 
+formulation let us define a characteristic length and time 
 \begin{equation}\label{CharacteristicSize}
-\ell=\alpha  \sqrt{\frac{\varepsilon}{\rho_{0}}}, \quad\quad \tau=\frac{\ell}{c_{0}}=\frac{\alpha}{c_{0}}  \sqrt{\frac{\varepsilon}{\rho_{0}}}
+\ell=\alpha  \sqrt{\frac{\varepsilon}{\rho_{0}}}, \quad\quad 
+\tau=\frac{\ell}{c_{0}}=\frac{\alpha}{c_{0}}  \sqrt{\frac{\varepsilon}{\rho_{0}}}.
 \end{equation}
-in such a way that non-dimensional space and time are respectively:
+In such a way, the non-dimensional space $ \tilde{x} $ and time $ \tilde{t} $ are
 \begin{equation}\label{Rescaling}
-\tilde{x}=\frac{x}{\ell}, \quad\quad	\tilde{t}=\frac{t}{\tau}
+\tilde{t}=\frac{t}{\tau}, \qquad \tilde{x}=\frac{x}{\ell},
 \end{equation}
-then $\partial_{x}=\frac{1}{\ell}\partial_{\tilde{x}}$ and $\partial_{t}=\frac{1}{\tau}\partial_{\tilde{t}}$. We obtain the following non-dimensional linear system 
-\begin{equation}
-\frac{1}{\tau}\partial_{\tilde{t}}\tilde{q}+\mathbb{O}^{-1}\mathbb{A}\mathbb{O}\frac{1}{\ell}\partial_{\tilde{x}}\tilde{q}-\mathbb{O}^{-1}\mathbb{B}\mathbb{O}\tilde{q}=0
-\end{equation}
-\begin{equation}
-\partial_{\tilde{t}}\tilde{q}+\frac{\tau}{\ell}\mathbb{O}^{-1}\mathbb{A}\mathbb{O}\partial_{\tilde{x}}\tilde{q}-\tau \mathbb{O}^{-1}\mathbb{B}\mathbb{O}\tilde{q}=0
-\end{equation}
+while the partial derivatives transform as $\partial_{x}=\frac{1}{\ell}\partial_{\tilde{x}}$ and 
+$\partial_{t}=\frac{1}{\tau}\partial_{\tilde{t}}$. 
+
+Finally, we obtain the following non-dimensional linear 
+system 
+%\begin{equation}
+%\frac{1}{\tau}\partial_{\tilde{t}}\tilde{q}+\mathbb{O}^{-1}\mathbb{A}\mathbb{O}\frac{1}{\ell}\partial_{\tilde{x}}\tilde{q}-\mathbb{O}^{-1}\mathbb{B}\mathbb{O}\tilde{q}=0
+%\end{equation}
+%\begin{equation}
+%\partial_{\tilde{t}}\tilde{q}+\frac{\tau}{\ell}\mathbb{O}^{-1}\mathbb{A}\mathbb{O}\partial_{\tilde{x}}\tilde{q}-\tau
+% \mathbb{O}^{-1}\mathbb{B}\mathbb{O}\tilde{q}=0
+%\end{equation}
 \begin{equation}
 \partial_{\tilde{t}}\tilde{q}+\frac{1}{c_{0}}\mathbb{O}^{-1}\mathbb{A}\mathbb{O}\partial_{\tilde{x}}\tilde{q}-\tau \mathbb{O}^{-1}\mathbb{B}\mathbb{O}\tilde{q}=0
 \end{equation}
-Introducing the matrices
-$$
+Introducing matrices
+\begin{equation}\label{nondim.matrices}
 \tilde{\mathbb{A}} = \frac{1}{c_{0}}\mathbb{O}^{-1}\mathbb{A}\mathbb{O}
 \quad\quad\quad
-\tilde{\mathbb{B}} = \tau\mathbb{O}^{-1}\mathbb{B}\mathbb{O}
-$$
+\tilde{\mathbb{B}} = \tau\,\mathbb{O}^{-1}\mathbb{B}\mathbb{O}
+\end{equation}
 we have the system of non-dimensional differential equations:
 \begin{equation}\label{SystDiffAdim}
 \boxed{\partial_{\tilde{t}}\tilde{q}+\tilde{\mathbb{A}}\partial_{\tilde{x}}\tilde{q}-\tilde{\mathbb{B}}\tilde{q}=0}
 \end{equation}
-The matrices $\tilde{\mathbb{A}}$ and $\tilde{\mathbb{B}}$ have no physical dimensions. However they depend on the physical parameters through a limited set of non dimensional parameters. More precisely, introducing
+\paragraph{Remark} The matrices $\tilde{\mathbb{A}}$ and $\tilde{\mathbb{B}}$ are non-dimensional. 
+However, they depend on the physical parameters through a limited set of non dimensional 
+parameters. More precisely, introducing
 \begin{equation}\label{CHIhpinf}
 \chi_{h}=\frac{c_{sh}}{c_{0}}, \quad\quad
 \chi_{p}=\frac{c_{sp}}{c_{0}}, \quad\quad
 \chi_{\infty}=\frac{c_{\infty}}{c_{0}}
 \end{equation}
-we have explicitely $\tilde{\mathbb{A}}:=\tilde{\mathbb{A}}(\chi_{h},\chi_{p},\chi_{\infty})$ and $\tilde{\mathbb{B}}:=\tilde{\mathbb{B}}(\chi_{h},\chi_{p})$. In other word, the non-dimensional differential system (\ref{SystDiffAdim}) is completely controlled only by three independent parameters listed in (\ref{CHIhpinf}). The influence of others parameters (typically $\alpha$) intervenes through space and/or time scaling factors according to (\ref{CharacteristicSize}) and (\ref{Rescaling}). \\
-Expanding this differential system we obtain:
+we have explicitly $\tilde{\mathbb{A}}=\tilde{\mathbb{A}}(\chi_{h},\chi_{p},\chi_{\infty})$ and 
+$\tilde{\mathbb{B}}=\tilde{\mathbb{B}}(\chi_{h},\chi_{p})$. In other word, the non-dimensional 
+differential system (\ref{SystDiffAdim}) is completely controlled only by three independent 
+parameters listed in (\ref{CHIhpinf}). The influence of others parameters ($\alpha$, $ \epsilon $, 
+and $ \mu $) 
+intervenes through space and/or time scaling factors according to (\ref{CharacteristicSize}) and 
+(\ref{Rescaling}). 
+
+\paragraph{Remark} The relation $\textbf{B}=\alpha \nabla\times \textbf{A}$ is reduced in 
+this one-dimensional case to 
+$$
+b_{ij}=\alpha \varepsilon_{j1k}\partial_{x}a_{ik},
+$$
+and hence, according to  (\ref{CharacteristicSize}) and (\ref{Rescaling}) it becomes for the new 
+non-dimensional variables
+%$$
+%c_{\infty}\sqrt{\mu\rho_{0}}\, \tilde{b}_{ai}=\sqrt{\frac{\rho_{0}}{\varepsilon}}\varepsilon_{i1k}\partial_{\tilde{x}}\tilde{a}_{ak}
+%$$
+$$
+\tilde{b}_{ij}=\varepsilon_{j1k}\partial_{\tilde{x}}\tilde{a}_{ik}
+$$
+or simply,
+\begin{equation}\label{ABrelationAdim}
+\tilde{b}_{i1}=0 , \quad \quad
+\tilde{b}_{i2}=
+%\varepsilon_{21k}\partial_{\tilde{x}}\tilde{a}_{ak}= \varepsilon_{213}\partial_{\tilde{x}}\tilde{a}_{a3}=
+ -\partial_{\tilde{x}}\tilde{a}_{i3},
+\quad\quad\quad
+\tilde{b}_{i3}=
+%\varepsilon_{31k}\partial_{\tilde{x}}\tilde{a}_{ak}= \varepsilon_{212}\partial_{\tilde{x}}\tilde{a}_{a2}=
+ \partial_{\tilde{x}}\tilde{a}_{i2},
+ \quad\quad
+ \forall i=\{1,2,3\}
+\end{equation}.
+
+
+\paragraph{Remark} Expanding the differential system (\ref{SystDiffAdim}) we obtain:\\
+\IP{I will rewrite the system in a more concise form. I will also write matrices explicitly in the 
+appendix...}
 $$
 \begin{array}{rcl}
 \partial_{t}{\tilde{\rho }}+\partial_{x}{\tilde{v}_1}&=&0,\\   
@@ -452,7 +546,7 @@ $$
 -\chi _h^2\left(\tilde{a}_{23}+\tilde{a}_{32}\right) +\chi _{\infty}^2\partial_{x}{\tilde{b}_{33}}+\partial_{t}{\tilde{d}_{32}}&=&0,\\   
 -\chi _h^2\left(\tilde{a}_{13}+\tilde{a}_{31}\right)-\chi _{\infty }^2 \partial_{x}{\tilde{b}_{12}}+\partial_{t}{\tilde{d}_{13}}-\chi _p\partial_{x}{\tilde{d}_{13}}&=&0,\\   
 - \chi _h^2\left(\tilde{a}_{23}+\tilde{a}_{32}\right)-\chi _{\infty}^2 \partial_{x}{\tilde{b}_{22}}+\partial_{t}{\tilde{d}_{23}}&=&0,\\   
-\frac{2}{3}\chi _h^2\left(\tilde{a}_{11}+\tilde{a}_{22}-2 \tilde{a}_{33}\right) -\chi _{\infty }^2\partial_{x}{\tilde{b}_{32}}+\partial_{t}{\tilde{d}_{33}}+\chi _p \partial_{x}{\tilde{d}_{31}}
+\frac{2}{3}\chi _h^2\left(\tilde{a}_{11}+\tilde{a}_{22}-2 \tilde{a}_{33}\right) -\chi _{\infty }^2\partial_{x}{\tilde{b}_{32}}+\partial_{t}{\tilde{d}_{33}}+\chi _p \partial_{x}{\tilde{d}_{31}}&=&0.
    \end{array}
    $$
 %-------------------------------------
@@ -460,10 +554,12 @@ $$
 %-------------------------------------
 Let consider harmonic variations in time an space such that 
 $$
-\tilde{q}(x,t)=\tilde{Q}e^{i(\omega \tilde{t}-k\tilde{x})}
+\tilde{q}(t,x)=\tilde{Q}e^{i(\omega \tilde{t}-k\tilde{x})}
 $$
-then $\partial_{\tilde{x}}\tilde{q}(x,t)=-ik\tilde{q}(x,t)$ and $\partial_{\tilde{t}}\tilde{q}(x,t)=i\omega\tilde{q}(x,t)$, the differential system \ref{SystDiffAdim} becomes the following algebraic ones
-\begin{equation}\label{SystDiffAdim}
+then $\partial_{\tilde{x}}\tilde{q}(t,x)=-ik\tilde{q}(t,x)$ and 
+$\partial_{\tilde{t}}\tilde{q}(t,x)=i\omega\tilde{q}(t,x)$, the differential system 
+\eqref{SystDiffAdim} becomes the following algebraic ones
+\begin{equation}
 \left(\omega\mathbb{I} -k\tilde{\mathbb{A}}+i\tilde{\mathbb{B}}\right)Q=0
 \end{equation}
 in other words $Q$ is an eigenvector associated to the eigenvalue $\omega$ of the linear system $k\tilde{\mathbb{A}}-i\tilde{\mathbb{B}}$, \textit{ie}:
@@ -534,6 +630,109 @@ where $k(\omega)$ is the dispersion relation of the corresponding mode. (Rudin, 
 $$
 \boxed{\omega_{z}=\pm\frac{2}{\sqrt{3}}\frac{\chi_{h}}{\sqrt {1+\frac{4}{3}\chi_{h}^2}}\quad =\pm\frac{2}{\sqrt{3}}\frac{c_{h}}{c_{l}}}
 $$
+
+
+%-------------------------------------
+\section{Time-invariant  eigen-solution of the problem}
+%-------------------------------------
+Eleven solutions of \ref{SystDiffAdim} are associated to time-invariant solution as $\omega=0$ is a multiple roots of order $11$ according to $\mathcal{D}_{0}$. These solutions are analyzed below. These solutions may seen as the eigenvectors of $k\tilde{\mathbb{A}}-i\tilde{\mathbb{B}}$ associated a zero eigenvalues. The set of eigenvectors, may be decomposed by introducing sub-set for which the component are independent. 
+%-------------------------------------
+\subsection{Trivial eigenvectors}
+%-------------------------------------
+We present here the eigenvectors containing only two non-null components. They are all independent and no space derivative is involved. In other word they imply simple relation between degree of freedom. 
+\begin{itemize}
+\item Two eigenvectors are related to the non-diagonal distorsion containing the propagation direction. They impose skew-symmetry of these components:
+$$
+a_{12}=-a_{21}, \quad\quad
+a_{31}=-a_{13}
+$$
+\item For the incompatibility tensor, no specific constraint is imposed on $b_{11}$. Hence the solution $b_{11}(x)\neq 0$ (but all other component being set to zero) is an eigenvector of the static problem. 
+\item Inertia and incompatibility are coupled through the relation:
+$$
+d_{23}=+\chi_{p}b_{21}, \quad\quad\quad
+d_{32}=-\chi_{p}b_{31}
+$$
+\end{itemize}
+According to (\ref{ABrelationAdim}), the second point is satisfied as $b_{11}=0$ and the last point just imposes
+$$
+d_{23}=0, \quad\quad\quad
+d_{32}=0
+$$
+%-------------------------------------
+\subsection{Distortion and incompatibility relation}
+%-------------------------------------
+A couple of independent eigenvectors involves the components $b_{22}$, $b_{33}$ of the incompatibility tensor and $a_{32}$ and $a_{23}$. They are related to the differential equation:
+\begin{equation}\label{DistortionIncompatibility1}
+\begin{array}{rcl}
+\partial_{x}b_{22}&=&-(\frac{\chi_{h}}{\chi_{\infty}})^2\left(a_{23}+a_{32}\right)\\
+\partial_{x}b_{33}&=&+(\frac{\chi_{h}}{\chi_{\infty}})^2\left(a_{23}+a_{32}\right)
+\end{array}
+\end{equation}
+Hence if $a_{23}=-a_{32}$, then $b_{22}$ and $b_{33}$ are constant, but if it's not the case, they still vary in opposite manner, proportionally to this lake of skew-symmetry of the distorsion tensor. \\
+According to (\ref{ABrelationAdim}), $b_{22}=-\partial_{\tilde{x}}\tilde{a}_{23}$ and $b_{33}=\partial_{\tilde{x}}\tilde{a}_{32}$. Injecting these relations in (\ref{DistortionIncompatibility1}):
+\begin{equation}\label{DistortionIncompatibility2}
+\begin{array}{rcl}
+-\partial_{\tilde{x}}^2\tilde{a}_{23}&=&-(\frac{\chi_{h}}{\chi_{\infty}})^2\left(a_{23}+a_{32}\right)\\
+\partial_{\tilde{x}}^2\tilde{a}_{32}&=&+(\frac{\chi_{h}}{\chi_{\infty}})^2\left(a_{23}+a_{32}\right)
+\end{array}
+\end{equation}
+Then 
+$$
+\partial_{\tilde{x}}^2(\tilde{a}_{23}+\tilde{a}_{32})-(\frac{\chi_{h}}{\chi_{\infty}})^2\left(a_{23}+a_{32}\right)=0
+$$
+then these non-diagonal termes are opposite up to an harmonic function 
+$$
+\tilde{a}_{23}+\tilde{a}_{32}=a_{23}^0\cos{(\frac{\chi_{h}}{\chi_{\infty}}\tilde{x}})+a_{23}^1\sin{(\frac{\chi_{h}}{\chi_{\infty}}\tilde{x}}),
+\quad\quad\quad\textrm{with}\quad
+\frac{\chi_{h}}{\chi_{\infty}}=\frac{c_{h}}{c_{\infty}}
+$$
+where $a^0$ and $a^1$ are defined by boundary conditions. In infinite domain along $x$, $a^0$ and $a^1$ are arbitrary. 
+%-------------------------------------
+\subsection{Static system associated to velocity field}
+%-------------------------------------
+The last set involves the out-of-plane velocity $v_{2}$ and $v_{3}$ and the following  degrees of freedom $a_{11}, \ a_{22}, \ a_{33}$, $b_{32}, \ b_{23}, \ d_{21}, \ d_{31}$. They are coupled through the following system.
+\begin{equation}
+\begin{array}{rcl}
+\tilde{a}_{11}&=&\frac{1}{2}\left(\tilde{a}_{22}+\tilde{a}_{33}\right)  \\[8pt]
+ \chi_p \tilde{b}_{23}+\tilde{d}_{21}+\partial_{x}\tilde{v}_2&=&0 \\
+\chi _{\infty }^2\partial_{x}\tilde{b}_{23}+\chi _p \partial_{x}\tilde{d}_{21} &=&\chi _h^2 \left(\tilde{a}_{22}-\tilde{a}_{33}\right)\\[8pt]
+-\chi_p \tilde{b}_{32}+\tilde{d}_{31}+\partial_{x}\tilde{v}_3&=&0 \\
+- \chi _{\infty }^2\partial_{x}\tilde{b}_{32}+\chi _p \partial_{x}\tilde{d}_{31}&=&\chi _h^2 \left(\tilde{a}_{33}-\tilde{a}_{22}\right)
+\end{array}
+\end{equation}   
+\begin{itemize}
+\item If $a_{22}=a_{33}$ the first equation imply $a_{11}=a_{22}=a_{33}$ and the 4 others equations may be decomposed of two independ system of equation involving transverse (or out-of-plane) velocity field $v_{2}$ and $v_{3}$ respectively. Hence the condition $a_{11}=a_{22}=a_{33}$ is a necessary condition to observe decoupling between the two out of plane motion. Note that  skew-symmetry of $a$ is a sufficient condition for this decoupling. Still for this uncoupled situation, let consider the equation of motion in the $(\boldsymbol{e_{1}},\boldsymbol{e_{2}})$-plane:
+$$
+\begin{array}{rcl}
+ \chi_p \tilde{b}_{23}+\tilde{d}_{21}+\partial_{x}\tilde{v}_2&=&0 \\
+\chi _{\infty }^2\partial_{x}\tilde{b}_{23}+\chi _p \partial_{x}\tilde{d}_{21} &=&0\\[8pt]
+\end{array}
+$$
+According to (\ref{ABrelationAdim}), $\tilde{b}_{23}= \partial_{\tilde{x}}\tilde{a}_{22}$:
+$$
+\begin{array}{rcl}
+ \chi_p\partial_{\tilde{x}}\tilde{a}_{22}+\tilde{d}_{21}+\partial_{x}\tilde{v}_2&=&0 \\
+\chi _{\infty }^2\partial_{\tilde{x}}^2\tilde{a}_{22}+\chi _p \partial_{x}\tilde{d}_{21} &=&0\\[8pt]
+\end{array}
+$$
+Then:
+$$
+\tilde{d}_{21}=-\frac{\chi _{\infty }^2}{\chi _p}\partial_{\tilde{x}}\tilde{a}_{22},
+\quad\quad\quad
+\tilde{v}_2 =\frac{\chi _{\infty}^2-\chi _p^2}{\chi _p}\tilde{a}_{22}
+$$
+For the problem in the $(\boldsymbol{e_{1}},\boldsymbol{e_{3}})$-plane, we have according to (\ref{ABrelationAdim}) $\tilde{b}_{32}=- \partial_{\tilde{x}}\tilde{a}_{33}$. After computation we obtain:
+$$
+\tilde{d}_{31}=-\frac{\chi _{\infty }^2}{\chi _p}\partial_{\tilde{x}}\tilde{a}_{33},
+\quad\quad\quad
+\tilde{v}_3 =\frac{\chi _{\infty}^2-\chi _p^2}{\chi _p}\tilde{a}_{33}
+$$
+However as $\tilde{a}_{22}=\tilde{a}_{33}$, we observe that for this situation $\tilde{d}_{31}=\tilde{d}_{21}$ and $\tilde{v}_2=\tilde{v}_3$.
+\item \textcolor{magenta}{TO BE CONTINUED}If $a_{22}=-a_{33}$ we have (after using (\ref{ABrelationAdim}) again) necesseraly
+$$
+\partial_{\tilde{x}}\tilde{d}_{21}=-\partial_{\tilde{x}}\tilde{d}_{31}=\frac{1}{\chi_{p}}\left( 2\chi_{h}^2a_{22}-\chi_{\infty}^2\partial_{\tilde{x}}^2a_{22}\right)
+$$ 
+\end{itemize}
 
 %-------------------------------------
 \subsection{Elastic problem}
