@@ -57,6 +57,8 @@ dottedtoc % Dotted lines leading to the page numbers in the table of contents
 
 \usepackage{titling} % it needs to define \thanksmarkseries
 
+\usepackage{thmtools}
+
 %----------------------------------------------------------------------------------------
 % NEW COMMANDS
 %----------------------------------------------------------------------------------------
@@ -222,4 +224,15 @@ backref,backrefstyle=none,maxbibnames=99]{biblatex}
 
 % ------------------------------------------------------------------------------
 \newcommand*\samethanks[1][\value{footnote}]{\footnotemark[#1]}
+
+% Theoreme style:
+\declaretheoremstyle[
+headfont=\color{black}\normalfont\bfseries,
+bodyfont=\color{black}\normalfont\itshape,
+]{colored}
+
+\declaretheorem[
+style=colored,
+name=Remark,
+]{remark}
 

@@ -64,17 +64,17 @@ Riemann-Cartan geometry framework}} % The article
 
 \author{
 %	author1:
-\normalsize\textsc{Ilya Peshkov}\thanks{Paul Sabatier 
-University, IMT, Toulouse, France},\ \ 
-%	author2:
 \normalsize\textsc{Lo\"ic Le Marrec}\thanks{Université de 
-	Rennes I, IRMAR, Rennes, France},\ \ 
+	Rennes I, IRMAR, Rennes, France},\qquad
+%	author2:
+\normalsize\textsc{Ilya Peshkov},\thanks{University of Trento, Trento, Italy}$\ \, ^, $\thanks{The 
+work by I.P. has been started while being at Paul Sabatier 	University, IMT, Toulouse, France}\ \ 
 %	author3:
-\normalsize\textsc{Van Hoi Nguyen(?)}\samethanks[2],\ \
-%	author4:
-\normalsize\textsc{Evgeniy Romenski(?)}\thanks{Sobolev 
-	Institute of Mathematics, Novosibirsk, Russia}$\ \, ^, $\thanks{Novosibirsk 
-	State University, Novosibirsk, Russia}
+%\normalsize\textsc{Van Hoi Nguyen(?)}\samethanks[1],\ \
+%%	author4:
+%\normalsize\textsc{Evgeniy Romenski(?)}\thanks{Sobolev 
+%	Institute of Mathematics, Novosibirsk, Russia}$\ \, ^, $\thanks{Novosibirsk 
+%	State University, Novosibirsk, Russia}
 %\ldots 
 }
 \thanksmarkseries{arabic}
@@ -376,7 +376,7 @@ By linearizing the non-linear system \eqref{PDE} near the equilibrium state
 \end{equation}
 it can be written as a linear system
 \begin{equation}\label{LinSyst}
-\partial_{t}q+\mathbb{A}\partial_{x}q-\mathbb{B}q = 0
+\pd_{t}q+\mathbb{A}\pd_{x}q-\mathbb{B}q = 0
 \end{equation}
 where the matrices $\mathbb{A}$ and $\mathbb{B}$ are $31\times 31$ constant matrices which depend on
 $\rho_{0}$, $c_{0}$, $\csh$, $\csp$, $\mu$, $\epsilon$, and $\alpha$ and are given in Appendix\,??
@@ -427,7 +427,7 @@ d_{ij}=c_{0}\sqrt{\varepsilon\rho_{0}}\, \tilde{d}_{ij}
 \end{equation}
 Then, linear system (\ref{LinSyst}) can be written as 
 \begin{equation}
-\partial_{t}\tilde{q}+\mathbb{O}^{-1}\mathbb{A}\mathbb{O}\partial_{x}\tilde{q}-\mathbb{O}^{-1}\mathbb{B}\mathbb{O}\tilde{q}=0
+\pd_{t}\tilde{q}+\mathbb{O}^{-1}\mathbb{A}\mathbb{O}\pd_{x}\tilde{q}-\mathbb{O}^{-1}\mathbb{B}\mathbb{O}\tilde{q}=0
 \end{equation}
 Here, all component of $\mathbb{O}^{-1}\mathbb{A}\mathbb{O}$ have the dimension of velocity whereas 
 all components of  $\mathbb{O}^{-1}\mathbb{A}\mathbb{O}$ have the dimension of $T^{-1}$ (inverse 
@@ -442,20 +442,21 @@ In such a way, the non-dimensional space $ \tilde{x} $ and time $ \tilde{t} $ ar
 \begin{equation}\label{Rescaling}
 \tilde{t}=\frac{t}{\tau}, \qquad \tilde{x}=\frac{x}{\ell},
 \end{equation}
-while the partial derivatives transform as $\partial_{x}=\frac{1}{\ell}\partial_{\tilde{x}}$ and 
-$\partial_{t}=\frac{1}{\tau}\partial_{\tilde{t}}$. 
+while the partial derivatives transform as $\pd_{x}=\frac{1}{\ell}\pd_{\tilde{x}}$ and 
+$\pd_{t}=\frac{1}{\tau}\pd_{\tilde{t}}$. 
 
 Finally, we obtain the following non-dimensional linear 
 system 
 %\begin{equation}
-%\frac{1}{\tau}\partial_{\tilde{t}}\tilde{q}+\mathbb{O}^{-1}\mathbb{A}\mathbb{O}\frac{1}{\ell}\partial_{\tilde{x}}\tilde{q}-\mathbb{O}^{-1}\mathbb{B}\mathbb{O}\tilde{q}=0
+%\frac{1}{\tau}\pd_{\tilde{t}}\tilde{q}+\mathbb{O}^{-1}\mathbb{A}\mathbb{O}\frac{1}{\ell}\pd_{\tilde{x}}\tilde{q}-\mathbb{O}^{-1}\mathbb{B}\mathbb{O}\tilde{q}=0
 %\end{equation}
 %\begin{equation}
-%\partial_{\tilde{t}}\tilde{q}+\frac{\tau}{\ell}\mathbb{O}^{-1}\mathbb{A}\mathbb{O}\partial_{\tilde{x}}\tilde{q}-\tau
+%\pd_{\tilde{t}}\tilde{q}+\frac{\tau}{\ell}\mathbb{O}^{-1}\mathbb{A}\mathbb{O}\pd_{\tilde{x}}\tilde{q}-\tau
 % \mathbb{O}^{-1}\mathbb{B}\mathbb{O}\tilde{q}=0
 %\end{equation}
 \begin{equation}
-\partial_{\tilde{t}}\tilde{q}+\frac{1}{c_{0}}\mathbb{O}^{-1}\mathbb{A}\mathbb{O}\partial_{\tilde{x}}\tilde{q}-\tau \mathbb{O}^{-1}\mathbb{B}\mathbb{O}\tilde{q}=0
+\pd_{\tilde{t}}\tilde{q}+\frac{1}{c_{0}}\mathbb{O}^{-1}\mathbb{A}\mathbb{O}\pd_{\tilde{x}}\tilde{q}-\tau
+ \mathbb{O}^{-1}\mathbb{B}\mathbb{O}\tilde{q}=0
 \end{equation}
 Introducing matrices
 \begin{equation}\label{nondim.matrices}
@@ -465,14 +466,15 @@ Introducing matrices
 \end{equation}
 we have the system of non-dimensional differential equations:
 \begin{equation}\label{SystDiffAdim}
-\boxed{\partial_{\tilde{t}}\tilde{q}+\tilde{\mathbb{A}}\partial_{\tilde{x}}\tilde{q}-\tilde{\mathbb{B}}\tilde{q}=0}
+\boxed{\pd_{\tilde{t}}\tilde{q}+\tilde{\mathbb{A}}\pd_{\tilde{x}}\tilde{q}-\tilde{\mathbb{B}}\tilde{q}=0}
 \end{equation}
-\paragraph{Remark} The matrices $\tilde{\mathbb{A}}$ and $\tilde{\mathbb{B}}$ are non-dimensional. 
+
+\begin{remark} The matrices $\tilde{\mathbb{A}}$ and $\tilde{\mathbb{B}}$ are non-dimensional. 
 However, they depend on the physical parameters through a limited set of non dimensional 
 parameters. More precisely, introducing
 \begin{equation}\label{CHIhpinf}
-\chi_{h}=\frac{c_{sh}}{c_{0}}, \quad\quad
-\chi_{p}=\frac{c_{sp}}{c_{0}}, \quad\quad
+\chi_{h}=\frac{\csh}{c_{0}}, \quad\quad
+\chi_{p}=\frac{\csp}{c_{0}}, \quad\quad
 \chi_{\infty}=\frac{c_{\infty}}{c_{0}}
 \end{equation}
 we have explicitly $\tilde{\mathbb{A}}=\tilde{\mathbb{A}}(\chi_{h},\chi_{p},\chi_{\infty})$ and 
@@ -481,74 +483,118 @@ differential system (\ref{SystDiffAdim}) is completely controlled only by three 
 parameters listed in (\ref{CHIhpinf}). The influence of others parameters ($\alpha$, $ \epsilon $, 
 and $ \mu $) 
 intervenes through space and/or time scaling factors according to (\ref{CharacteristicSize}) and 
-(\ref{Rescaling}). 
+(\ref{Rescaling}).
+\end{remark} 
 
-\paragraph{Remark} The relation $\textbf{B}=\alpha \nabla\times \textbf{A}$ is reduced in 
+\begin{remark} The relation $\textbf{B}=\alpha \nabla\times \textbf{A}$ is reduced in 
 this one-dimensional case to 
 $$
-b_{ij}=\alpha \varepsilon_{j1k}\partial_{x}a_{ik},
+b_{ij}=\alpha \varepsilon_{j1k}\pd_{x}a_{ik},
 $$
 and hence, according to  (\ref{CharacteristicSize}) and (\ref{Rescaling}) it becomes for the new 
 non-dimensional variables
 %$$
-%c_{\infty}\sqrt{\mu\rho_{0}}\, \tilde{b}_{ai}=\sqrt{\frac{\rho_{0}}{\varepsilon}}\varepsilon_{i1k}\partial_{\tilde{x}}\tilde{a}_{ak}
+%c_{\infty}\sqrt{\mu\rho_{0}}\, 
+%\tilde{b}_{ai}=\sqrt{\frac{\rho_{0}}{\varepsilon}}\varepsilon_{i1k}\pd_{\tilde{x}}\tilde{a}_{ak}
 %$$
 $$
-\tilde{b}_{ij}=\varepsilon_{j1k}\partial_{\tilde{x}}\tilde{a}_{ik}
+\tilde{b}_{ij}=\varepsilon_{j1k}\pd_{\tilde{x}}\tilde{a}_{ik}
 $$
 or simply,
 \begin{equation}\label{ABrelationAdim}
 \tilde{b}_{i1}=0 , \quad \quad
 \tilde{b}_{i2}=
-%\varepsilon_{21k}\partial_{\tilde{x}}\tilde{a}_{ak}= \varepsilon_{213}\partial_{\tilde{x}}\tilde{a}_{a3}=
- -\partial_{\tilde{x}}\tilde{a}_{i3},
+%\varepsilon_{21k}\pd_{\tilde{x}}\tilde{a}_{ak}= \varepsilon_{213}\pd_{\tilde{x}}\tilde{a}_{a3}=
+ -\pd_{\tilde{x}}\tilde{a}_{i3},
 \quad\quad\quad
 \tilde{b}_{i3}=
-%\varepsilon_{31k}\partial_{\tilde{x}}\tilde{a}_{ak}= \varepsilon_{212}\partial_{\tilde{x}}\tilde{a}_{a2}=
- \partial_{\tilde{x}}\tilde{a}_{i2},
+%\varepsilon_{31k}\pd_{\tilde{x}}\tilde{a}_{ak}= \varepsilon_{212}\pd_{\tilde{x}}\tilde{a}_{a2}=
+ \pd_{\tilde{x}}\tilde{a}_{i2},
  \quad\quad
- \forall i=\{1,2,3\}
-\end{equation}.
+ \forall i=\{1,2,3\}.
+\end{equation}
+\end{remark}
 
 
-\paragraph{Remark} Expanding the differential system (\ref{SystDiffAdim}) we obtain:\\
-\IP{I will rewrite the system in a more concise form. I will also write matrices explicitly in the 
-appendix...}
+\begin{remark} Expanding the differential system (\ref{SystDiffAdim}) we obtain:\\
 $$
 \begin{array}{rcl}
-\partial_{t}{\tilde{\rho }}+\partial_{x}{\tilde{v}_1}&=&0,\\   
-\frac{2}{3} \chi _h^2 \left(2   \partial_{x}{\tilde{a}_{11}}-\partial_{x}{\tilde{a}_{22}}-\partial_{x}{\tilde{a}_{33}}\right)+\partial_{t}{\tilde{v}_1}+\partial_{x}{\tilde{\rho }}&=&0,\\   
-\chi _h^2   \left(\partial_{x}{\tilde{a}_{12}}+\partial_{x}{\tilde{a}_{21}}\right)+\partial_{t}{\tilde{v}_2}&=&0,\\   
-\chi_h^2\left(\partial_{x}{\tilde{a}_{13}}+\partial_{x}{\tilde{a}_{31}}\right)+\partial_{t}{\tilde{v}_3}&=&0,\\   
-\partial_{t}{\tilde{a}_{11}}+\tilde{d}_{11}+\partial_{x}{\tilde{v}_1}&=&0,\\   
-\partial_{t}{\tilde{a}_{21}}+\chi _p\tilde{b}_{23} +\tilde{d}_{21}+\partial_{x}{\tilde{v}_2}&=&0,\\   
-\partial_{t}{\tilde{a}_{31}}-\chi _p\tilde{b}_{32}+\tilde{d}_{31}+\partial_{x}{\tilde{v}_3}&=&0,\\   
-\partial_{t}{\tilde{a}_{12}}-\chi_p\tilde{b}_{13} +\tilde{d}_{12}&=&0,\\   
-\partial_{t}{\tilde{a}_{22}}+\tilde{d}_{22}&=&0,\\   
-\partial_{t}{\tilde{a}_{32}}+\chi _p\tilde{b}_{31} +\tilde{d}_{32}&=&0,\\   
-\partial_{t}{\tilde{a}_{13}}+\chi_p\tilde{b}_{12} +\tilde{d}_{13}&=&0,\\   
-\partial_{t}{\tilde{a}_{23}}-\chi_p\tilde{b}_{21} +\tilde{d}_{23}&=&0,\\   
-\partial_{t}{\tilde{a}_{33}}+\tilde{d}_{33}&=&0,\\   
-\partial_{t}{\tilde{b}_{11}}&=&0,\\   
-\partial_{t}{\tilde{b}_{21}}&=&0,\\   
-\partial_{t}{\tilde{b}_{31}}&=&0,\\   
-\partial_{t}{\tilde{b}_{12}}-\chi _p\partial_{x}{\tilde{b}_{12}}-\partial_{x}{\tilde{d}_{13}}&=&0,\\   
-\partial_{t}{\tilde{b}_{22}}+\chi _p\partial_{x}{\tilde{b}_{21}}-\partial_{x}{\tilde{d}_{23}}&=&0,\\   
-\partial_{t}{\tilde{b}_{32}}-\partial_{x}{\tilde{d}_{33}}&=&0,\\   
-\partial_{t}{\tilde{b}_{13}}-\chi _p\partial_{x}{\tilde{b}_{13}}+\partial_{x}{\tilde{d}_{12}}&=&0,\\   
-\partial_{t}{\tilde{b}_{23}}+\partial_{x}{\tilde{d}_{22}}&=&0,\\   
-\partial_{t}{\tilde{b}_{33}}+\chi _p\partial_{x}{\tilde{b}_{31}}+\partial_{x}{\tilde{d}_{32}}&=&0,\\   
-\frac{1}{3}\chi _h^2 \left(2 \left(-2\tilde{a}_{11}+\tilde{a}_{22}+\tilde{a}_{33}\right) +3\partial_{t}{\tilde{d}_{11}}\right)&=&0,\\   
-\partial_{t}{\tilde{d}_{21}}-\chi _h^2\left(\tilde{a}_{12}+\tilde{a}_{21}\right) &=&0,\\   
-\partial_{t}{\tilde{d}_{31}}-\chi _h^2\left(\tilde{a}_{13}+\tilde{a}_{31}\right) &=&0,\\   
--\left(\tilde{a}_{12}+\tilde{a}_{21}\right) \chi _h^2+\chi _{\infty }^2\partial_{x}{\tilde{b}_{13}}+\partial_{t}{\tilde{d}_{12}}-\chi _p\partial_{x}{\tilde{d}_{12}}&=&0,\\   
-\frac{2}{3} \chi _h^2 \left(\tilde{a}_{11}-2\tilde{a}_{22}+\tilde{a}_{33}\right)+\chi _{\infty }^2\partial_{x}{\tilde{b}_{23}}+\partial_{t}{\tilde{d}_{22}}+\chi _p\partial_{x}{\tilde{d}_{21}}&=&0,\\   
--\chi _h^2\left(\tilde{a}_{23}+\tilde{a}_{32}\right) +\chi _{\infty}^2\partial_{x}{\tilde{b}_{33}}+\partial_{t}{\tilde{d}_{32}}&=&0,\\   
--\chi _h^2\left(\tilde{a}_{13}+\tilde{a}_{31}\right)-\chi _{\infty }^2 \partial_{x}{\tilde{b}_{12}}+\partial_{t}{\tilde{d}_{13}}-\chi _p\partial_{x}{\tilde{d}_{13}}&=&0,\\   
-- \chi _h^2\left(\tilde{a}_{23}+\tilde{a}_{32}\right)-\chi _{\infty}^2 \partial_{x}{\tilde{b}_{22}}+\partial_{t}{\tilde{d}_{23}}&=&0,\\   
-\frac{2}{3}\chi _h^2\left(\tilde{a}_{11}+\tilde{a}_{22}-2 \tilde{a}_{33}\right) -\chi _{\infty }^2\partial_{x}{\tilde{b}_{32}}+\partial_{t}{\tilde{d}_{33}}+\chi _p \partial_{x}{\tilde{d}_{31}}&=&0.
+\pd_{t}{\tilde{\rho }}+\pd_{x}{\tilde{v}_1}&=&0,\\[1mm]
+%MOMENTUM:
+\pd_{t}{\tilde{v}_1} + \pd_{x}{\tilde{\rho
+}} + \frac{2}{3} \chi _h^2 \pd_{x} \left(2   
+\tilde{a}_{11} - \tilde{a}_{22} - \tilde{a}_{33}\right)&=&0,\\[1mm]
+%
+\pd_t\tilde{v}_2 + \chi _h^2   
+\pd_{x} \left(\tilde{a}_{12} + \tilde{a}_{21}\right)&=&0,\\[1mm]
+%
+\pd_{t}\tilde{v}_3 + \chi_h^2 \pd_{x} \left(\tilde{a}_{13} + \tilde{a}_{31} \right)&=&0,\\[1mm]
+%DISTORTION:
+\pd_{t}{\tilde{a}_{11}}+\pd_{x}{\tilde{v}_1}&=&-\tilde{d}_{11},\\[1mm]
+%    
+\pd_{t}{\tilde{a}_{21}}+\pd_{x}{\tilde{v}_2}&=&- \tilde{d}_{21} - \chi _p\tilde{b}_{23},\\[1mm]
+%
+\pd_{t}{\tilde{a}_{31}}+\pd_{x}{\tilde{v}_3}&=& - \tilde{d}_{31} + \chi _p\tilde{b}_{32},\\[1mm]
+%
+\pd_{t}{\tilde{a}_{12}}&=&- \tilde{d}_{12} + \chi_p\tilde{b}_{13},\\[1mm]
+%
+\pd_{t}{\tilde{a}_{22}}&=&- \tilde{d}_{22},\\[1mm]
+%
+\pd_{t}{\tilde{a}_{32}}&=&-\tilde{d}_{32} - \chi _p\tilde{b}_{31},\\[1mm]
+%
+\pd_{t}{\tilde{a}_{13}}&=& - \tilde{d}_{13} -\chi_p\tilde{b}_{12},\\[1mm]
+%
+\pd_{t}{\tilde{a}_{23}}&=& -\tilde{d}_{23} + \chi_p\tilde{b}_{21},\\[1mm]%
+%
+\pd_{t}{\tilde{a}_{33}}&=& - \tilde{d}_{33},\\[1mm]
+%BUrgers
+\pd_{t}{\tilde{b}_{i1}}&=&0,\\[1mm]
+%
+\pd_{t}{\tilde{b}_{12}}- \pd_{x} (\chi_p{\tilde{b}_{12}} + {\tilde{d}_{13}})&=&0,\\[1mm]
+%
+\pd_{t}{\tilde{b}_{22}} + \pd_{x} (\chi _p{\tilde{b}_{21}} - {\tilde{d}_{23}})&=&0,\\[1mm]
+%
+\pd_{t}{\tilde{b}_{32}}-\pd_{x}{\tilde{d}_{33}}&=&0,\\[1mm]
+%
+\pd_{t}{\tilde{b}_{13}} - \pd_{x}(\chi_p\tilde{b}_{13} - \tilde{d}_{12})&=&0,\\[1mm]
+%
+\pd_{t}{\tilde{b}_{23}}+\pd_{x}{\tilde{d}_{22}}&=&0,\\[1mm]
+%
+\pd_{t}{\tilde{b}_{33}} + \pd_{x}(\chi_p\tilde{b}_{31}+\tilde{d}_{32})&=&0,\\[1mm]
+%
+\pd_{t}{\tilde{d}_{11}} &=& -  \frac{2}{3}\chi_h^2 
+\left(-2\tilde{a}_{11}+\tilde{a}_{22}+\tilde{a}_{33}\right) ,\\[1mm]
+%
+\pd_{t}{\tilde{d}_{21}} &=& \chi _h^2\left(\tilde{a}_{12}+\tilde{a}_{21}\right) ,\\[1mm]
+%
+\pd_{t}{\tilde{d}_{31}} &=& \chi _h^2\left(\tilde{a}_{13}+\tilde{a}_{31}\right),\\[1mm]
+%
+\pd_{t}{\tilde{d}_{12}} +\chi _{\infty 
+}^2\pd_{x}{\tilde{b}_{13}}-\chi _p\pd_{x}{\tilde{d}_{12}}&=& \chi _h^2 
+\left(\tilde{a}_{12}+\tilde{a}_{21}\right),\\[1mm]
+%
+\pd_{t}{\tilde{d}_{22}} + \chi _{\infty 
+}^2\pd_{x}{\tilde{b}_{23}}+\chi _p\pd_{x}{\tilde{d}_{21}}&=&-\frac{2}{3} \chi _h^2 
+\left(\tilde{a}_{11}-2\tilde{a}_{22}+\tilde{a}_{33}\right),\\[1mm]
+%
+\pd_{t}{\tilde{d}_{32}} + \chi 
+_{\infty}^2\pd_{x}{\tilde{b}_{33}}&=& \chi _h^2\left(\tilde{a}_{23}+\tilde{a}_{32}\right),\\[1mm]
+%
+\pd_{t}{\tilde{d}_{13}} -\chi _{\infty }^2 
+\pd_{x}{\tilde{b}_{12}}-\chi _p\pd_{x}{\tilde{d}_{13}}&=& 
+\chi_h^2\left(\tilde{a}_{13}+\tilde{a}_{31}\right),\\[1mm]
+%
+\pd_{t}{\tilde{d}_{23}} -\chi _{\infty}^2 
+\pd_{x}{\tilde{b}_{22}}&=& \chi _h^2\left(\tilde{a}_{23}+\tilde{a}_{32}\right),\\[1mm]
+%
+\pd_{t}{\tilde{d}_{33}}  -\chi _{\infty 
+}^2\pd_{x}{\tilde{b}_{32}}+\chi _p \pd_{x}{\tilde{d}_{31}}&=& -\frac{2}{3}\chi 
+_h^2\left(\tilde{a}_{11}+\tilde{a}_{22}-2 \tilde{a}_{33}\right).
    \end{array}
    $$
+\end{remark}
+   
+   
 %-------------------------------------
 \section{Dispersion relation}
 %-------------------------------------
@@ -556,8 +602,8 @@ Let consider harmonic variations in time an space such that
 $$
 \tilde{q}(t,x)=\tilde{Q}e^{i(\omega \tilde{t}-k\tilde{x})}
 $$
-then $\partial_{\tilde{x}}\tilde{q}(t,x)=-ik\tilde{q}(t,x)$ and 
-$\partial_{\tilde{t}}\tilde{q}(t,x)=i\omega\tilde{q}(t,x)$, the differential system 
+then $\pd_{\tilde{x}}\tilde{q}(t,x)=-ik\tilde{q}(t,x)$ and 
+$\pd_{\tilde{t}}\tilde{q}(t,x)=i\omega\tilde{q}(t,x)$, the differential system 
 \eqref{SystDiffAdim} becomes the following algebraic ones
 \begin{equation}
 \left(\omega\mathbb{I} -k\tilde{\mathbb{A}}+i\tilde{\mathbb{B}}\right)Q=0
@@ -578,26 +624,45 @@ $$
 $$
 and $\mathcal{D}_{3}$ is non 6 order order polynomial in terms of both $k$ and $\omega$, last $\mathcal{D}_{4}$  is 8 order order polynomial in terms of both $k$ and10 in terms of $\omega$. These two last polynomial are parametrized by $\chi_{h}$, $\chi_{h}$ and $\chi_{\infty}$. Their expressions are tricky and are not presented here. \\
 \\
-The dispersion equation $\mathcal{D}(\omega,k)=0$ may be used in various way. For example we can fix a frequency $\omega$ and look for a wavenumber $k(\omega)$ for witch $\mathcal{D}(\omega,k)=0$ is satisfied. Reciprocally, we can fix $k$ and looks for $\omega(k)$ satisfying the dispersion equation. In the following we consider an arbitrary positive frequency and looks for some roots $k(\omega)\in \mathbb{C}$ of the dispersion equation.  The relation $k(\omega)$ is called in the following dispersion relation. At a given frequency a dispersion relation is associated to each eigenvector $Q$. The corresponding $Q$ is commonly called a mode. \\
-\paragraph{\textbf{Remark 1}} The rescaling $\tilde{x}=\frac{x}{\ell}$ and $\tilde{t}=\frac{t}{\tau}$ affect the eigenfrequencies and wavenumber. Let write $\underline{k}$ and $\underline{\omega}$ a physical wavenumber and eigenfrequency.  We have of course 
-$$
+The dispersion equation $\mathcal{D}(\omega,k)=0$ can be solved in various way. For example, one 
+can 
+fix frequency $\omega$ and look for a wavenumber $k(\omega)$ for witch $\mathcal{D}(\omega,k)=0$ 
+is satisfied. Reciprocally, we can fix $k$ and looks for $\omega(k)$ satisfying the dispersion 
+equation. In the following we consider an arbitrary positive frequency and looks for some roots 
+$k(\omega)\in \mathbb{C}$ of the dispersion equation.  The relation $k(\omega)$ is called in the 
+following dispersion relation. At a given frequency a dispersion relation is associated to each 
+eigenvector $Q$. The corresponding $Q$ is commonly called a mode. \\
+
+\begin{remark}
+The rescaling $\tilde{x}=x/\ell$ and $\tilde{t}=t/\tau$ affect the 
+eigenfrequencies and wavenumber as well. Let us also introduce physical wavenumber $\underline{k}$ 
+and physical frequency $\underline{\omega}$. We have of course 
+\begin{equation}\label{phys.k.omega}
 \underline{k}=\frac{k}{\ell}, \quad\quad\quad
 \underline{\omega}=\frac{\omega}{\tau}
-$$
-\paragraph{\textbf{Remark 2}} According to the previous remark, if the eigenvector is associated to a zero of an homogenous polynomial in term of both $\omega$ and $k$, then  the rescaling do not affect the dispersion relation. At this stage only $\mathcal{D}_{0}$ and $\mathcal{D}_{1}$ have this property. 
+\end{equation}
+\end{remark}
+
+
+\begin{remark} According to the previous remark, if the eigenvector is associated to a zero of an 
+homogenous polynomial in term of both $\omega$ and $k$, then  the rescaling do not affect the 
+dispersion relation. At this stage only $\mathcal{D}_{0}$ and $\mathcal{D}_{1}$ have this property. 
+\end{remark}
 
 %-------------------------------------
-\section{Critical values}
+\subsection{Critical values}
 %-------------------------------------
-Before analysing in details the dispersion relation, let consider some critical values of $\omega$ and $k$ associated to the dispersion relation.
+Before analysing in details the dispersion relation, we consider some critical values of $\omega$ 
+and $k$ associated to the dispersion relation.
 %-------------------------------------
-\subsection{Cut-off frequency}
+\subsubsection{Cut-off frequency}
 %-------------------------------------
 A cut-off frequency $\omega_{c}$ is a non-zero frequency associated to a zero-wavenumber, then a roots of $\mathcal{D}(\omega,0)$. At such frequency, some time oscillation appears but the variable are not space-harmonic. As $\mathcal{D}(\omega,0)=\omega^{21}(\omega^2-2 \chi_{h}^2)^5$ the only cut-off frequency is 
 $$
 \boxed{\omega_{c}=\chi_{h}\sqrt{2}}
 $$
- and is present for only 10 modes (considering $\pm$ solutions). Recovering the physical dimension we have
+and is present for only 10 modes (considering $\pm$ solutions). Recovering the physical dimension, 
+we have
  $$
 \underline{\omega}_{c}=\frac{c_{sh}}{\alpha} \sqrt{\frac{2\rho_{0}}{\varepsilon}}
  $$
@@ -614,8 +679,12 @@ k^2_{b}=\frac{\chi_{p}^2}{\chi_{\infty}^2}-1:=k^2_{b2}, \\[8pt]
 k^2_{b}=\frac{1}{2}\left(k^2_{b1}+k^2_{b2}\pm \sqrt{(k^2_{b1}+k^2_{b2})^2+4k^2_{b1}}\right):=k^2_{b3}
 \end{array}
 $$
-It is completely controled by the ratio $\frac{c_{sh}}{c_{\infty}}$ and $\frac{c_{p}}{c_{\infty}}$\\
-These wavenumbers are either real (space-oscillation) , purely imaginary (exponential decay/iincrease in space) or complex. In a infinite domain complex wavenumber have to be proscribed in order to avoid space explostion toward infinity. However such type of mode are physically admissible in bounded domain where they may be observed in boundary layers.  \\
+It is completely controlled by the ratio $\frac{c_{sh}}{c_{\infty}}$ and 
+$\frac{c_{p}}{c_{\infty}}$\\
+These wavenumbers are either real (space-oscillation) , purely imaginary (exponential 
+decay/increase in space) or complex. In a infinite domain complex wavenumber have to be proscribed 
+in order to avoid space explosion toward infinity. However such type of mode are physically 
+admissible in bounded domain where they may be observed in boundary layers.  \\
 In terms of mode family, $k^2_{b1}$ is associated to $\mathcal{D}_{2}$, $k^2_{b2}$ is associated to $\mathcal{D}_{4}$, and $k^2_{b3}$ is associated to $\mathcal{D}_{3}$, \\
 As for cut-off frequency, this breathing wavenumber is physically justified only if $\alpha$ is non-null but finite. 
 
@@ -624,7 +693,7 @@ As for cut-off frequency, this breathing wavenumber is physically justified only
 %-------------------------------------
 At a given frequency $\omega$, the group velocity of a specific mode is null if 
 $$
-\frac{\partial \omega}{\partial k}=0
+\frac{\pd \omega}{\pd k}=0
 $$
 where $k(\omega)$ is the dispersion relation of the corresponding mode. (Rudin, W. (2006). Real and complex analysis. Tata McGraw-hill education.). In practice this phenomena occurs if the polynomial in $k$ associated to the dispersion relation, degenerates to a lower order. Hence if the monome associated to the higher power in $k$ is null. This occurs only for the dispersion relation $\mathcal{D}_{4}$ and for a specific frequency $\omega_{z}$ only: 
 $$
@@ -633,107 +702,281 @@ $$
 
 
 %-------------------------------------
-\section{Time-invariant  eigen-solution of the problem}
+<<<<<<< HEAD
+\section{Time-invariant  eigen-solution}
 %-------------------------------------
-Eleven solutions of \ref{SystDiffAdim} are associated to time-invariant solution as $\omega=0$ is a multiple roots of order $11$ according to $\mathcal{D}_{0}$. These solutions are analyzed below. These solutions may seen as the eigenvectors of $k\tilde{\mathbb{A}}-i\tilde{\mathbb{B}}$ associated a zero eigenvalues. The set of eigenvectors, may be decomposed by introducing sub-set for which the component are independent. 
+Eleven solutions of \eqref{SystDiffAdim} are associated to time-invariant solution as $\omega=0$ is 
+a multiple root of order $11$ according to $\mathcal{D}_{0}$. These solutions are analyzed below. 
+These solutions may seen as the eigenvectors of $k\tilde{\mathbb{A}}-i\tilde{\mathbb{B}}$ 
+associated a zero eigenvalues. The set of eigenvectors, may be decomposed by introducing sub-set 
+for which the component are independent. 
 %-------------------------------------
 \subsection{Trivial eigenvectors}
 %-------------------------------------
 We present here the eigenvectors containing only two non-null components. They are all independent and no space derivative is involved. In other word they imply simple relation between degree of freedom. 
 \begin{itemize}
 \item Two eigenvectors are related to the non-diagonal distorsion containing the propagation direction. They impose skew-symmetry of these components:
+=======
+\section{Stationnary problem}
+%-------------------------------------
+For a stationary problem, we are reduced to solve $\tilde{\mathbb{A}}\partial_{\tilde{x}}\tilde{q}-\tilde{\mathbb{B}}\tilde{q}=0$. In an harmonic form the problem becomes $(-ik\tilde{\mathbb{A}}-\tilde{\mathbb{B}})Q=0$. These solutions are the eleven eigenvectors of \ref{SystDiffAdim} corresponding  to the eigenvalue $\omega=0$. Instead of considering this algebraic problem, it is possible to consider the solution of the ordinary differential equation $\tilde{\mathbb{A}}\partial_{\tilde{x}}\tilde{q}-\tilde{\mathbb{B}}\tilde{q}=0$ due to some simplifications. Indeed it has been shown earlier $b_{i1}=0$. A second argument is that no-inertia intervenes and then $d_{ij}=0$ as this latter is related to micro-inertia. Accordingly the problem reduces to simple equalities:
+>>>>>>> 36bc2233a0358b090e9d33cf214d05ae557f0948
 $$
+\begin{array}{c}
+\tilde{\rho}=\textit{cste}, \quad\quad	\tilde{v}_{1}=\textit{cste},
+\\
 a_{12}=-a_{21}, \quad\quad
 a_{31}=-a_{13}
+\end{array}
 $$
-\item For the incompatibility tensor, no specific constraint is imposed on $b_{11}$. Hence the solution $b_{11}(x)\neq 0$ (but all other component being set to zero) is an eigenvector of the static problem. 
-\item Inertia and incompatibility are coupled through the relation:
-$$
-d_{23}=+\chi_{p}b_{21}, \quad\quad\quad
-d_{32}=-\chi_{p}b_{31}
-$$
-\end{itemize}
-According to (\ref{ABrelationAdim}), the second point is satisfied as $b_{11}=0$ and the last point just imposes
-$$
-d_{23}=0, \quad\quad\quad
-d_{32}=0
-$$
-%-------------------------------------
-\subsection{Distortion and incompatibility relation}
-%-------------------------------------
-A couple of independent eigenvectors involves the components $b_{22}$, $b_{33}$ of the incompatibility tensor and $a_{32}$ and $a_{23}$. They are related to the differential equation:
+and two uncoupled differential systems, listed hereafter:
 \begin{equation}\label{DistortionIncompatibility1}
 \begin{array}{rcl}
-\partial_{x}b_{22}&=&-(\frac{\chi_{h}}{\chi_{\infty}})^2\left(a_{23}+a_{32}\right)\\
-\partial_{x}b_{33}&=&+(\frac{\chi_{h}}{\chi_{\infty}})^2\left(a_{23}+a_{32}\right)
+\pd_{x}b_{22}&=&-(\frac{\chi_{h}}{\chi_{\infty}})^2\left(a_{23}+a_{32}\right)\\
+\pd_{x}b_{33}&=&+(\frac{\chi_{h}}{\chi_{\infty}})^2\left(a_{23}+a_{32}\right)
 \end{array}
 \end{equation}
+<<<<<<< HEAD
 Hence if $a_{23}=-a_{32}$, then $b_{22}$ and $b_{33}$ are constant, but if it's not the case, they still vary in opposite manner, proportionally to this lake of skew-symmetry of the distorsion tensor. \\
-According to (\ref{ABrelationAdim}), $b_{22}=-\partial_{\tilde{x}}\tilde{a}_{23}$ and $b_{33}=\partial_{\tilde{x}}\tilde{a}_{32}$. Injecting these relations in (\ref{DistortionIncompatibility1}):
-\begin{equation}\label{DistortionIncompatibility2}
+According to (\ref{ABrelationAdim}), $b_{22}=-\pd_{\tilde{x}}\tilde{a}_{23}$ and 
+$b_{33}=\pd_{\tilde{x}}\tilde{a}_{32}$. Injecting these relations in 
+(\ref{DistortionIncompatibility1}):
+=======
+\begin{equation}\label{StationnnaryMotion1}
 \begin{array}{rcl}
--\partial_{\tilde{x}}^2\tilde{a}_{23}&=&-(\frac{\chi_{h}}{\chi_{\infty}})^2\left(a_{23}+a_{32}\right)\\
-\partial_{\tilde{x}}^2\tilde{a}_{32}&=&+(\frac{\chi_{h}}{\chi_{\infty}})^2\left(a_{23}+a_{32}\right)
-\end{array}
-\end{equation}
-Then 
-$$
-\partial_{\tilde{x}}^2(\tilde{a}_{23}+\tilde{a}_{32})-(\frac{\chi_{h}}{\chi_{\infty}})^2\left(a_{23}+a_{32}\right)=0
-$$
-then these non-diagonal termes are opposite up to an harmonic function 
-$$
-\tilde{a}_{23}+\tilde{a}_{32}=a_{23}^0\cos{(\frac{\chi_{h}}{\chi_{\infty}}\tilde{x}})+a_{23}^1\sin{(\frac{\chi_{h}}{\chi_{\infty}}\tilde{x}}),
-\quad\quad\quad\textrm{with}\quad
-\frac{\chi_{h}}{\chi_{\infty}}=\frac{c_{h}}{c_{\infty}}
-$$
-where $a^0$ and $a^1$ are defined by boundary conditions. In infinite domain along $x$, $a^0$ and $a^1$ are arbitrary. 
-%-------------------------------------
-\subsection{Static system associated to velocity field}
-%-------------------------------------
-The last set involves the out-of-plane velocity $v_{2}$ and $v_{3}$ and the following  degrees of freedom $a_{11}, \ a_{22}, \ a_{33}$, $b_{32}, \ b_{23}, \ d_{21}, \ d_{31}$. They are coupled through the following system.
-\begin{equation}
-\begin{array}{rcl}
-\tilde{a}_{11}&=&\frac{1}{2}\left(\tilde{a}_{22}+\tilde{a}_{33}\right)  \\[8pt]
- \chi_p \tilde{b}_{23}+\tilde{d}_{21}+\partial_{x}\tilde{v}_2&=&0 \\
-\chi _{\infty }^2\partial_{x}\tilde{b}_{23}+\chi _p \partial_{x}\tilde{d}_{21} &=&\chi _h^2 \left(\tilde{a}_{22}-\tilde{a}_{33}\right)\\[8pt]
--\chi_p \tilde{b}_{32}+\tilde{d}_{31}+\partial_{x}\tilde{v}_3&=&0 \\
-- \chi _{\infty }^2\partial_{x}\tilde{b}_{32}+\chi _p \partial_{x}\tilde{d}_{31}&=&\chi _h^2 \left(\tilde{a}_{33}-\tilde{a}_{22}\right)
+\tilde{a}_{11}&=&\frac{1}{2}\left(\tilde{a}_{22}+\tilde{a}_{33}\right)  \\[6pt]
+ \chi_p \tilde{b}_{23}+\partial_{x}\tilde{v}_2&=&0 \\
+\chi _{\infty }^2\partial_{x}\tilde{b}_{23} &=&\chi _h^2 \left(\tilde{a}_{22}-\tilde{a}_{33}\right)\\[6pt]
+-\chi_p \tilde{b}_{32}+\partial_{x}\tilde{v}_3&=&0 \\
+\chi _{\infty }^2\partial_{x}\tilde{b}_{32}&=&\chi _h^2 \left(\tilde{a}_{22}-\tilde{a}_{33}\right)
 \end{array}
 \end{equation}   
-\begin{itemize}
-\item If $a_{22}=a_{33}$ the first equation imply $a_{11}=a_{22}=a_{33}$ and the 4 others equations may be decomposed of two independ system of equation involving transverse (or out-of-plane) velocity field $v_{2}$ and $v_{3}$ respectively. Hence the condition $a_{11}=a_{22}=a_{33}$ is a necessary condition to observe decoupling between the two out of plane motion. Note that  skew-symmetry of $a$ is a sufficient condition for this decoupling. Still for this uncoupled situation, let consider the equation of motion in the $(\boldsymbol{e_{1}},\boldsymbol{e_{2}})$-plane:
+The system (\ref{DistortionIncompatibility1}) couples distortion and incompatibility whereas (\ref{StationnnaryMotion1}) is related to stationary motion at a macro-scale. 
+%-------------------------------------
+\subsection{Distortion and incompatibility coupling}
+%-------------------------------------
+Let consider the system (\ref{DistortionIncompatibility1}). According to (\ref{ABrelationAdim}), $b_{22}=-\partial_{\tilde{x}}\tilde{a}_{23}$ and $b_{33}=\partial_{\tilde{x}}\tilde{a}_{32}$. Injecting these relations in (\ref{DistortionIncompatibility1}):
+>>>>>>> 36bc2233a0358b090e9d33cf214d05ae557f0948
+\begin{equation}\label{DistortionIncompatibility2}
+\begin{array}{rcl}
+-\pd_{\tilde{x}}^2\tilde{a}_{23}&=&-(\frac{\chi_{h}}{\chi_{\infty}})^2\left(a_{23}+a_{32}\right)\\
+\pd_{\tilde{x}}^2\tilde{a}_{32}&=&+(\frac{\chi_{h}}{\chi_{\infty}})^2\left(a_{23}+a_{32}\right)
+\end{array}
+\end{equation}
+<<<<<<< HEAD
+Then 
+$$
+\pd_{\tilde{x}}^2(\tilde{a}_{23}+\tilde{a}_{32})-(\frac{\chi_{h}}{\chi_{\infty}})^2\left(a_{23}+a_{32}\right)=0
+$$
+then these non-diagonal termes are opposite up to an harmonic function 
+=======
+Then combining these equations:
+\begin{equation}
+\begin{array}{rcl}
+\partial_{\tilde{x}}^2(\tilde{a}_{23}-\tilde{a}_{32})&=&0\\
+\partial_{\tilde{x}}^2(\tilde{a}_{23}+\tilde{a}_{32})&=&(\frac{\chi_{h}}{\chi_{\infty}})^2\left(a_{23}+a_{32}\right)
+\end{array}
+\end{equation}
+then: 
+\begin{equation}
+\begin{array}{rcl}
+\tilde{a}_{23}-\tilde{a}_{32}&=&2a_{0}+2a_{1}\tilde{x}
+\\
+\tilde{a}_{23}+\tilde{a}_{32}&=&2a_{s1}\sinh{(\frac{\chi_{h}}{\chi_{\infty}}\tilde{x}})+2a_{c1}\cosh{(\frac{\chi_{h}}{\chi_{\infty}}\tilde{x}}),
+\end{array}
+\end{equation}
+We have in terms of distortion
+\begin{equation}
+\begin{array}{rcl}
+\tilde{a}_{23}&=&+(a_{0}+a_{1}\tilde{x})+a_{s1}\sinh{(\frac{\chi_{h}}{\chi_{\infty}}\tilde{x}})+a_{c1}\cosh{(\frac{\chi_{h}}{\chi_{\infty}}\tilde{x}})
+\\
+\tilde{a}_{32}&=&-(a_{0}+a_{1}\tilde{x})+a_{s1}\sinh{(\frac{\chi_{h}}{\chi_{\infty}}\tilde{x}})+a_{c1}\cosh{(\frac{\chi_{h}}{\chi_{\infty}}\tilde{x}})
+\end{array}
+\end{equation}
+and for the incompatibility:
+>>>>>>> 36bc2233a0358b090e9d33cf214d05ae557f0948
 $$
 \begin{array}{rcl}
- \chi_p \tilde{b}_{23}+\tilde{d}_{21}+\partial_{x}\tilde{v}_2&=&0 \\
-\chi _{\infty }^2\partial_{x}\tilde{b}_{23}+\chi _p \partial_{x}\tilde{d}_{21} &=&0\\[8pt]
+\tilde{b}_{22}&=&a_{1}+(\frac{\chi_{h}}{\chi_{\infty}})\left(a_{s1}\cosh{(\frac{\chi_{h}}{\chi_{\infty}}\tilde{x}})+a_{c1}\sinh{(\frac{\chi_{h}}{\chi_{\infty}}\tilde{x}})\right)\\
+\tilde{b}_{33}&=&-a_{1}+(\frac{\chi_{h}}{\chi_{\infty}})\left(a_{s1}\cosh{(\frac{\chi_{h}}{\chi_{\infty}}\tilde{x}})+a_{c1}\sinh{(\frac{\chi_{h}}{\chi_{\infty}}\tilde{x}})\right)
 \end{array}
 $$
-According to (\ref{ABrelationAdim}), $\tilde{b}_{23}= \partial_{\tilde{x}}\tilde{a}_{22}$:
+Here $a_{0}$, $a_{1}$, $a_{c}$ and $a_{s}$ are defined by boundary conditions. The coefficient 2 has been introduced for convenience.  If $a_{c}=0$ and $a_{s}=0$, we have $\tilde{a}_{23}=-\tilde{a}_{32}$ (like for the other non-diagonal terms of $\tilde{\boldsymbol{a}}$) and $b_{22}=-b_{33}=a_{1}$. 
+
+%-------------------------------------
+\subsection{Stationary motion}
+%-------------------------------------
+According to (\ref{ABrelationAdim}) we have $\tilde{b}_{23}= \partial_{\tilde{x}}\tilde{a}_{22}$ and $\tilde{b}_{32}=- \partial_{\tilde{x}}\tilde{a}_{33}$. The system is then 
+\begin{equation}\label{StationnnaryMotion2}
+\begin{array}{rcl}
+<<<<<<< HEAD
+\tilde{a}_{11}&=&\frac{1}{2}\left(\tilde{a}_{22}+\tilde{a}_{33}\right)  \\[8pt]
+ \chi_p \tilde{b}_{23}+\tilde{d}_{21}+\pd_{x}\tilde{v}_2&=&0 \\
+\chi _{\infty }^2\pd_{x}\tilde{b}_{23}+\chi _p \pd_{x}\tilde{d}_{21} &=&\chi _h^2 
+\left(\tilde{a}_{22}-\tilde{a}_{33}\right)\\[8pt]
+-\chi_p \tilde{b}_{32}+\tilde{d}_{31}+\pd_{x}\tilde{v}_3&=&0 \\
+- \chi _{\infty }^2\pd_{x}\tilde{b}_{32}+\chi _p \pd_{x}\tilde{d}_{31}&=&\chi _h^2 
+\left(\tilde{a}_{33}-\tilde{a}_{22}\right)
+=======
+\tilde{a}_{11}&=&\frac{1}{2}\left(\tilde{a}_{22}+\tilde{a}_{33}\right)  \\[6pt]
+ \chi_p \partial_{\tilde{x}}\tilde{a}_{22}+\partial_{x}\tilde{v}_2&=&0 \\
+\chi _{\infty }^2 \partial_{\tilde{x}}^2\tilde{a}_{22} &=&\chi _h^2 \left(\tilde{a}_{22}-\tilde{a}_{33}\right)\\[6pt]
+ \chi_p \partial_{\tilde{x}}\tilde{a}_{33}+\partial_{x}\tilde{v}_3&=&0 \\
+\chi _{\infty }^2 \partial_{\tilde{x}}^2\tilde{a}_{33} &=&\chi _h^2 \left(\tilde{a}_{33}-\tilde{a}_{22}\right)
+>>>>>>> 36bc2233a0358b090e9d33cf214d05ae557f0948
+\end{array}
+\end{equation}  
+Combining the lines 3 and 5 we have
 $$
 \begin{array}{rcl}
- \chi_p\partial_{\tilde{x}}\tilde{a}_{22}+\tilde{d}_{21}+\partial_{x}\tilde{v}_2&=&0 \\
-\chi _{\infty }^2\partial_{\tilde{x}}^2\tilde{a}_{22}+\chi _p \partial_{x}\tilde{d}_{21} &=&0\\[8pt]
+<<<<<<< HEAD
+ \chi_p \tilde{b}_{23}+\tilde{d}_{21}+\pd_{x}\tilde{v}_2&=&0 \\
+\chi _{\infty }^2\pd_{x}\tilde{b}_{23}+\chi _p \pd_{x}\tilde{d}_{21} &=&0\\[8pt]
+=======
+\partial_{\tilde{x}}^2(\tilde{a}_{22}+\tilde{a}_{33})&=&0\\
+ \partial_{\tilde{x}}^2(\tilde{a}_{22}-\tilde{a}_{33}) &=&2(\frac{\chi _h}{\chi _{\infty }})^2 \left(\tilde{a}_{22}-\tilde{a}_{33}\right) 
+>>>>>>> 36bc2233a0358b090e9d33cf214d05ae557f0948
+\end{array}
+ $$
+in other words
+$$
+\begin{array}{rcl}
+\tilde{a}_{22}+\tilde{a}_{33}&=&2(a_{2}+a_{3} \tilde{x})\\
+\tilde{a}_{22}-\tilde{a}_{33}&=&2\left(a_{c2} \cosh \left(\frac{\sqrt{2}  \chi _h}{\chi
+   _{\infty }}\tilde{x}\right)+a_{s2} \sinh \left(\frac{\sqrt{2} \chi _h}{\chi _{\infty
+   }}\tilde{x} \right)\right)
 \end{array}
 $$
-Then:
+where again $a_{2}$, $a_{3}$, $a_{c}$ and $a_{s}$ are some constants defined by boundary condition if necessary\footnote{They are independ of the constant presented in the previous sub-section but we have used the same dimension in order to avoid additional notations.}. Finally:
 $$
-\tilde{d}_{21}=-\frac{\chi _{\infty }^2}{\chi _p}\partial_{\tilde{x}}\tilde{a}_{22},
+\begin{array}{rcl}
+a_{22}(\tilde{x}) &=&a_{2}+a_{3} \tilde{x}+a_{c2} \cosh (\frac{\sqrt{2}  \chi _h}{\chi
+   _{\infty }}\tilde{x})+a_{s2} \sinh (\frac{\sqrt{2} \chi _h}{\chi _{\infty
+   }}\tilde{x} ),
+\\
+a_{33}(\tilde{x}) &=&a_{2}+a_{3} \tilde{x}-a_{c2} \cosh (\frac{\sqrt{2}\chi _h}{\chi
+   _{\infty }} \tilde{x} )-a_{s2} \sinh (\frac{\sqrt{2} \chi _h}{\chi _{\infty
+   }}\tilde{x} )
+\end{array} 
+$$
+<<<<<<< HEAD
+According to (\ref{ABrelationAdim}), $\tilde{b}_{23}= \pd_{\tilde{x}}\tilde{a}_{22}$:
+$$
+\begin{array}{rcl}
+ \chi_p\pd_{\tilde{x}}\tilde{a}_{22}+\tilde{d}_{21}+\pd_{x}\tilde{v}_2&=&0 \\
+\chi _{\infty }^2\pd_{\tilde{x}}^2\tilde{a}_{22}+\chi _p \pd_{x}\tilde{d}_{21} &=&0\\[8pt]
+=======
+Now we observe that transverse velocity fields are completely defined:
+$$
+\begin{array}{rcl}
+\tilde{v}_{2}(\tilde{x}) &=&v_{20}-\chi _p \left(a_{3} \tilde{x}+a_{c2} \cosh (\frac{\sqrt{2} 
+   \chi _h}{\chi _{\infty }}\tilde{x})+a_{s2} \sinh (\frac{\sqrt{2} \chi _h}{\chi
+   _{\infty }}\tilde{x}) \right)
+ \\
+\tilde{v}_{3}(\tilde{x}) &=&v_{30}-\chi _p \left(a_{3} \tilde{x}-a_{c2} \cosh
+   (\frac{\sqrt{2}  \chi _h}{\chi _{\infty }}\tilde{x})-a_{s2} \sinh
+   (\frac{\sqrt{2}  \chi _h}{\chi _{\infty }}\tilde{x})\right)
+\end{array} 
+$$
+where $v_{20}$ and $v_{30}$ are integration constants.
+
+%-------------------------------------
+\subsection{Analysis of the distorsion}
+%-------------------------------------
+Let introduce
+$$
+\begin{array}{rcl}
+f_{1}(\tilde{x})	&=&	a_{c1}\cosh{(\frac{\chi_{h}}{\chi_{\infty}}\tilde{x}})+a_{s1}\sinh{(\frac{\chi_{h}}{\chi_{\infty}}\tilde{x}})\\
+f_{2}(\tilde{x})	&=&	a_{c2} \cosh (\frac{\sqrt{2} 
+   \chi _h}{\chi _{\infty }}\tilde{x})+a_{s2} \sinh (\frac{\sqrt{2} \chi _h}{\chi
+   _{\infty }}\tilde{x}) 
+>>>>>>> 36bc2233a0358b090e9d33cf214d05ae557f0948
+\end{array}
+$$
+the symmetric and skew-symmetric part of the distortion are
+$$
+<<<<<<< HEAD
+\tilde{d}_{21}=-\frac{\chi _{\infty }^2}{\chi _p}\pd_{\tilde{x}}\tilde{a}_{22},
 \quad\quad\quad
 \tilde{v}_2 =\frac{\chi _{\infty}^2-\chi _p^2}{\chi _p}\tilde{a}_{22}
 $$
-For the problem in the $(\boldsymbol{e_{1}},\boldsymbol{e_{3}})$-plane, we have according to (\ref{ABrelationAdim}) $\tilde{b}_{32}=- \partial_{\tilde{x}}\tilde{a}_{33}$. After computation we obtain:
+For the problem in the $(\boldsymbol{e_{1}},\boldsymbol{e_{3}})$-plane, we have according to 
+(\ref{ABrelationAdim}) $\tilde{b}_{32}=- \pd_{\tilde{x}}\tilde{a}_{33}$. After computation we 
+obtain:
 $$
-\tilde{d}_{31}=-\frac{\chi _{\infty }^2}{\chi _p}\partial_{\tilde{x}}\tilde{a}_{33},
+\tilde{d}_{31}=-\frac{\chi _{\infty }^2}{\chi _p}\pd_{\tilde{x}}\tilde{a}_{33},
 \quad\quad\quad
 \tilde{v}_3 =\frac{\chi _{\infty}^2-\chi _p^2}{\chi _p}\tilde{a}_{33}
+=======
+a^{S}=\begin{pmatrix}
+\frac{a_{0}+a_{2}+(a_{1}+a_{3})\tilde{x}}{2}&0&0\\
+0	&a_{2}+a_{3}\tilde{x}+f_{2}(\tilde{x})&f_{1}(\tilde{x})\\
+0	&f_{1}(\tilde{x})		&	a_{0}+a_{1}\tilde{x}-f_{2}(\tilde{x})&\end{pmatrix}
 $$
-However as $\tilde{a}_{22}=\tilde{a}_{33}$, we observe that for this situation $\tilde{d}_{31}=\tilde{d}_{21}$ and $\tilde{v}_2=\tilde{v}_3$.
-\item \textcolor{magenta}{TO BE CONTINUED}If $a_{22}=-a_{33}$ we have (after using (\ref{ABrelationAdim}) again) necesseraly
 $$
-\partial_{\tilde{x}}\tilde{d}_{21}=-\partial_{\tilde{x}}\tilde{d}_{31}=\frac{1}{\chi_{p}}\left( 2\chi_{h}^2a_{22}-\chi_{\infty}^2\partial_{\tilde{x}}^2a_{22}\right)
+a^{A}=\begin{pmatrix}
+0&a_{12}&a_{13}\\
+-a_{12}&0	&a_{0}+a_{1}\tilde{x}\\
+-a_{13}&-a_{0}-a_{1}\tilde{x}	&0\end{pmatrix}
+>>>>>>> 36bc2233a0358b090e9d33cf214d05ae557f0948
+$$
+%-------------------------------------
+\subsection{Displacement}
+%-------------------------------------
+We have
+$$
+<<<<<<< HEAD
+\pd_{\tilde{x}}\tilde{d}_{21}=-\pd_{\tilde{x}}\tilde{d}_{31}=\frac{1}{\chi_{p}}\left( 
+2\chi_{h}^2a_{22}-\chi_{\infty}^2\pd_{\tilde{x}}^2a_{22}\right)
 $$ 
 \end{itemize}
 
+=======
+a_{ij}=\frac{\partial u_{i}}{\partial x_{j}}
+\quad\quad
+v_{i}=\frac{\partial u_{i}}{\partial t}
+$$
+Let simplify notation as 
+$$
+\begin{array}{rcl}
+\tilde{v}_{2}(\tilde{x}) &=&v_{20}-\chi _p f_{2}(\tilde{x})
+ \\
+\tilde{a}_{22}(\tilde{x}) &=&a_{0}+ f_{2}(\tilde{x})
+\\
+\tilde{v}_{3}(\tilde{x}) &=&v_{30}-\chi _p f_{3}(\tilde{x})
+ \\
+\tilde{a}_{33}(\tilde{x}) &=&a_{0}+ f_{3}(\tilde{x})
+\end{array} 
+\quad \textrm{with}
+\quad\quad
+\begin{array}{rcl}
+f_{2}(\tilde{x})&=&a_{1} \tilde{x}-a_{c} \cosh
+   (\frac{\sqrt{2}  \chi _h}{\chi _{\infty }}\tilde{x})-a_{s} \sinh
+   (\frac{\sqrt{2}  \chi _h}{\chi _{\infty }}\tilde{x})
+   \\
+f_{3}(\tilde{x})&=&a_{1} \tilde{x}+a_{c} \cosh
+   (\frac{\sqrt{2}  \chi _h}{\chi _{\infty }}\tilde{x})+a_{s} \sinh
+   (\frac{\sqrt{2}  \chi _h}{\chi _{\infty }}\tilde{x})
+   \end{array} 
+$$
+We have after time integration of $\tilde{v}_{2}(\tilde{x}) $ and $\tilde{v}_{3}(\tilde{x})$ :
+$$
+\begin{array}{rcl}
+u_{2}(\tilde{x},\tilde{t})=\left(v_{20}-\chi _p f_{2}(\tilde{x})\right)\tilde{t} +g_{2}(\tilde{x},x_{2},x_{3})
+\\
+u_{3}(\tilde{x},\tilde{t})=\left(v_{30}-\chi _p f_{3}(\tilde{x})\right)\tilde{t} +g_{3}(\tilde{x},x_{2},x_{3})
+   \end{array} 
+$$
+But due to definition of $\tilde{a}_{22}(\tilde{x})$ and $\tilde{a}_{33}(\tilde{x})$:
+$$
+\frac{\partial g_{2}}{\partial x_{2}}(\tilde{x},x_{2},x_{3}) = a_{0}+f_{2}(\tilde{x})
+$$
+then 
+$$
+ g_{2}(\tilde{x},x_{2},x_{3}) = \left(a_{0}+f_{2}(\tilde{x})\right) x_{2} + h_{2}(x_{3})
+$$
+\textcolor{red}{TO BE CONTINUED}
+>>>>>>> 36bc2233a0358b090e9d33cf214d05ae557f0948
 %-------------------------------------
 \subsection{Elastic problem}
 %-------------------------------------
