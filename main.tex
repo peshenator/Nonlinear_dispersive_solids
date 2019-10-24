@@ -809,39 +809,62 @@ $$
 $$
 Here $a_{0}$, $a_{1}$, $a_{c}$ and $a_{s}$ are defined by boundary conditions. The coefficient 2 has been introduced for convenience.  If $a_{c}=0$ and $a_{s}=0$, we have $\tilde{a}_{23}=-\tilde{a}_{32}$ (like for the other non-diagonal terms of $\tilde{\boldsymbol{a}}$) and $b_{22}=-b_{33}=a_{1}$. 
 
+
 %-------------------------------------
-\subsection{Stationary motion}
+\section{Stationnary problem GOOD ONE}
 %-------------------------------------
-According to (\ref{ABrelationAdim}) we have $\tilde{b}_{23}= \partial_{\tilde{x}}\tilde{a}_{22}$ and $\tilde{b}_{32}=- \partial_{\tilde{x}}\tilde{a}_{33}$. The system is then 
-\begin{equation}\label{StationnnaryMotion2}
-\begin{array}{rcl}
-%<<<<<<< HEAD
-%\tilde{a}_{11}&=&\frac{1}{2}\left(\tilde{a}_{22}+\tilde{a}_{33}\right)  \\[8pt]
-% \chi_p \tilde{b}_{23}+\tilde{d}_{21}+\pd_{x}\tilde{v}_2&=&0 \\
-%\chi _{\infty }^2\pd_{x}\tilde{b}_{23}+\chi _p \pd_{x}\tilde{d}_{21} &=&\chi _h^2 
-%\left(\tilde{a}_{22}-\tilde{a}_{33}\right)\\[8pt]
-%-\chi_p \tilde{b}_{32}+\tilde{d}_{31}+\pd_{x}\tilde{v}_3&=&0 \\
-%- \chi _{\infty }^2\pd_{x}\tilde{b}_{32}+\chi _p \pd_{x}\tilde{d}_{31}&=&\chi _h^2 
-%\left(\tilde{a}_{33}-\tilde{a}_{22}\right)
-%=======
-\tilde{a}_{11}&=&\frac{1}{2}\left(\tilde{a}_{22}+\tilde{a}_{33}\right)  \\[6pt]
- \chi_p \partial_{\tilde{x}}\tilde{a}_{22}+\partial_{x}\tilde{v}_2&=&0 \\
-\chi _{\infty }^2 \partial_{\tilde{x}}^2\tilde{a}_{22} &=&\chi _h^2 \left(\tilde{a}_{22}-\tilde{a}_{33}\right)\\[6pt]
- \chi_p \partial_{\tilde{x}}\tilde{a}_{33}+\partial_{x}\tilde{v}_3&=&0 \\
-\chi _{\infty }^2 \partial_{\tilde{x}}^2\tilde{a}_{33} &=&\chi _h^2 \left(\tilde{a}_{33}-\tilde{a}_{22}\right)
-%>>>>>>> 36bc2233a0358b090e9d33cf214d05ae557f0948
-\end{array}
-\end{equation}  
-Combining the lines 3 and 5 we have
+Before analysis the dynamics of the problem, we give here some details on the stationary motion.\\
+This stationarity is based on the following hypotheses for a linearized problem: constant velocity field, constant mass-density, and absence of inertia. In practice this induces $d_{ij}=0$ as this latter is related to micro-inertia. Accordingly the system of equation (\ref{SysStatTT}) is fairly reduced. It can be expressed in terms of $\tilde{\rho}$, $\tilde{v}_{i}$ and $\tilde{a}_{ij}$ (and their derivative) thanks the relations (\ref{ABrelationAdim}). In practice the equations of (\ref{SysStatTT}) is composed of one of the following equations: 
+\begin{subequations}\label{SysStatTT}
+\begin{align}
+\label{SysStat1}	\partial_{\tilde{t}}\tilde{\rho}+\partial_{x}{\tilde{v}_1}&=0,\\   
+\label{SysStat5}	\partial_{t}{\tilde{a}_{11}}+\partial_{x}{\tilde{v}_1}&=0,\\   
+\label{SysStat9}	\partial_{t}{\tilde{a}_{22}}&=0,\\   
+\label{SysStat13}	\partial_{t}{\tilde{a}_{33}}&=0,\\   
+\label{SysStat2}	\frac{2}{3} \chi _h^2 \partial_{x}\left(2  \tilde{a}_{11}-\tilde{a}_{22}-\tilde{a}_{33}\right)+\partial_{x}{\tilde{\rho }}&=0,\\   
+\label{SysStat23}	2\tilde{a}_{11}-\tilde{a}_{22}-\tilde{a}_{33}&=0,\\   
+\label{SysStat27}	\frac{2}{3} \chi h^2 \left(\tilde{a}_{11}-2\tilde{a}_{22}+\tilde{a}_{33}\right)+\chi _{\infty }^2\partial_{x}^2\tilde{a}_{22}&=0,\\   
+\label{SysStat31}	\frac{2}{3}\chi _h^2\left(\tilde{a}_{11}+\tilde{a}_{22}-2 \tilde{a}_{33}\right) +\chi _{\infty }^2\partial_{x}^2\tilde{a}_{33}&=0.\\
+\hline
+%
+\label{SysStat10}	\partial_{t}{\tilde{a}_{32}} &=0,\\   
+\label{SysStat12}	\partial_{t}{\tilde{a}_{23}} &=0,\\   
+\label{SysStat28}	-\chi _h^2\left(\tilde{a}_{23}+\tilde{a}_{32}\right) +\chi _{\infty}^2\partial_{x}^2\tilde{a}_{32}&=0,\\   
+\label{SysStat30}	- \chi _h^2\left(\tilde{a}_{23}+\tilde{a}_{32}\right)+\chi _{\infty}^2 \partial_{x}^2\tilde{a}_{23}&=0, \\
+\hline
+%
+\label{SysStat3}	\tilde{a}_{12}+\tilde{a}_{21}&=0,\\   
+\label{SysStat6}	\partial_{t}{\tilde{a}_{21}}+\chi _p\partial_{x}\tilde{a}_{22} +\partial_{x}{\tilde{v}_2}&=0,\\   
+\label{SysStat8}	(\partial_{t}-\chi_p\partial_{x})\tilde{a}_{12} &=0,\\   
+\label{SysStat26}	- \chi _h^2\left(\tilde{a}_{12}+\tilde{a}_{21}\right)+\chi _{\infty }^2\partial_{x}^2\tilde{a}_{12}&=0,\\   
+\hline
+%
+\label{SysStat4}	\tilde{a}_{13}+\tilde{a}_{31}&=0,\\   
+\label{SysStat7}	\partial_{t}{\tilde{a}_{31}}+\chi _p\partial_{x}\tilde{a}_{33}+\partial_{x}{\tilde{v}_3}&=0,\\   
+\label{SysStat11}	(\partial_{t}-\chi_p\partial_{x})\tilde{a}_{13} &=0,\\   
+\label{SysStat29}	-\chi _h^2\left(\tilde{a}_{13}+\tilde{a}_{31}\right)+\chi _{\infty }^2 \partial_{x}^2\tilde{a}_{13}&=0.
+ \end{align} 
+ \end{subequations}
+It must be emphasis that this set of equation is composed of 4 uncoupled sub-system of equations. General solutions of each sub system is analyzed separately. 
+%-------------------------------------
+\subsection{First sub system}
+%-------------------------------------
+Considering the first sub system composed of (\ref{SysStat1}--\ref{SysStat31}). We have directely the following relations
+\begin{subequations}\label{SysStatTT}
+\begin{align}
+\label{SysStat5}	\partial_{x}{\tilde{v}_1}&=0,\\   
+\label{SysStat1}	\partial_{\tilde{t}}\tilde{\rho}=0\quad\quad \partial_{x}{\tilde{\rho }}&=0,\\   
+\label{SysStat2}	\partial_{\tilde{t}}\tilde{a}_{11}=0\quad\quad\partial_{\tilde{t}}\tilde{a}_{22}=0\quad\quad\partial_{\tilde{t}}\tilde{a}_{33}&=0,\\   
+\label{SysStat23}	2\tilde{a}_{11}-\tilde{a}_{22}-\tilde{a}_{33}&=0,\\   
+\label{SysStat27c}	\tilde{a}_{33}-\tilde{a}_{22}+(\frac{\chi _{\infty }}{\chi_{h}})^2\partial_{x}^2\tilde{a}_{22}&=0,\\   
+\label{SysStat31c}	\tilde{a}_{22}-\tilde{a}_{33}+(\frac{\chi _{\infty }}{\chi_{h}})^2\partial_{x}^2\tilde{a}_{33}&=0
+ \end{align} 
+ \end{subequations}
+Then longitudinal velcocity $\tilde{v}_{1}$ and mass density are uniform (in space) and constant (in time). The diagonal component of $a_{ij}$ are constant in time but may be non-uniform. Considering the two last equations (\ref{SysStat27c}) and (\ref{SysStat31c}) we have by simple combination:
 $$
 \begin{array}{rcl}
-%<<<<<<< HEAD
-% \chi_p \tilde{b}_{23}+\tilde{d}_{21}+\pd_{x}\tilde{v}_2&=&0 \\
-%\chi _{\infty }^2\pd_{x}\tilde{b}_{23}+\chi _p \pd_{x}\tilde{d}_{21} &=&0\\[8pt]
-%=======
 \partial_{\tilde{x}}^2(\tilde{a}_{22}+\tilde{a}_{33})&=&0\\
  \partial_{\tilde{x}}^2(\tilde{a}_{22}-\tilde{a}_{33}) &=&2(\frac{\chi _h}{\chi _{\infty }})^2 \left(\tilde{a}_{22}-\tilde{a}_{33}\right) 
-%>>>>>>> 36bc2233a0358b090e9d33cf214d05ae557f0948
 \end{array}
  $$
 in other words
@@ -853,9 +876,11 @@ $$
    }}\tilde{x} \right)\right)
 \end{array}
 $$
-where again $a_{2}$, $a_{3}$, $a_{c}$ and $a_{s}$ are some constants defined by boundary condition if necessary\footnote{They are independ of the constant presented in the previous sub-section but we have used the same dimension in order to avoid additional notations.}. Finally:
+where again $a_{2}$, $a_{3}$, $a_{c}$ and $a_{s}$ are some constants defined by boundary condition if necessary. Finally:
 $$
 \begin{array}{rcl}
+a_{11}(\tilde{x}) &=&a_{2}+a_{3} \tilde{x},
+\\
 a_{22}(\tilde{x}) &=&a_{2}+a_{3} \tilde{x}+a_{c2} \cosh (\frac{\sqrt{2}  \chi _h}{\chi
    _{\infty }}\tilde{x})+a_{s2} \sinh (\frac{\sqrt{2} \chi _h}{\chi _{\infty
    }}\tilde{x} ),
@@ -865,123 +890,115 @@ a_{33}(\tilde{x}) &=&a_{2}+a_{3} \tilde{x}-a_{c2} \cosh (\frac{\sqrt{2}\chi _h}{
    }}\tilde{x} )
 \end{array} 
 $$
-%<<<<<<< HEAD
-%According to (\ref{ABrelationAdim}), $\tilde{b}_{23}= \pd_{\tilde{x}}\tilde{a}_{22}$:
-%$$
-%\begin{array}{rcl}
-% \chi_p\pd_{\tilde{x}}\tilde{a}_{22}+\tilde{d}_{21}+\pd_{x}\tilde{v}_2&=&0 \\
-%\chi _{\infty }^2\pd_{\tilde{x}}^2\tilde{a}_{22}+\chi _p \pd_{x}\tilde{d}_{21} &=&0\\[8pt]
-%=======
-Now we observe that transverse velocity fields are completely defined:
-$$
-\begin{array}{rcl}
-\tilde{v}_{2}(\tilde{x}) &=&v_{20}-\chi _p \left(a_{3} \tilde{x}+a_{c2} \cosh (\frac{\sqrt{2} 
-   \chi _h}{\chi _{\infty }}\tilde{x})+a_{s2} \sinh (\frac{\sqrt{2} \chi _h}{\chi
-   _{\infty }}\tilde{x}) \right)
- \\
-\tilde{v}_{3}(\tilde{x}) &=&v_{30}-\chi _p \left(a_{3} \tilde{x}-a_{c2} \cosh
-   (\frac{\sqrt{2}  \chi _h}{\chi _{\infty }}\tilde{x})-a_{s2} \sinh
-   (\frac{\sqrt{2}  \chi _h}{\chi _{\infty }}\tilde{x})\right)
-\end{array} 
-$$
-where $v_{20}$ and $v_{30}$ are integration constants.
 
 %-------------------------------------
-\subsection{Analysis of the distorsion}
+\subsection{Second sub system}
 %-------------------------------------
-Let introduce
+Considering now the second sub-system composed of (\ref{SysStat10}--\ref{SysStat30}), it is clear that $a_{32}$ and $a_{23}$ are constant in time, and they have to solve:
 $$
 \begin{array}{rcl}
-f_{1}(\tilde{x})	&=&	a_{c1}\cosh{(\frac{\chi_{h}}{\chi_{\infty}}\tilde{x}})+a_{s1}\sinh{(\frac{\chi_{h}}{\chi_{\infty}}\tilde{x}})\\
-f_{2}(\tilde{x})	&=&	a_{c2} \cosh (\frac{\sqrt{2} 
-   \chi _h}{\chi _{\infty }}\tilde{x})+a_{s2} \sinh (\frac{\sqrt{2} \chi _h}{\chi
-   _{\infty }}\tilde{x}) 
-%>>>>>>> 36bc2233a0358b090e9d33cf214d05ae557f0948
+\partial_{x}^2\tilde{a}_{23}&=&(\frac{\chi _{h}}{\chi_{\infty}})^2\left(\tilde{a}_{23}+\tilde{a}_{32}\right),\\   
+\partial_{x}^2\tilde{a}_{32}&=&(\frac{\chi _{h}}{\chi_{\infty}})^2\left(\tilde{a}_{23}+\tilde{a}_{32}\right).
 \end{array}
 $$
-the symmetric and skew-symmetric part of the distortion are
-$$
-%<<<<<<< HEAD
-%\tilde{d}_{21}=-\frac{\chi _{\infty }^2}{\chi _p}\pd_{\tilde{x}}\tilde{a}_{22},
-%\quad\quad\quad
-%\tilde{v}_2 =\frac{\chi _{\infty}^2-\chi _p^2}{\chi _p}\tilde{a}_{22}
-%$$
-%For the problem in the $(\boldsymbol{e_{1}},\boldsymbol{e_{3}})$-plane, we have according to 
-%(\ref{ABrelationAdim}) $\tilde{b}_{32}=- \pd_{\tilde{x}}\tilde{a}_{33}$. After computation we 
-%obtain:
-%$$
-%\tilde{d}_{31}=-\frac{\chi _{\infty }^2}{\chi _p}\pd_{\tilde{x}}\tilde{a}_{33},
-%\quad\quad\quad
-%\tilde{v}_3 =\frac{\chi _{\infty}^2-\chi _p^2}{\chi _p}\tilde{a}_{33}
-%=======
-a^{S}=\begin{pmatrix}
-\frac{a_{0}+a_{2}+(a_{1}+a_{3})\tilde{x}}{2}&0&0\\
-0	&a_{2}+a_{3}\tilde{x}+f_{2}(\tilde{x})&f_{1}(\tilde{x})\\
-0	&f_{1}(\tilde{x})		&	a_{0}+a_{1}\tilde{x}-f_{2}(\tilde{x})&\end{pmatrix}
-$$
-$$
-a^{A}=\begin{pmatrix}
-0&a_{12}&a_{13}\\
--a_{12}&0	&a_{0}+a_{1}\tilde{x}\\
--a_{13}&-a_{0}-a_{1}\tilde{x}	&0\end{pmatrix}
-%>>>>>>> 36bc2233a0358b090e9d33cf214d05ae557f0948
-$$
-%-------------------------------------
-\subsection{Displacement}
-%-------------------------------------
-We have
-$$
-%<<<<<<< HEAD
-%\pd_{\tilde{x}}\tilde{d}_{21}=-\pd_{\tilde{x}}\tilde{d}_{31}=\frac{1}{\chi_{p}}\left( 
-%2\chi_{h}^2a_{22}-\chi_{\infty}^2\pd_{\tilde{x}}^2a_{22}\right)
-%$$ 
-%\end{itemize}
-%
-%=======
-a_{ij}=\frac{\partial u_{i}}{\partial x_{j}}
-\quad\quad
-v_{i}=\frac{\partial u_{i}}{\partial t}
-$$
-Let simplify notation as 
-$$
+Then combining these equations:
+\begin{equation}
 \begin{array}{rcl}
-\tilde{v}_{2}(\tilde{x}) &=&v_{20}-\chi _p f_{2}(\tilde{x})
- \\
-\tilde{a}_{22}(\tilde{x}) &=&a_{0}+ f_{2}(\tilde{x})
+\partial_{\tilde{x}}^2(\tilde{a}_{23}-\tilde{a}_{32})&=&0\\
+\partial_{\tilde{x}}^2(\tilde{a}_{23}+\tilde{a}_{32})&=&2(\frac{\chi_{h}}{\chi_{\infty}})^2\left(a_{23}+a_{32}\right)
+\end{array}
+\end{equation}
+then: 
+\begin{equation}
+\begin{array}{rcl}
+\tilde{a}_{23}-\tilde{a}_{32}&=&2a_{0}+2a_{1}\tilde{x}
 \\
-\tilde{v}_{3}(\tilde{x}) &=&v_{30}-\chi _p f_{3}(\tilde{x})
- \\
-\tilde{a}_{33}(\tilde{x}) &=&a_{0}+ f_{3}(\tilde{x})
-\end{array} 
-\quad \textrm{with}
-\quad\quad
+\tilde{a}_{23}+\tilde{a}_{32}&=&2a_{s1}\sinh{(\frac{\sqrt{2}\chi_{h}}{\chi_{\infty}}\tilde{x}})+2a_{c1}\cosh{(\frac{\sqrt{2}\chi_{h}}{\chi_{\infty}}\tilde{x}}),
+\end{array}
+\end{equation}
+Finally
+\begin{equation}
 \begin{array}{rcl}
-f_{2}(\tilde{x})&=&a_{1} \tilde{x}-a_{c} \cosh
-   (\frac{\sqrt{2}  \chi _h}{\chi _{\infty }}\tilde{x})-a_{s} \sinh
-   (\frac{\sqrt{2}  \chi _h}{\chi _{\infty }}\tilde{x})
-   \\
-f_{3}(\tilde{x})&=&a_{1} \tilde{x}+a_{c} \cosh
-   (\frac{\sqrt{2}  \chi _h}{\chi _{\infty }}\tilde{x})+a_{s} \sinh
-   (\frac{\sqrt{2}  \chi _h}{\chi _{\infty }}\tilde{x})
-   \end{array} 
-$$
-We have after time integration of $\tilde{v}_{2}(\tilde{x}) $ and $\tilde{v}_{3}(\tilde{x})$ :
-$$
-\begin{array}{rcl}
-u_{2}(\tilde{x},\tilde{t})=\left(v_{20}-\chi _p f_{2}(\tilde{x})\right)\tilde{t} +g_{2}(\tilde{x},x_{2},x_{3})
+\tilde{a}_{23}(\tilde{x})&=&+(a_{0}+a_{1}\tilde{x})+a_{s1}\sinh{(\frac{\sqrt{2}\chi_{h}}{\chi_{\infty}}\tilde{x}})+a_{c1}\cosh{(\frac{\sqrt{2}\chi_{h}}{\chi_{\infty}}\tilde{x}})
 \\
-u_{3}(\tilde{x},\tilde{t})=\left(v_{30}-\chi _p f_{3}(\tilde{x})\right)\tilde{t} +g_{3}(\tilde{x},x_{2},x_{3})
-   \end{array} 
+\tilde{a}_{32}(\tilde{x})&=&-(a_{0}+a_{1}\tilde{x})+a_{s1}\sinh{(\frac{\sqrt{2}\chi_{h}}{\chi_{\infty}}\tilde{x}})+a_{c1}\cosh{(\frac{\sqrt{2}\chi_{h}}{\chi_{\infty}}\tilde{x}})
+\end{array}
+\end{equation}
+Here $a_{0}$, $a_{1}$, $a_{c1}$ and $a_{s1}$ are defined by boundary conditions. The coefficient 2 has been introduced for convenience.  If $a_{c1}=0$ and $a_{s1}=0$, we have $\tilde{a}_{23}=-\tilde{a}_{32}$. 
+
+%-------------------------------------
+\subsection{Third and fourth sub system}
+%-------------------------------------
+Let now consider (\ref{SysStat3}-\ref{SysStat26}), that may be simplify as:
+\begin{equation}
+\begin{array}{rcl}
+\tilde{a}_{12}+\tilde{a}_{21}&=&0,\\   
+\partial_{t}{\tilde{a}_{21}}+\chi _p\partial_{x}\tilde{a}_{22} +\partial_{x}{\tilde{v}_2}&=&0,\\   
+(\partial_{t}-\chi_p\partial_{x})\tilde{a}_{12} &=&0,\\   
+\partial_{x}^2\tilde{a}_{12}&=&0,\\   
+\end{array}
+\end{equation}
+According to the two last equations, $\tilde{a}_{12}$ is of the form
 $$
-But due to definition of $\tilde{a}_{22}(\tilde{x})$ and $\tilde{a}_{33}(\tilde{x})$:
+\tilde{a}_{12}(\tilde{x},\tilde{t})=a_{4}(\chi_{p}\tilde{t}+\tilde{x})
 $$
-\frac{\partial g_{2}}{\partial x_{2}}(\tilde{x},x_{2},x_{3}) = a_{0}+f_{2}(\tilde{x})
+where $a_{4}$ would be defined by boundary conditions. Of course $\tilde{a}_{21}(\tilde{x},\tilde{t})=-\tilde{a}_{12}(\tilde{x},\tilde{t})$ and then the transverse velocity is related to distortion by
 $$
-then 
+\partial_{x}{\tilde{v}_2}=\partial_{t}{\tilde{a}_{12}}-\chi _p\partial_{x}\tilde{a}_{22}    
 $$
- g_{2}(\tilde{x},x_{2},x_{3}) = \left(a_{0}+f_{2}(\tilde{x})\right) x_{2} + h_{2}(x_{3})
 $$
-\textcolor{red}{TO BE CONTINUED}
+\partial_{x}{\tilde{v}_2}=\chi_{p}\left(a_{4}-a_{3}-\frac{\sqrt{2}  \chi _h}{\chi
+   _{\infty }}\left(a_{c2} \sinh (\frac{\sqrt{2}  \chi _h}{\chi
+   _{\infty }}\tilde{x})+ a_{s2} \cosh (\frac{\sqrt{2} \chi _h}{\chi _{\infty
+   }}\tilde{x} )\right)\right)
+$$
+$$
+\tilde{v}_{2}(\tilde{x})=v_{20}+\chi_{p}\left((a_{4}-a_{3})\tilde{x}-a_{c2} \cosh (\frac{\sqrt{2}  \chi _h}{\chi
+   _{\infty }}\tilde{x})- a_{s2} \sinh (\frac{\sqrt{2} \chi _h}{\chi _{\infty
+   }}\tilde{x} )\right)
+$$
+Where $v_{20}$ is an arbitrary constant that has to be defined by boundary conditions.\\
+Following the same method, the fourth sub-system (\ref{SysStat4}-\ref{SysStat29}) leads to the following relation
+$$
+\tilde{a}_{13}(\tilde{x},\tilde{t})=a_{5}(\chi_{p}\tilde{t}+\tilde{x})=-\tilde{a}_{31}(\tilde{x},\tilde{t})
+$$
+and
+$$
+\tilde{v}_{3}(\tilde{x})=v_{30}+\chi_{p}\left((a_{5}-a_{3})\tilde{x}+a_{c2} \cosh (\frac{\sqrt{2}  \chi _h}{\chi
+   _{\infty }}\tilde{x})+ a_{s2} \sinh (\frac{\sqrt{2} \chi _h}{\chi _{\infty
+   }}\tilde{x} )\right)
+$$
+Where $a_{5}$ and $v_{30}$ has to be defined by boundary conditions. 
+%-------------------------------------
+\subsection{Summary}
+%-------------------------------------
+We have then
+$$
+\begin{array}{rcl}
+\tilde{a}_{12}(\tilde{x},\tilde{t})&=&a_{4}(\chi_{p}\tilde{t}+\tilde{x})=-\tilde{a}_{21}(\tilde{x},\tilde{t}) 	\\
+\tilde{a}_{13}(\tilde{x},\tilde{t})&=&a_{5}(\chi_{p}\tilde{t}+\tilde{x})=-\tilde{a}_{31}(\tilde{x},\tilde{t})		\\
+\tilde{a}_{23}(\tilde{x})&=&+(a_{0}+a_{1}\tilde{x})+a_{s1}\sinh{(\frac{\sqrt{2}\chi_{h}}{\chi_{\infty}}\tilde{x}})+a_{c1}\cosh{(\frac{\sqrt{2}\chi_{h}}{\chi_{\infty}}\tilde{x}})
+\\
+\tilde{a}_{32}(\tilde{x})&=&-(a_{0}+a_{1}\tilde{x})+a_{s1}\sinh{(\frac{\sqrt{2}\chi_{h}}{\chi_{\infty}}\tilde{x}})+a_{c1}\cosh{(\frac{\sqrt{2}\chi_{h}}{\chi_{\infty}}\tilde{x}}) \\
+a_{11}(\tilde{x}) &=&a_{2}+a_{3} \tilde{x},
+\\
+a_{22}(\tilde{x}) &=&a_{2}+a_{3} \tilde{x}+a_{c2} \cosh (\frac{\sqrt{2}  \chi _h}{\chi
+   _{\infty }}\tilde{x})+a_{s2} \sinh (\frac{\sqrt{2} \chi _h}{\chi _{\infty
+   }}\tilde{x} ),
+\\
+a_{33}(\tilde{x}) &=&a_{2}+a_{3} \tilde{x}-a_{c2} \cosh (\frac{\sqrt{2}\chi _h}{\chi
+   _{\infty }} \tilde{x} )-a_{s2} \sinh (\frac{\sqrt{2} \chi _h}{\chi _{\infty
+   }}\tilde{x} )
+\end{array}
+$$
+Even if we can consider localy the small displacement as:
+$$
+du_{i}=a_{ij}dx_{j}
+$$
+this equation can't be used in order to recover the global displacement field, as this differential form is not closed. This is simply related to the incompatibility conditions.
+However it is possible to know the perturbation around a given material point by using $du_{i}=a_{ij}dx_{j}$. \\
+TO BE CONTINUED : FIGURE AND COMMENTS
+
 %>>>>>>> 36bc2233a0358b090e9d33cf214d05ae557f0948
 %-------------------------------------
 \subsection{Elastic problem}
